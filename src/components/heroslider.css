@@ -1,0 +1,378 @@
+
+.hero-slider {
+  width: 100%;
+  height: 500px;
+  overflow: visible;
+  position: relative;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.slider {
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  position: relative;
+  transform-style: preserve-3d;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 60px rgba(255, 107, 107, 0.4),
+    0 0 40px rgba(0, 191, 255, 0.2),
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+
+.swiper-slide {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.hero-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.9) contrast(1.1);
+}
+
+
+.swiper-slide-active .hero-slider img {
+  filter: brightness(1) contrast(1.1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.swiper-slide-prev .hero-slider img,
+.swiper-slide-next .hero-slider img {
+  opacity: 0.2;
+  transform: scale(1.05);
+  filter: brightness(0.4) contrast(0.8) blur(3px);
+}
+
+
+.swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Side Fade Effect - Left & Right */
+.swiper-slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 107, 107, 0.8);
+  border: 2px solid #ff6b6b;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(0, 191, 255, 0.9);
+  border-color: #00bfff;
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 
+    0 8px 25px rgba(0, 191, 255, 0.6),
+    0 0 30px rgba(0, 191, 255, 0.4);
+}
+
+/* Navigation Button Icons */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Previous Button */
+.swiper-button-prev {
+  left: -80px;
+}
+
+/* Next Button */
+.swiper-button-next {
+  right: -80px;
+}
+
+/* ========================================
+   Pagination Dots Styling
+   ======================================== */
+
+/* Pagination Container */
+.swiper-pagination {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+/* Individual Pagination Bullets */
+.swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 107, 107, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.6;
+}
+
+.swiper-pagination-bullet:hover {
+  background: rgba(255, 107, 107, 0.7);
+  border-color: #ff6b6b;
+  transform: scale(1.3);
+}
+
+/* Active Pagination Bullet */
+.swiper-pagination-bullet-active {
+  background: #ff6b6b;
+  border-color: #00bfff;
+  width: 16px;
+  height: 16px;
+  box-shadow: 
+    0 0 20px rgba(255, 107, 107, 0.8),
+    inset 0 0 8px rgba(0, 191, 255, 0.6);
+}
+
+/* ========================================
+   Slide Transition Animation
+   ======================================== */
+
+@keyframes slideInFade {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.swiper-slide {
+  animation: slideInFade 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ========================================
+   Responsive Design - Tablets
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Reduce Hero Slider Height on Tablets */
+  .hero-slider {
+    height: 400px;
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .slider {
+    height: 400px;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .hero-slider img {
+    border-radius: 16px;
+  }
+
+  /* Smaller Navigation Buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 50px;
+    height: 50px;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 20px;
+  }
+
+  .swiper-button-prev {
+    left: -70px;
+  }
+
+  .swiper-button-next {
+    right: -70px;
+  }
+
+  /* Adjust Pagination Bottom */
+  .swiper-pagination {
+    bottom: -50px;
+    gap: 10px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ========================================
+   Responsive Design - Mobile Phones
+   ======================================== */
+
+@media (max-width: 480px) {
+  /* Further Reduce Height on Mobile */
+  .hero-slider {
+    height: 300px;
+    margin: 2rem auto;
+    padding: 0 0.5rem;
+    perspective: 800px;
+  }
+
+  .slider {
+    height: 300px;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .hero-slider img {
+    border-radius: 12px;
+  }
+
+  /* Mobile Navigation Buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    opacity: 0.8;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 18px;
+  }
+
+  .swiper-button-prev {
+    left: -60px;
+  }
+
+  .swiper-button-next {
+    right: -60px;
+  }
+
+  /* Smaller Pagination Dots */
+  .swiper-pagination {
+    bottom: -40px;
+    gap: 8px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* ========================================
+   Animation Effects - Entrance & Hover
+   ======================================== */
+
+/* Fade In Animation for Hero Slider */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-slider {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Glow Effect on Hover */
+@keyframes glowEffect {
+  0%, 100% {
+    box-shadow: 
+      0 20px 60px rgba(255, 107, 107, 0.4),
+      0 0 40px rgba(0, 191, 255, 0.2),
+      inset 0 0 30px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: 
+      0 30px 80px rgba(255, 107, 107, 0.6),
+      0 0 60px rgba(0, 191, 255, 0.4),
+      inset 0 0 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.slider:hover {
+  animation: glowEffect 3s ease-in-out infinite;
+}
+
+/* Smooth Transition for Image Changes */
+.swiper-slide-transition {
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
