@@ -1,22 +1,49 @@
 .categories-container {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 3rem 2rem 2rem;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(255, 107, 107, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 107, 107, 0.2);
 }
 
 .category-btn {
-  padding: 0.5rem 1rem;
-  border: none;
-  background: #ff6b6b;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff4444 100%);
   color: white;
-  border-radius: 8px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
 }
 
 .category-btn:hover {
-  transform: translateY(-2px);
-  background: #ff8787;
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+  border-color: #ff0000;
+}
+
+.category-btn:hover::before {
+  left: 100%;
 }

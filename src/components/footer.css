@@ -1,17 +1,17 @@
 /* Footer Styles */
 
 .footer {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-  padding: 2rem;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0f0f0f 100%);
+  padding: 2.5rem 2rem;
   text-align: center;
-  border-top: 2px solid #ff6b6b;
-  box-shadow: 0 -4px 15px rgba(255, 107, 107, 0.2);
-  color: #b0b0b0;
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, #ff6b6b 0%, #ff0000 50%, #cc0000 100%) 1;
+  box-shadow: 0 -8px 25px rgba(255, 107, 107, 0.2), 0 0 20px rgba(255, 0, 0, 0.05);
+  color: #c0c0c0;
   font-size: 0.95rem;
   margin-top: 3rem;
   width: 100%;
   box-sizing: border-box;
-  
 }
 
 .footer p {
@@ -20,26 +20,27 @@
 }
 
 .social-media {
-  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  background: linear-gradient(135deg, #1a0a0a 0%, #0f0f0f 100%);
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  padding: 1.5rem 2rem;
+  gap: 2.5rem;
+  padding: 2rem 2rem;
   flex-wrap: wrap;
   width: 100%;
   box-sizing: border-box;
 }
 
 .social-icon {
-  color: #b0b0b0;
+  color: #d0d0d0;
   text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
   transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid rgba(255, 107, 107, 0.3);
+  border-radius: 25px;
   position: relative;
+  overflow: hidden;
 }
 
 .social-icon::before {
@@ -49,17 +50,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(0, 191, 255, 0.2));
-  border-radius: 4px;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 0, 0, 0.2));
+  border-radius: 25px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: -1;
+  z-index: 1;
 }
 
 .social-icon:hover {
   color: #ff6b6b;
   border-color: #ff6b6b;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
 }
 
 .social-icon:hover::before {

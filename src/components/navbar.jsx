@@ -9,6 +9,7 @@ export default function Navbar() {
             <li>Games</li>
             <li>About</li>
             <li>Categories</li>
+            <li>Search</li>
         </ul>
     </nav>
   );

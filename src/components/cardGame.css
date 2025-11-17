@@ -1,55 +1,97 @@
 .featured-games-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.8rem;
   justify-content: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .card-game {
-  background: #1a1a1a;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #1a0a0a 0%, #2a1a1a 100%);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 107, 107, 0.1);
   overflow: hidden;
   text-align: center;
-  padding: 0.8rem;
-  width: 180px;
-  height: 220px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  position: relative;
+}
+
+.card-game::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 .card-game:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(255, 107, 107, 0.7);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5), 0 0 30px rgba(255, 107, 107, 0.3);
+  border-color: #ff6b6b;
+}
+
+.card-game:hover::before {
+  opacity: 1;
 }
 
 .game-image {
   width: 100%;
-  height: 120px;
+  height: 140px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.card-game:hover .game-image {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 .game-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ff6b6b;
-  margin-bottom: 0.3rem;
-  text-shadow: 0 0 5px rgba(255, 107, 107, 0.4);
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
+  position: relative;
+  z-index: 2;
 }
 
 .game-price {
-  font-size: 0.9rem;
-  color: #fff;
-  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+  color: #ff6b6b;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
 }
 
 .game-rating {
-  font-size: 0.8rem;
-  color: #b0b0b0;
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  position: relative;
+  z-index: 2;
 }

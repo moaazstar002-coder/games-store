@@ -1,12 +1,13 @@
 import HeroSlider from "../components/HeroSlider";
 import Categories from "../components/Categories";
 import FeaturedGames from "../components/featuredGAmes";
-import games from "../data/games"; 
+import { useGames } from "../hooks/games";
 
 export default function Home() {
+ const games = useGames();
   return (
     <div>
-      <h1>Welcome to the Game Store</h1>
+    
       <HeroSlider />
       <Categories />
       <FeaturedGames games={games} /> 

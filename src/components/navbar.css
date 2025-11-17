@@ -1,26 +1,35 @@
-
 .navbar {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0f0f0f 100%);
   padding: 1.2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #ff6b6b;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
- position: fixed; 
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #ff6b6b 0%, #ff0000 50%, #cc0000 100%) 1;
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.25), 0 0 20px rgba(255, 0, 0, 0.1);
+  position: fixed;
   top: 0;
   z-index: 100;
   width: 100%;
   box-sizing: border-box;
+  
 }
 
 .navbar .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #ffffff;
-  letter-spacing: 2px;
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 3px;
   margin: 0;
-  text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+  text-shadow: 0 0 30px rgba(255, 107, 107, 0.6);
+  transition: all 0.3s ease;
+}
+
+.navbar .logo:hover {
+  letter-spacing: 4px;
 }
 
 .navbar ul {
@@ -32,9 +41,9 @@
 }
 
 .navbar li {
-  color: #b0b0b0;
-  font-size: 1rem;
-  font-weight: 500;
+  color: #d0d0d0;
+  font-size: 1.05rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -42,17 +51,18 @@
 
 .navbar li:hover {
   color: #ff6b6b;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
 }
 
 .navbar li::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -8px;
   left: 0;
   width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #ff6b6b, #00bfff);
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b 0%, #ff0000 50%, #cc0000 100%);
   transition: width 0.3s ease;
 }
 
