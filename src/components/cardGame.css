@@ -9,10 +9,10 @@
 }
 
 .card-game {
-  background: linear-gradient(135deg, #1a0a0a 0%, #2a1a1a 100%);
+  background: var(--card-bg);
   border-radius: 15px;
-  border: 1px solid rgba(255, 107, 107, 0.2);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(41,224,212,0.06);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), var(--neon);
   overflow: hidden;
   text-align: center;
   padding: 1rem;
@@ -35,7 +35,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(135deg, rgba(41,224,212,0.06) 0%, rgba(0, 0, 0, 0) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
@@ -43,8 +43,8 @@
 
 .card-game:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5), 0 0 30px rgba(255, 107, 107, 0.3);
-  border-color: #ff6b6b;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 30px rgba(41,224,212,0.12);
+  border-color: var(--accent);
 }
 
 .card-game:hover::before {
@@ -70,19 +70,19 @@
 .game-title {
   font-size: 1.05rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff0000 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
+  text-shadow: 0 0 8px rgba(41,224,212,0.08);
   position: relative;
   z-index: 2;
 }
 
 .game-price {
   font-size: 0.95rem;
-  color: #ff6b6b;
+  color: var(--accent);
   margin-bottom: 0.3rem;
   font-weight: 600;
   position: relative;
@@ -91,7 +91,7 @@
 
 .game-rating {
   font-size: 0.85rem;
-  color: #a0a0a0;
+  color: var(--muted);
   position: relative;
   z-index: 2;
 }

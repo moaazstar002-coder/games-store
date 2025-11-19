@@ -1,6 +1,7 @@
 import React from "react";
 import CardGame from "./cardGame";
 import { useGames } from "../hooks/games";
+
 export default function FeaturedGames() {
   const { games, loading } = useGames();
 

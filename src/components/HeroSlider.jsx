@@ -1,3 +1,4 @@
+import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -17,10 +18,9 @@ export default function HeroSlider() {
         loop={true}
         className="slider"
       >
-       <SwiperSlide>
-  <img src="/images/assassins-creed-shadows.jpeg" alt="assassins-creed-shadows" />
-</SwiperSlide>
-
+        <SwiperSlide>
+          <img src="/images/assassins-creed-shadows.jpeg" alt="assassins-creed-shadows" />
+        </SwiperSlide>
 
         <SwiperSlide>
           <img src="/images/God Of War.jpeg" alt="God Of War" />

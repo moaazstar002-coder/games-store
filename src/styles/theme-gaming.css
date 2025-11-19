@@ -1,0 +1,106 @@
+/* Gaming, eye-friendly dark theme with cool-cyan accents and soft glow */
+:root {
+  /* Backgrounds */
+  --bg-1: #071021; /* deep navy */
+  --bg-2: #0b1220; /* darker */
+  --bg-gradient: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 60%);
+  --bg-gradient-soft: linear-gradient(180deg, rgba(10,18,30,0.8), rgba(6,8,12,0.8));
+
+  /* Text */
+  --text-color: #e6f7ff;
+  --muted: #9fb5c8;
+
+  /* Accents */
+  --accent: #29e0d4; /* cyan */
+  --accent-2: #8a6cff; /* purple */
+
+  /* Buttons */
+  --btn-bg: rgba(41,224,212,0.12);
+  --btn-bg-2: rgba(138,108,255,0.12);
+  --btn-text: #ffffff;
+
+  /* Cards and surfaces */
+  --card-bg: rgba(255,255,255,0.03);
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.06);
+
+  /* Glow / shadows */
+  --glow: 0 10px 40px rgba(41,224,212,0.06), 0 3px 10px rgba(0,0,0,0.6);
+  --neon: 0 6px 26px rgba(41,224,212,0.12);
+}
+
+/* Small helpers for neon accents */
+.neon {
+  color: var(--accent);
+  text-shadow: 0 6px 24px rgba(41,224,212,0.06);
+}
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(6px) saturate(120%);
+}
+
+.accent-outline {
+  box-shadow: 0 0 0 1px rgba(41,224,212,0.06) inset, var(--neon);
+}
+
+/* Make sure form elements look cohesive */
+input, textarea, select {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--text-color);
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+}
+
+/* Light variant for environments that prefer light scheme */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-gradient: linear-gradient(180deg,#f7f9fc,#eef4ff);
+    --text-color: #0b2230;
+    --card-bg: #ffffff;
+    --glass-bg: rgba(10,18,30,0.02);
+  }
+}
+/* Gaming-friendly theme variables */
+:root {
+  --bg-900: #050507;
+  --bg-800: #0b0d0f;
+  --bg-700: #0f1214;
+  --surface: rgba(255,255,255,0.03);
+  --card-surface: rgba(255,255,255,0.02);
+  --text: #e6eef6;
+  --muted: #98a0ad;
+  --accent: #00e6d8; /* neon cyan */
+  --accent-2: #ff9f43; /* warm orange */
+  --accent-glow: 0 8px 30px rgba(0, 230, 216, 0.16);
+  --accent-2-glow: 0 8px 30px rgba(255, 159, 67, 0.12);
+  --glass: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.06);
+  --shadow-1: 0 8px 28px rgba(2,6,23,0.6);
+  --glass-blur: blur(8px);
+}
+
+/* page background */
+body {
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,230,216,0.03), transparent 10%),
+              radial-gradient(900px 400px at 90% 90%, rgba(255,159,67,0.02), transparent 10%),
+              linear-gradient(180deg, var(--bg-900) 0%, var(--bg-800) 40%, var(--bg-700) 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* small helpers */
+.surface {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
+}
+
+.accent-glow {
+  box-shadow: var(--accent-glow);
+}
+
+.muted { color: var(--muted); }

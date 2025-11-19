@@ -1,5 +1,6 @@
-import React from 'react'
-import './cardGame.css'
+import React from 'react';
+import './cardGame.css';
+
 export default function CardGame({ game }) {
   return (
     <div className="card-game">
@@ -8,5 +9,5 @@ export default function CardGame({ game }) {
       <p className="game-price">{game.price}</p>
       <p className="game-rating">Rating: {game.rating} / 5</p>
     </div>
-  )
+  );
 }

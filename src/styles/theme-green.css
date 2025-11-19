@@ -1,0 +1,283 @@
+/* Theme: Green Neon - Modern Tech/Gaming */
+
+:root {
+  --primary-green: #00ff88;
+  --secondary-green: #00cc6a;
+  --dark-bg: #0a1a0a;
+  --accent-lime: #ccff00;
+  --text-light: #e0ffe0;
+}
+
+body {
+  background: linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 50%, #0f2a0f 100%);
+}
+
+/* Navbar - Green Neon */
+.navbar {
+  background: linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 50%, #0f2a0f 100%);
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #00ff88 0%, #ccff00 50%, #00cc6a 100%) 1;
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.25), 0 0 20px rgba(204, 255, 0, 0.1);
+}
+
+.navbar .logo {
+  background: linear-gradient(135deg, #00ff88 0%, #ccff00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+}
+
+.navbar li::after {
+  background: linear-gradient(90deg, #00ff88 0%, #ccff00 100%);
+}
+
+/* Buttons - Green Neon */
+button {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #00ffaa 0%, #00aa55 100%);
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5);
+  border-color: #00ff88;
+}
+
+/* Categories */
+.categories-container {
+  background: linear-gradient(180deg, rgba(0, 255, 136, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.category-btn {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
+
+.category-btn:hover {
+  background: linear-gradient(135deg, #00ffaa 0%, #00aa55 100%);
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
+  border-color: #00ff88;
+}
+
+/* Game Cards */
+.card-game {
+  background: linear-gradient(135deg, #0f2a0f 0%, #1a5a1a 100%);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.card-game:hover {
+  border-color: #00ff88;
+  box-shadow: 0 15px 40px rgba(0, 255, 136, 0.5), 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+.game-title {
+  background: linear-gradient(135deg, #00ff88 0%, #ccff00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.game-price {
+  color: #00ff88;
+}
+
+/* Footer */
+.footer {
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, #00ff88 0%, #ccff00 100%) 1;
+  box-shadow: 0 -8px 25px rgba(0, 255, 136, 0.2), 0 0 20px rgba(204, 255, 0, 0.05);
+}
+
+.social-icon {
+  border: 2px solid rgba(0, 255, 136, 0.3);
+}
+
+.social-icon:hover {
+  color: #00ff88;
+  border-color: #00ff88;
+  box-shadow: 0 8px 20px rgba(0, 255, 136, 0.4);
+}
+
+/* Headings */
+h1 {
+  background: linear-gradient(135deg, #00ff88 0%, #ccff00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading States */
+.loading-spinner {
+  border-top: 4px solid #00ff88;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.error-container {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+  border: 2px solid rgba(0, 255, 136, 0.5);
+  color: #00ff88;
+}
+
+.error-button {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+}
+
+/* Modal */
+.modal-content {
+  background: linear-gradient(135deg, #0f2a0f 0%, #1a5a1a 100%);
+  border: 2px solid rgba(0, 255, 136, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3), 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+  background: linear-gradient(135deg, #00ff88 0%, #ccff00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal-btn-primary {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  box-shadow: 0 6px 20px rgba(0, 255, 136, 0.3);
+}
+
+.modal-btn-primary:hover {
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.5);
+}
+
+/* Forms */
+.form-label {
+  color: #00ff88;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: #00ff88;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+/* Search & Filter */
+.search-box {
+  background: linear-gradient(135deg, #0f2a0f 0%, #1a5a1a 100%);
+  border: 2px solid rgba(0, 255, 136, 0.3);
+}
+
+.search-box:focus-within {
+  border-color: #00ff88;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.search-icon {
+  color: #00ff88;
+}
+
+.filter-select {
+  background: linear-gradient(135deg, #0f2a0f 0%, #1a5a1a 100%);
+  border: 2px solid rgba(0, 255, 136, 0.3);
+}
+
+.filter-select:hover,
+.filter-select:focus {
+  border-color: #00ff88;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+.sort-btn.active {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  border-color: #00ff88;
+}
+
+.price-slider {
+  background: linear-gradient(90deg, #00ff88 0%, #ccff00 100%);
+}
+
+.price-slider::-webkit-slider-thumb {
+  background: linear-gradient(135deg, #00ff88 0%, #ccff00 100%);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* Toast */
+.toast {
+  background: linear-gradient(135deg, #0f2a0f 0%, #1a5a1a 100%);
+  border: 2px solid rgba(0, 255, 136, 0.5);
+}
+
+/* Game Details */
+.game-hero {
+  background: linear-gradient(135deg, #0f2a0f 0%, #1a5a1a 100%);
+  border: 2px solid rgba(0, 255, 136, 0.3);
+  box-shadow: 0 15px 50px rgba(0, 255, 136, 0.2), 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.game-cover {
+  border: 3px solid rgba(0, 255, 136, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+}
+
+.game-title {
+  color: #00ff88;
+}
+
+.meta-value {
+  color: #00ff88;
+}
+
+.section-title {
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #00ff88 0%, #ccff00 100%) 1;
+}
+
+.spec-card {
+  background: linear-gradient(135deg, #0f2a0f 0%, #1a5a1a 100%);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.spec-card:hover {
+  border-color: #00ff88;
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+}
+
+.spec-value {
+  color: #00ff88;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #00ffaa 0%, #00aa55 100%);
+  box-shadow: 0 15px 40px rgba(0, 255, 136, 0.6);
+}
+
+.btn-secondary {
+  border: 2px solid #00ff88;
+  color: #00ff88;
+}
+
+.btn-secondary:hover {
+  border-color: #ccff00;
+  color: #ccff00;
+}
+
+/* A tag colors */
+a {
+  color: #00ff88;
+}
+
+a:hover {
+  color: #ccff00;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+}
