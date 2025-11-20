@@ -9,7 +9,11 @@ export function useGames() {
     async function fetchGames() {
       try {
         const res = await axios.get("https://api.rawg.io/api/games", {
-          params: { key: "2c014c5b22214e628eecac2b366c6441" }
+          params: { 
+            key: "2c014c5b22214e628eecac2b366c6441", 
+            page_size: 40,
+            page: 1
+          }
         });
         setGames(res.data.results); 
       } catch (err) {
