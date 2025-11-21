@@ -17,7 +17,7 @@
 .game-image-container {
   position: relative;
   width: 100%;
-  padding-top: 140%; /* Aspect ratio */
+  padding-top: 140%;
   overflow: hidden;
 }
 
@@ -47,25 +47,6 @@
 .game-card:hover .game-overlay {
   opacity: 1;
   transform: translateY(0);
-}
-
-.icon-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  color: var(--text-main);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition-fast);
-}
-
-.icon-btn:hover {
-  background: var(--secondary);
-  color: white;
-  box-shadow: var(--glow-secondary);
 }
 
 .game-info {
@@ -120,22 +101,4 @@
   font-weight: 700;
   color: var(--primary);
   text-shadow: 0 0 10px rgba(0, 242, 234, 0.3);
-}
-
-.add-to-cart-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: var(--radius-sm);
-  background: var(--gradient-btn);
-  color: white;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: var(--transition-fast);
-}
-
-.add-to-cart-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--glow-primary);
 }

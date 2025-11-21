@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Rajdhani:wght@500;600;700&display=swap');
 @import './styles/theme.css';
+@import './styles/buttons.css';
 
 * {
   box-sizing: border-box;
@@ -36,14 +37,12 @@ button {
   cursor: pointer;
 }
 
-/* Container Utility */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* Selection Color */
 ::selection {
   background: var(--primary);
   color: #000;

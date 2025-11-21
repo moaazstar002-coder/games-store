@@ -1,11 +1,5 @@
 import { useMemo } from 'react';
 
-/**
- *
- * @param {Array<Object>} games 
- * @param {string} search 
- * @returns {Array<Object>}
- */
 const useFilteredGames = (games, search) => {
   const filteredGames = useMemo(() => {
     if (!search || search.trim() === '') {

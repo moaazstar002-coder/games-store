@@ -1,40 +1,33 @@
-/* Premium Gaming Theme - Dark/Neon/Glassmorphism */
 :root {
-  /* Color Palette */
   --bg-dark: #050505;
   --bg-card: #121212;
-  --primary: #00f2ea; /* Neon Cyan */
-  --secondary: #ff0055; /* Neon Pink */
-  --accent: #7000ff; /* Deep Purple */
+  --primary: #00f2ea;
+  --secondary: #ff0055;
+  --accent: #7000ff;
   --text-main: #ffffff;
   --text-muted: #a0a0a0;
   
-  /* Gradients */
   --gradient-main: linear-gradient(135deg, #050505 0%, #1a1a2e 100%);
   --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
   --gradient-btn: linear-gradient(90deg, var(--primary), var(--accent));
   --gradient-btn-hover: linear-gradient(90deg, var(--accent), var(--primary));
   
-  /* Shadows & Glows */
   --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   --glow-primary: 0 0 20px rgba(0, 242, 234, 0.3);
   --glow-secondary: 0 0 20px rgba(255, 0, 85, 0.3);
   --glow-text: 0 0 10px rgba(255, 255, 255, 0.5);
   
-  /* Spacing & Layout */
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --container-width: 1400px;
   --header-height: 80px;
   
-  /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Glassmorphism Utilities */
 .glass-panel {
   background: rgba(20, 20, 25, 0.7);
   backdrop-filter: blur(12px);
@@ -49,9 +42,8 @@
   box-shadow: var(--shadow-card);
 }
 
-/* Typography */
 body {
-  font-family: 'Rajdhani', 'Outfit', sans-serif; /* New Font */
+  font-family: 'Rajdhani', 'Outfit', sans-serif;
   background: var(--bg-dark);
   color: var(--text-main);
   overflow-x: hidden;
@@ -68,7 +60,6 @@ h1 { font-size: 3.5rem; line-height: 1.1; }
 h2 { font-size: 2.5rem; }
 h3 { font-size: 1.75rem; }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }

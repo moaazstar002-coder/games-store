@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useGames } from "../hooks/usegames";
 import useFilteredGames from "../hooks/useFilteredGames";
-import CardGame from "../components/cardGame";
-import SearchBar from "../components/search";
+import CardGame from "../components/CardGame";
+import SearchBar from "../components/SearchBar";
 import Loader from "../components/Loader";
-import './allGames.css';
+import '../styles/pages/AllGames.css';
 
 export default function AllGames() {
   const { games, loading } = useGames();

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaGamepad } from "react-icons/fa";
-import "./navbar.css";
+import "../styles/components/Navbar.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

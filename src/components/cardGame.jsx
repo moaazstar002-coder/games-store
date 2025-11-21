@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaHeart, FaStar } from "react-icons/fa";
-import "./cardGame.css";
+import "../styles/components/CardGame.css";
 
 export default function CardGame({ game }) {
   return (
@@ -9,7 +9,7 @@ export default function CardGame({ game }) {
       <div className="game-image-container">
         <img src={game.image} alt={game.title} className="game-image" />
         <div className="game-overlay">
-          <button className="icon-btn" title="Add to Wishlist" onClick={(e) => e.preventDefault()}>
+          <button className="btn-icon" title="Add to Wishlist" onClick={(e) => e.preventDefault()}>
             <FaHeart />
           </button>
         </div>
@@ -26,7 +26,7 @@ export default function CardGame({ game }) {
         
         <div className="game-footer">
           <span className="game-price">{game.price}</span>
-          <button className="add-to-cart-btn" onClick={(e) => e.preventDefault()}>
+          <button className="btn btn-primary" onClick={(e) => e.preventDefault()}>
             <FaShoppingCart />
             <span>Add</span>
           </button>

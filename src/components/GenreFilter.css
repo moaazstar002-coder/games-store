@@ -1,0 +1,59 @@
+.genre-filter {
+  width: 100%;
+}
+
+.genre-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 8px 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.genre-buttons.loading {
+  opacity: 0.85;
+}
+
+.genre-btn {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color: var(--text, #e6eef6);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.genre-btn:focus {
+  outline: none;
+  box-shadow: 0 6px 18px rgba(0, 229, 255, 0.08), 0 0 8px var(--accent, rgba(0,229,255,0.12));
+}
+
+.genre-btn:hover {
+  transform: translateY(-2px);
+}
+
+.genre-btn.active {
+  background: linear-gradient(90deg, var(--accent, #00e5ff), var(--accent-2, #8a2be2));
+  color: var(--bg, #071018);
+  border-color: transparent;
+  box-shadow: 0 8px 28px rgba(0, 229, 255, 0.12);
+}
+
+.genre-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .genre-btn {
+    padding: 12px 18px;
+    font-size: 1.02rem;
+    border-radius: 999px;
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import categories from "../data/categories";
-import "./Categories.css";
+import "../styles/components/Categories.css";
 
 export default function Categories({ onSelectCategory }) {
   return (

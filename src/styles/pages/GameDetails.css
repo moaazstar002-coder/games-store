@@ -75,60 +75,6 @@
   padding: 0 2rem;
 }
 
-.buy-button, .wishlist-button, .cart-button {
-  padding: 1rem 2rem;
-  border-radius: var(--radius-sm);
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: var(--transition-bounce);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  cursor: pointer;
-}
-
-.buy-button {
-  background: var(--gradient-btn);
-  color: white;
-  flex: 2;
-  box-shadow: var(--glow-primary);
-}
-
-.buy-button:hover {
-  background: var(--gradient-btn-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(0, 242, 234, 0.5);
-}
-
-.wishlist-button {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-main);
-  flex: 1;
-}
-
-.wishlist-button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--secondary);
-  color: var(--secondary);
-  box-shadow: var(--glow-secondary);
-}
-
-.cart-button {
-  background: transparent;
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  flex: 1;
-}
-
-.cart-button:hover {
-  background: rgba(0, 242, 234, 0.1);
-  box-shadow: var(--glow-primary);
-}
-
 @media (max-width: 968px) {
   .details-grid {
     grid-template-columns: 1fr;
@@ -143,7 +89,7 @@
     flex-direction: column;
   }
   
-  .buy-button, .wishlist-button, .cart-button {
+  .buttons .btn {
     width: 100%;
   }
 }

@@ -84,7 +84,6 @@
   cursor: pointer;
 }
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
   .mobile-toggle {
     display: block;

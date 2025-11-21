@@ -1,5 +1,5 @@
 import { useGameDetails } from "../hooks/usegameDetails";
-import './gameDetails.css';
+import '../styles/pages/GameDetails.css';
 
 function stripTags(html) {
   if (!html) return '';
@@ -47,9 +47,9 @@ export default function GameDetails() {
       </div>
 
       <div className="buttons">
-        <button className="buy-button">Buy Now - $59.99</button>
-        <button className="wishlist-button">Add to Wishlist</button>
-        <button className="cart-button">Add to Cart</button>
+        <button className="btn btn-primary" style={{flex: 2}}>Buy Now - $59.99</button>
+        <button className="btn btn-glass" style={{flex: 1}}>Add to Wishlist</button>
+        <button className="btn btn-outline" style={{flex: 1}}>Add to Cart</button>
       </div>
     </div>
   );

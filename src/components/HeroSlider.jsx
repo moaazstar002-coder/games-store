@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./heroslider.css";
+import "../styles/components/HeroSlider.css";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 export default function HeroSlider() {
@@ -19,7 +19,6 @@ export default function HeroSlider() {
       >
         <SwiperSlide>
           <img src="/images/assassins-creed-shadows.jpeg" alt="assassins-creed-shadows" />
-
         </SwiperSlide>
 
         <SwiperSlide>
