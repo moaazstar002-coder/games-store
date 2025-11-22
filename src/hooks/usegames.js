@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export function useGames({ genre, search } = {}) {
+export function useGames({ genre, search, page} = {}) {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +12,7 @@ export function useGames({ genre, search } = {}) {
           params: {
             key: "2c014c5b22214e628eecac2b366c6441",
             page_size: 40,
-            page: 1,
+            page: page || 1,
             genres: genre || undefined,
             search: search || undefined,
           },
@@ -27,7 +27,7 @@ export function useGames({ genre, search } = {}) {
     };
 
     fetchGames();
-  }, [genre, search]);
+  }, [genre, search, page]);
 
   return { games, loading };
 }

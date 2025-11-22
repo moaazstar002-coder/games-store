@@ -29,7 +29,7 @@ export default function Navbar() {
           <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
           <li><Link to="/games" onClick={() => setIsOpen(false)}>Games</Link></li>
           <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
-          <li><Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
+          <li><Link to="/WishList" onClick={() => setIsOpen(false)}>WishList</Link></li>
         </ul>
       </div>
     </nav>

@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 import Home from "./pages/Home";
-import AllGames from "./pages/allGames";
 import GameDetails from "./pages/gameDetails";
+import AllGames from "./pages/AllGames";
+import WishList from "./pages/wishList";
 
 function App() {
   return (
@@ -13,9 +14,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/games" element={<AllGames />} />
         <Route path="/game/:id" element={<GameDetails />} />
-        <Route path="*" element={<div style={{padding: '4rem', textAlign: 'center'}}>404 — Page not found</div>} />
+         <Route path="/games" element={<AllGames />} />
+        <Route path="/WishList" element={<WishList />} />
       </Routes>
       <Footer />
     </BrowserRouter>
