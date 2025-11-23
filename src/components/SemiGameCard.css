@@ -1,0 +1,74 @@
+.semi-game-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.semi-game-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.semi-game-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(5px);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.semi-game-card img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.semi-game-info {
+  flex: 1;
+}
+
+.semi-game-info h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  color: #fff;
+}
+
+.semi-game-price {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-tag {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.remove-btn {
+  background:  #00e5ff;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-weight: 600;
+  border-radius: 8px;
+  
+}
+
+.semi-game-card:hover .remove-btn {
+  opacity: 1;
+}
+.remove-btn:hover {
+  text-decoration: underline;
+}
+

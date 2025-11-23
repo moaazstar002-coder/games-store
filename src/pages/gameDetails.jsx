@@ -1,5 +1,6 @@
 import { useGameDetails } from "../hooks/usegameDetails";
 import '../styles/pages/GameDetails.css';
+import { useNavigate } from 'react-router-dom';
 
 function stripTags(html) {
   if (!html) return '';
@@ -8,6 +9,10 @@ function stripTags(html) {
 
 export default function GameDetails() {
   const { details, loading } = useGameDetails();
+  const navigate = useNavigate();
+ const handleBuyNow = () => {
+    navigate('/cart');
+  };
 
   if (loading) return <div className="loading">Loading game details...</div>;
   if (!details) return <div className="not-found">Game not found.</div>;
@@ -47,8 +52,8 @@ export default function GameDetails() {
       </div>
 
       <div className="buttons">
-        <button className="btn btn-primary" style={{flex: 2}}>Buy Now - $59.99</button>
-        <button className="btn btn-glass" style={{flex: 1}}>Add to Wishlist</button>
+      
+        <button className="btn btn-primary" style={{flex: 1}} onClick={handleBuyNow}>Buy Now - $59.99</button>
         <button className="btn btn-outline" style={{flex: 1}}>Add to Cart</button>
       </div>
     </div>

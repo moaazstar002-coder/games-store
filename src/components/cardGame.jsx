@@ -20,24 +20,7 @@ export default function CardGame({ game }) {
           }}
         />
         <div className="game-overlay">
-            {/* 
-            <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              // toggle wishlist
-              if (!isInWishlist(game.id)) {
-                addToWishlist && addToWishlist(game);
-              } else {
-                removeFromWishlist && removeFromWishlist(game.id);
-              }
-            }}
-            disabled={loading}
-          >
-            <FaHeart />
-            {isInWishlist(game.id) ? "Added" : "Add to Wishlist"}
-          </button> 
-          */}
+          {/* // Wishlist Button */}
           <button
             className={`wishlist-btn ${isInWishlist(game.id) ? "active" : ""}`}
             onClick={(e) => {

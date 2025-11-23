@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes, FaGamepad } from "react-icons/fa";
+import { FaBars, FaTimes, FaGamepad, FaShoppingCart } from "react-icons/fa";
 import "../styles/components/Navbar.css";
 
 export default function Navbar() {
@@ -30,6 +30,7 @@ export default function Navbar() {
           <li><Link to="/games" onClick={() => setIsOpen(false)}>Games</Link></li>
           <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
           <li><Link to="/WishList" onClick={() => setIsOpen(false)}>WishList</Link></li>
+          <li><Link to="/cart" onClick={() => setIsOpen(false)}><FaShoppingCart /> Cart</Link></li>
         </ul>
       </div>
     </nav>
