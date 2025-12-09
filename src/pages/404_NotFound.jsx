@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/pages/notFound.css';
+import '../styles/pages/404_NF.css';
 export default function NotFound() {
   return (
     <div className="Er404">

@@ -7,6 +7,8 @@ import GameDetails from "./pages/gameDetails";
 import AllGames from "./pages/AllGames";
 import WishList from "./pages/wishList";
 import Cart from "./pages/cart";
+import About from "./pages/about";
+import NotFound from "./pages/404_NotFound";
 function App() {
   return (
     
@@ -18,6 +20,9 @@ function App() {
          <Route path="/games" element={<AllGames />} />
         <Route path="/WishList" element={<WishList />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>

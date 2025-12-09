@@ -26,7 +26,6 @@ export default function CardGame({ game }) {
           }}
         />
         <div className="game-overlay">
-          {/* // Wishlist Button */}
           <button
             className={`wishlist-btn ${isInWishlist(game.id) ? "active" : ""}`}
             onClick={(e) => {
