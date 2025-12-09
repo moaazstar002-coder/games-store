@@ -12,13 +12,8 @@ export default function Home() {
   const [genre, setGenre] = useState("");
   const [page, setPage] = useState(1);
 
-  const { genres, loading: genresLoading } = useGenres();
-
-  const { games, loading: gamesLoading } = useGames({
-    search,
-    genre,
-    page,
-  });
+  const { data: genres, isLoading: genresLoading } = useGenres();
+  const { data: games, isLoading: gamesLoading } = useGames({ genre, search, page });
 
   return (
     <div>
@@ -27,7 +22,7 @@ export default function Home() {
       <SearchBar search={search} setSearch={setSearch} />
 
       <GenreFilter 
-        genres={genres}
+        genres={genres || []}
         loading={genresLoading}
         value={genre}
         onChange={setGenre}
@@ -42,4 +37,3 @@ export default function Home() {
     </div>
   );
 }
-

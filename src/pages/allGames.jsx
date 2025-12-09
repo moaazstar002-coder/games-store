@@ -7,7 +7,7 @@ import Loader from "../components/Loader";
 import '../styles/pages/AllGames.css';
 
 export default function AllGames() {
-  const { games, loading } = useGames();
+  const { data: games, isLoading: loading } = useGames();
   const [search, setSearch] = useState("");
   const filteredGames = useFilteredGames(games, search);
 

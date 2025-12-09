@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaGamepad, FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import "../styles/components/Navbar.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const cartQuantity = useSelector(state => state.cart.totalQuantity);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -30,7 +32,13 @@ export default function Navbar() {
           <li><Link to="/games" onClick={() => setIsOpen(false)}>Games</Link></li>
           <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
           <li><Link to="/WishList" onClick={() => setIsOpen(false)}>WishList</Link></li>
-          <li><Link to="/cart" onClick={() => setIsOpen(false)}><FaShoppingCart /> Cart</Link></li>
+          <li>
+            <Link to="/cart" onClick={() => setIsOpen(false)} className="cart-link">
+              <FaShoppingCart /> 
+              Cart
+              {cartQuantity > 0 && <span className="cart-badge">{cartQuantity}</span>}
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

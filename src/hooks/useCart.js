@@ -6,18 +6,22 @@ export function useCart() {
   const [loading, setLoading] = useState(true);
   const [remoteAvailable, setRemoteAvailable] = useState(true);
 
+  const ensureArray = (data) => {
+    return Array.isArray(data) ? data : [];
+  };
+
   useEffect(() => {
     const fetchCart = async () => {
       try {
         const res = await axios.get('/api/cart');
-        setCart(res.data || []);
+        setCart(ensureArray(res.data));
         setRemoteAvailable(true);
       } catch {
-        // fallback to localStorage when backend not present
         setRemoteAvailable(false);
         try {
           const raw = localStorage.getItem('cart:v1');
-          setCart(raw ? JSON.parse(raw) : []);
+          const parsed = raw ? JSON.parse(raw) : [];
+          setCart(ensureArray(parsed));
         } catch {
           setCart([]);
         }
@@ -39,20 +43,27 @@ export function useCart() {
 
   const addToCart = async (item) => {
     if (!item || !item.id) return;
+
     try {
       if (remoteAvailable) await axios.post('/api/cart', item);
-    } catch (err) {
-      console.warn('remote add to cart failed, falling back to local', err);
+    } catch {
+      console.warn('remote add failed, fallback local');
       setRemoteAvailable(false);
     }
+
     setCart((prev) => {
-      const exists = prev.find((p) => p.id === item.id);
+      const arr = ensureArray(prev);
+      const exists = arr.find((p) => p.id === item.id);
+
       let next;
       if (exists) {
-        next = prev.map((p) => p.id === item.id ? { ...p, quantity: (p.quantity || 1) + 1 } : p);
+        next = arr.map((p) =>
+          p.id === item.id ? { ...p, quantity: (p.quantity || 1) + 1 } : p
+        );
       } else {
-        next = [...prev, { ...item, quantity: item.quantity || 1 }];
+        next = [...arr, { ...item, quantity: item.quantity || 1 }];
       }
+
       persistLocal(next);
       return next;
     });
@@ -61,12 +72,13 @@ export function useCart() {
   const removeFromCart = async (id) => {
     try {
       if (remoteAvailable) await axios.delete(`/api/cart/${id}`);
-    } catch (err) {
-      console.warn('remote remove from cart failed, falling back to local', err);
+    } catch {
       setRemoteAvailable(false);
     }
+
     setCart((prev) => {
-      const next = prev.filter((p) => p.id !== id);
+      const arr = ensureArray(prev);
+      const next = arr.filter((p) => p.id !== id);
       persistLocal(next);
       return next;
     });
@@ -74,20 +86,35 @@ export function useCart() {
 
   const updateQuantity = async (id, quantity) => {
     if (quantity <= 0) return removeFromCart(id);
+
     try {
       if (remoteAvailable) await axios.patch(`/api/cart/${id}`, { quantity });
-    } catch (err) {
-      console.warn('remote update quantity failed, falling back to local', err);
+    } catch {
       setRemoteAvailable(false);
     }
+
     setCart((prev) => {
-      const next = prev.map((p) => p.id === id ? { ...p, quantity } : p);
+      const arr = ensureArray(prev);
+      const next = arr.map((p) =>
+        p.id === id ? { ...p, quantity } : p
+      );
       persistLocal(next);
       return next;
     });
   };
 
-  const isInCart = (id) => cart.some((p) => p.id === id);
+  const isInCart = (id) => {
+    const arr = ensureArray(cart);
+    return arr.some((p) => p.id === id);
+  };
 
-  return { cart, loading, addToCart, removeFromCart, updateQuantity, isInCart, remoteAvailable };
+  return {
+    cart,
+    loading,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    isInCart,
+    remoteAvailable,
+  };
 }

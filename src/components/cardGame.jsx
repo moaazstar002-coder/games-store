@@ -3,9 +3,15 @@ import { Link } from "react-router-dom";
 import { FaShoppingCart, FaHeart, FaStar } from "react-icons/fa";
 import "../styles/components/CardGame.css";
 import { useWishList } from "../hooks/useWishList";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, removeItem } from "../store/slices/CartSlice";
+
 export default function CardGame({ game }) {
   const { loading, addToWishlist, removeFromWishlist, isInWishlist } =
     useWishList();
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.items);
+  const isInCart = cartItems.some(item => item.id === game.id);
   return (
     <Link to={`/game/${game.id}`} className="game-card glass-card">
       <div className="game-image-container">
@@ -52,11 +58,26 @@ export default function CardGame({ game }) {
         <div className="game-footer">
           <span className="game-price">{game.price}</span>
           <button
-            className="btn btn-primary"
-            onClick={(e) => e.preventDefault()}
+            className={`btn btn-primary ${isInCart ? 'active' : ''}`}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (isInCart) {
+                dispatch(removeItem(game.id));
+              } else {
+                dispatch(addItem({
+                  id: game.id,
+                  title: game.title,
+                  image: game.image,
+                  price: 59.99,
+                  quantity: 1
+                }));
+              }
+            }}
+            title={isInCart ? "Remove from Cart" : "Add to Cart"}
           >
             <FaShoppingCart />
-            <span>Add</span>
+            <span>{isInCart ? 'Remove' : 'Add'}</span>
           </button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import useFilteredGames from "../hooks/useFilteredGames";
 import Loader from "./Loader";
 import '../styles/components/FeaturedGames.css';
 
+
 export default function FeaturedGames({ games = [], loading = false, search = '' }) {
   const filteredGames = useFilteredGames(games, search);
 

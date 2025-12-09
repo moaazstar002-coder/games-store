@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Rajdhani:wght@500;600;700&display=swap');
-@import './styles/theme.css';
-@import './styles/buttons.css';
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Rajdhani:wght@500;600;700&display=swap");
+@import "./styles/theme.css";
+@import "./styles/buttons.css";
+@import "tailwindcss";
 
 * {
   box-sizing: border-box;
@@ -14,8 +15,11 @@ html {
 
 body {
   background-color: var(--bg-dark);
-  background-image: 
-    radial-gradient(circle at 15% 50%, rgba(0, 242, 234, 0.08), transparent 25%),
+  background-image: radial-gradient(
+      circle at 15% 50%,
+      rgba(0, 242, 234, 0.08),
+      transparent 25%
+    ),
     radial-gradient(circle at 85% 30%, rgba(112, 0, 255, 0.08), transparent 25%);
   min-height: 100vh;
   padding-top: var(--header-height);

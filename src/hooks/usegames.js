@@ -1,33 +1,23 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-export function useGames({ genre, search, page} = {}) {
-  const [games, setGames] = useState([]);
-  const [loading, setLoading] = useState(true);
+export function useGames({ genre, search, page } = {}) {
+  return useQuery({
+    queryKey: ["games", genre || "all", search || "", page || 1],
+    queryFn: async () => {
+      const params = {
+        key: "2c014c5b22214e628eecac2b366c6441",
+        page_size: 20,
+        page: page || 1,
+      };
 
-  useEffect(() => {
-    const fetchGames = async () => {
-      try {
-        const res = await axios.get("https://api.rawg.io/api/games", {
-          params: {
-            key: "2c014c5b22214e628eecac2b366c6441",
-            page_size: 20,
-            page: page || 1,
-            genres: genre || undefined,
-            search: search || undefined,
-          },
-        });
+      if (genre) params.genres = genre;
+      if (search) params.search = search;
 
-        setGames(res.data.results || []); 
-      } catch (err) {
-        console.error("Error fetching games:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchGames();
-  }, [genre, search, page]);
-
-  return { games, loading };
+      const res = await axios.get("https://api.rawg.io/api/games", { params });
+      return res.data?.results || [];
+    },
+    keepPreviousData: true,
+    staleTime: 1000 * 60 * 1,
+  });
 }

@@ -1,6 +1,10 @@
-import { useGameDetails } from "../hooks/usegameDetails";
+import {useGameDetails} from "../hooks/useGameDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { useWishList } from "../hooks/useWishList";
+import { useNavigate } from "react-router-dom";
+import { addItem, removeItem } from "../store/slices/CartSlice";
 import '../styles/pages/GameDetails.css';
-import { useNavigate } from 'react-router-dom';
+
 
 function stripTags(html) {
   if (!html) return '';
@@ -8,53 +12,94 @@ function stripTags(html) {
 }
 
 export default function GameDetails() {
-  const { details, loading } = useGameDetails();
+  const { data: details, isLoading } = useGameDetails();
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.items);
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishList();
   const navigate = useNavigate();
- const handleBuyNow = () => {
+  
+  if (isLoading) return <div style={{padding: '2rem'}}>Loading...</div>;
+  if (!details) return <div style={{padding: '2rem'}}>Game not found.</div>;
+
+  const description = stripTags(details.description);
+  const genres = details.genres ? details.genres.map(g => g.name).join(', ') : '—';
+  
+  const isInCart = cartItems.some(item => item.id === details.id);
+  
+  const handleBuyNow = () => {
+    if (!isInCart) {
+      dispatch(addItem({
+        id: details.id,
+        title: details.name,
+        image: details.background_image,
+        price: 59.99,
+        quantity: 1
+      }));
+    }
     navigate('/cart');
   };
 
-  if (loading) return <div className="loading">Loading game details...</div>;
-  if (!details) return <div className="not-found">Game not found.</div>;
+  const handleAddToCart = () => {
+    if (isInCart) {
+      dispatch(removeItem(details.id));
+    } else {
+      dispatch(addItem({
+        id: details.id,
+        title: details.name,
+        image: details.background_image,
+        price: 59.99,
+        quantity: 1
+      }));
+    }
+  };
 
-  const description = stripTags(details.description);
-  const genres = details.genres?.map(g => g.name).join(', ') || '—';
-
-  const platforms = details.parent_platforms
-    ?.map(p => p.platform.name)
-    .join(', ') || '—';
+  const handleToggleWishlist = () => {
+    if (isInWishlist(details.id)) {
+      removeFromWishlist(details.id);
+    } else {
+      addToWishlist({
+        id: details.id,
+        name: details.name,
+        title: details.name,
+        background_image: details.background_image,
+        image: details.background_image,
+        rating: details.rating,
+        genres: details.genres,
+        released: details.released,
+        description: details.description
+      });
+    }
+  };
 
   return (
     <div className="game-details">
       <div className="details-grid">
-
         <div className="media">
           <img
-            className="game-details-image"
-            src={details.background_image}
-            alt={details.name}
-          />
+        
+         className="game-details-image" src={details.background_image} alt={details.name} />
         </div>
 
         <div className="info">
           <h1>{details.name}</h1>
-
           <div className="meta">
-            <span>⭐ Rating: {details.rating ?? 'N/A'}</span>
-            <span>📅 Released: {details.released ?? 'N/A'}</span>
-            <span>🎮 Genres: {genres}</span>
-            <span>🕹 Platforms: {platforms}</span>
+            <span>Rating: {details.rating ?? 'N/A'}</span>
+            <span>Released: {details.released ?? 'N/A'}</span>
+            <span>Genres: {genres}</span>
           </div>
 
-          <h2 className="section-title">About the Game</h2>
+
           <div className="description">{description}</div>
         </div>
       </div>
-
-      <div className="buttons">
-      
-        <button className="btn btn-primary" style={{flex: 1}} onClick={handleBuyNow}>Buy Now - $59.99</button>
-        <button className="btn btn-outline" style={{flex: 1}}>Add to Cart</button>
+      <div className="buttons"> 
+        <button className="buy-button" onClick={handleBuyNow}>Buy Now - $59.99</button>
+        <button className={`wishlist-button ${isInWishlist(details.id) ? 'active' : ''}`} onClick={handleToggleWishlist}>
+          {isInWishlist(details.id) ? '❤️ Remove from Wishlist' : '🤍 Add to Wishlist'}
+        </button>
+        <button className={`cart-button ${isInCart ? 'active' : ''}`} onClick={handleAddToCart}>
+          {isInCart ? '🛒 Remove from Cart' : '🛒 Add to Cart'}
+        </button>
       </div>
     </div>
   );

@@ -10,9 +10,20 @@ export default function WishListContent() {
         
     return (
         <div className="wish-list">
-            {wishList.map((game) => (
-                <CardGame key={game.id} game={game} />
-            ))}
+            {wishList.map((game) => {
+              // تأكيد وجود الخاصيات اللازمة للعبة
+              const gameWithDefaults = {
+                id: game.id,
+                title: game.title || game.name,
+                image: game.image || game.background_image,
+                price: "$59.99",
+                rating: game.rating || "N/A",
+                ...game
+              };
+              return (
+                <CardGame key={game.id} game={gameWithDefaults} />
+              );
+            })}
         </div>
     );
 }   
