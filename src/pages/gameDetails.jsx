@@ -95,10 +95,10 @@ export default function GameDetails() {
       <div className="buttons"> 
         <button className="buy-button" onClick={handleBuyNow}>Buy Now - $59.99</button>
         <button className={`wishlist-button ${isInWishlist(details.id) ? 'active' : ''}`} onClick={handleToggleWishlist}>
-          {isInWishlist(details.id) ? '❤️ Remove from Wishlist' : '🤍 Add to Wishlist'}
+          {isInWishlist(details.id) ? ' Remove from Wishlist' : ' Add to Wishlist'}
         </button>
         <button className={`cart-button ${isInCart ? 'active' : ''}`} onClick={handleAddToCart}>
-          {isInCart ? '🛒 Remove from Cart' : '🛒 Add to Cart'}
+          {isInCart ? ' Remove from Cart' : ' Add to Cart'}
         </button>
       </div>
     </div>

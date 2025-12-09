@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { useGames } from "../hooks/usegames";
-import useFilteredGames from "../hooks/useFilteredGames";
 import CardGame from "../components/CardGame";
 import SearchBar from "../components/SearchBar";
 import Loader from "../components/Loader";
-import '../styles/pages/AllGames.css';
+import "../styles/pages/AllGames.css";
+import Pagination from "../components/Pagination";
 
 export default function AllGames() {
-  const { data: games, isLoading: loading } = useGames();
   const [search, setSearch] = useState("");
-  const filteredGames = useFilteredGames(games, search);
+  const [page, setPage] = useState(1);
 
-  const gamesToDisplay = filteredGames;
+  const { data: games, isLoading: loading } = useGames({ search, page });
+
+  const gamesToDisplay = games || [];
 
   if (loading) return <Loader />;
 
   return (
     <div className="all-games">
       <h2>All Games</h2>
-      
+
       <div className="container">
         <SearchBar search={search} setSearch={setSearch} />
       </div>
@@ -33,7 +34,7 @@ export default function AllGames() {
                 title: game.name,
                 image: game.background_image,
                 price: "$59.99",
-                rating: game.rating
+                rating: game.rating,
               }}
             />
           ))
@@ -41,6 +42,7 @@ export default function AllGames() {
           <p className="no-results">No games found matching "{search}"</p>
         )}
       </div>
+       <Pagination page={page} setPage={setPage} />
     </div>
   );
 }
