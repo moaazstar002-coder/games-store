@@ -1,4 +1,5 @@
 
+const key = import.meta.env.VITE_RAWG_API_KEY;
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -9,7 +10,7 @@ export function useGameDetails() {
     queryKey: ["gameDetails", id],
     queryFn: async () => {
       const res = await axios.get(`https://api.rawg.io/api/games/${id}`, {
-        params: { key: "2c014c5b22214e628eecac2b366c6441" },
+        params: { key: key },
       });
       return res.data;
 

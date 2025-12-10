@@ -68,7 +68,7 @@ export default function CardGame({ game }) {
                   id: game.id,
                   title: game.title,
                   image: game.image,
-                  price: 59.99,
+                  price: game.price,
                   quantity: 1
                 }));
               }

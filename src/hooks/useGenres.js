@@ -1,4 +1,5 @@
 
+const key = import.meta.env.VITE_RAWG_API_KEY;
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
@@ -8,7 +9,7 @@ export function useGenres() {
     queryFn: async()=>{
         const res = await axios.get("https://api.rawg.io/api/genres", {
         params: {
-            key: "2c014c5b22214e628eecac2b366c6441",
+            key: key,
         },
     });
     return res.data.results;    

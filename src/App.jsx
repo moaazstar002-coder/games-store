@@ -9,9 +9,12 @@ import WishList from "./pages/wishList";
 import Cart from "./pages/cart";
 import About from "./pages/about";
 import NotFound from "./pages/404_NotFound";
+import { Toaster } from 'sonner';
+
 function App() {
   return (
-    
+    <>
+    <Toaster position="top-right" richColors />
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -26,6 +29,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
+    </>
   );
 }
 
