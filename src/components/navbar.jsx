@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes, FaGamepad, FaShoppingCart } from "react-icons/fa";
+import { FaBars, FaTimes, FaGamepad, FaShoppingCart, FaDragon } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import "../styles/components/Navbar.css";
 
@@ -18,9 +18,19 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container navbar-content">
-        <Link to="/" className="logo">
-          <FaGamepad className="logo-icon" />
-          <span>GAME<span className="highlight">STORE</span></span>
+        <Link 
+          to="/" 
+          className="logo"
+        >
+          <div className="logo-container">
+            <img 
+              src="/gamers_nest.svg" 
+              alt="Gamer's Nest" 
+              className="logo-img" 
+            />
+            <FaDragon className="logo-icon-hover" />
+          </div>
+          <span>GAMER'S <span className="highlight">NEST</span></span>
         </Link>
 
         <div className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>

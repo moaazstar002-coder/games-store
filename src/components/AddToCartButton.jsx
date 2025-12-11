@@ -11,7 +11,7 @@ export default function AddToCartButton({ game }) {
     dispatch(addItem({
       id: game.id,
       title: game.name || game.title,
-      price: parseFloat(game.price?.replace(/[^0-9.]/g, '') || 59.99),
+      price: typeof game.price === 'number' ? game.price : parseFloat(String(game.price || '').replace(/[^0-9.]/g, '') || 59.99),
       image: game.background_image || game.thumbnail,
       quantity: 1
     }));

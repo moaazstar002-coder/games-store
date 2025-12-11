@@ -68,7 +68,7 @@ export default function CardGame({ game }) {
                   id: game.id,
                   title: game.title,
                   image: game.image,
-                  price: game.price,
+                  price: typeof game.price === 'number' ? game.price : parseFloat(String(game.price).replace(/[^0-9.]/g, '') || 0),
                   quantity: 1
                 }));
               }

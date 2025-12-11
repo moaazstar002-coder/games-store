@@ -33,10 +33,46 @@
   letter-spacing: 1px;
 }
 
-.logo-icon {
+.logo-container {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img, .logo-icon-hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease-in-out;
+}
+
+.logo-img {
+  opacity: 1;
+  height: 90px;
+  width: auto;
+}
+
+.logo-icon-hover {
+  opacity: 0;
+  font-size: 60px;
   color: var(--primary);
-  font-size: 2rem;
-  filter: drop-shadow(0 0 5px var(--primary));
+  filter: drop-shadow(0 0 10px var(--primary));
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+.logo:hover .logo-img {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+.logo:hover .logo-icon-hover {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .highlight {
@@ -80,7 +116,6 @@
   width: 100%;
 }
 
-/* Cart Badge */
 .cart-link {
   position: relative;
 }

@@ -5,7 +5,6 @@ import Footer from "./components/footer";
 import { Toaster } from 'sonner';
 import Loader from "./components/Loader";
 
-// Lazy load pages
 const Home = lazy(() => import("./pages/Home"));
 const GameDetails = lazy(() => import("./pages/gameDetails"));
 const AllGames = lazy(() => import("./pages/AllGames"));

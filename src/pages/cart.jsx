@@ -49,7 +49,7 @@ export default function Cart() {
                     <div className="cart-item-info">
                       <h3>{item.title}</h3>
                       <div className="cart-item-meta">
-                        <span className="cart-item-price">${item.price.toFixed(2)}</span>
+                        <span className="cart-item-price">${Number(item.price).toFixed(2)}</span>
                         <div className="quantity-control">
                           <button onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}>-</button>
                           <span>{item.quantity}</span>
