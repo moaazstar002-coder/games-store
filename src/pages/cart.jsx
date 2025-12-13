@@ -3,6 +3,8 @@ import { removeItem, updateQuantity, clearCart } from "../store/slices/CartSlice
 import CreditCard from "../components/Creditcard";
 import "../styles/pages/Cart.css";
 
+import PageTransition from "../components/PageTransition";
+
 export default function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.items);
@@ -26,6 +28,7 @@ export default function Cart() {
   };
 
   return (
+    <PageTransition>
     <div className="cart-page">
       <div className="cart-container">
         <h1 className="cart-title">Your Cart</h1>
@@ -82,5 +85,6 @@ export default function Cart() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }

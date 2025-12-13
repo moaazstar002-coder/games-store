@@ -2,20 +2,26 @@ import React from "react";
 import CardGame from "./CardGame";
 import useFilteredGames from "../hooks/useFilteredGames"; 
 import Loader from "./Loader";
+import GameCardSkeleton from "./GameCardSkeleton";
 import '../styles/components/FeaturedGames.css';
 
 
 export default function FeaturedGames({ games = [], loading = false, search = '' }) {
   const filteredGames = useFilteredGames(games, search);
 
-  if (loading) return <Loader />;
+  // Removed early return for loader to use skeleton
+  // if (loading) return <Loader />;
 
   return (
     <section className="container">
       <h2 className="section-title">Featured Games</h2>
 
       <div className="featured-games-container">
-        {filteredGames.length > 0 ? (
+        {loading ? (
+           Array.from({ length: 4 }).map((_, index) => (
+             <GameCardSkeleton key={index} />
+           ))
+        ) : filteredGames.length > 0 ? (
           filteredGames.map((game) => (
             <CardGame
               key={game.id}

@@ -6,6 +6,9 @@ import Loader from "../components/Loader";
 import "../styles/pages/AllGames.css";
 import Pagination from "../components/Pagination";
 
+import PageTransition from "../components/PageTransition";
+import GameCardSkeleton from "../components/GameCardSkeleton";
+
 export default function AllGames() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -14,9 +17,12 @@ export default function AllGames() {
 
   const gamesToDisplay = games || [];
 
-  if (loading) return <Loader />;
+  if (loading) {
+    // We want to show skeletons, not block the whole UI
+  }
 
   return (
+    <PageTransition>
     <div className="all-games">
       <h2>All Games</h2>
 
@@ -25,7 +31,11 @@ export default function AllGames() {
       </div>
 
       <div className="game-list">
-        {gamesToDisplay.length > 0 ? (
+        {loading ? (
+           Array.from({ length: 12 }).map((_, index) => (
+             <GameCardSkeleton key={index} />
+           ))
+        ) : gamesToDisplay.length > 0 ? (
           gamesToDisplay.map((game) => (
             <CardGame
               key={game.id}
@@ -44,5 +54,6 @@ export default function AllGames() {
       </div>
        <Pagination page={page} setPage={setPage} />
     </div>
+    </PageTransition>
   );
 }

@@ -4,8 +4,11 @@ import "../styles/pages/About.css";
 import { Link } from "react-router-dom";
 
 
+import PageTransition from "../components/PageTransition";
+
 const About = () => {
   return (
+    <PageTransition>
     <Link to="/games"> <section className="about-section" id="about">
       <h2 className="about-title">About GameZone</h2>
 
@@ -44,6 +47,7 @@ const About = () => {
         </a>
       </div>
     </section></Link>
+    </PageTransition>
    
   );
 };

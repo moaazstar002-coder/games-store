@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-brand">
           <div className="logo">
             <FaGamepad className="logo-icon" />
-            <span>GAME<span className="highlight">STORE</span></span>
+            <span>GAMER'S<span className="highlight"> NEST</span></span>
           </div>
           <p>Your ultimate destination for the latest and greatest in gaming. Level up your experience.</p>
           <div className="social-icons">

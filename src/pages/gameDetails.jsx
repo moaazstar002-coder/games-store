@@ -11,6 +11,8 @@ function stripTags(html) {
   return html.replace(/<[^>]*>/g, '').trim();
 }
 
+import PageTransition from "../components/PageTransition";
+
 export default function GameDetails() {
   const { data: details, isLoading } = useGameDetails();
   const dispatch = useDispatch();
@@ -18,8 +20,8 @@ export default function GameDetails() {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishList();
   const navigate = useNavigate();
   
-  if (isLoading) return <div style={{padding: '2rem'}}>Loading...</div>;
-  if (!details) return <div style={{padding: '2rem'}}>Game not found.</div>;
+  if (isLoading) return <PageTransition><div style={{padding: '2rem'}}>Loading...</div></PageTransition>;
+  if (!details) return <PageTransition><div style={{padding: '2rem'}}>Game not found.</div></PageTransition>;
 
   const description = stripTags(details.description);
   const genres = details.genres ? details.genres.map(g => g.name).join(', ') : '—';
@@ -72,6 +74,7 @@ export default function GameDetails() {
   };
 
   return (
+    <PageTransition>
     <div className="game-details">
       <div className="details-grid">
         <div className="media">
@@ -102,5 +105,6 @@ export default function GameDetails() {
         </button>
       </div>
     </div>
+    </PageTransition>
   );
 }

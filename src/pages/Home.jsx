@@ -7,6 +7,8 @@ import { useGenres } from "../hooks/useGenres";
 import GenreFilter from "../components/GenreFilter";
 import Pagination from "../components/Pagination";
 
+import PageTransition from "../components/PageTransition";
+
 export default function Home() {
   const [search, setSearch] = useState("");
   const [genre, setGenre] = useState("");
@@ -16,6 +18,7 @@ export default function Home() {
   const { data: games, isLoading: gamesLoading } = useGames({ genre, search, page });
 
   return (
+    <PageTransition>
     <div>
       <HeroSlider />
 
@@ -35,5 +38,6 @@ export default function Home() {
 
       <Pagination page={page} setPage={setPage} />
     </div>
+    </PageTransition>
   );
 }
