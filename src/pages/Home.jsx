@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useGenres } from "../hooks/useGenres";
 import GenreFilter from "../components/GenreFilter";
 import Pagination from "../components/Pagination";
-
 import PageTransition from "../components/PageTransition";
 
 export default function Home() {

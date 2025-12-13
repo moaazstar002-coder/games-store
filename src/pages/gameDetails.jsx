@@ -4,14 +4,13 @@ import { useWishList } from "../hooks/useWishList";
 import { useNavigate } from "react-router-dom";
 import { addItem, removeItem } from "../store/slices/CartSlice";
 import '../styles/pages/GameDetails.css';
-
+import PageTransition from "../components/PageTransition";
 
 function stripTags(html) {
   if (!html) return '';
   return html.replace(/<[^>]*>/g, '').trim();
 }
 
-import PageTransition from "../components/PageTransition";
 
 export default function GameDetails() {
   const { data: details, isLoading } = useGameDetails();
@@ -104,6 +103,7 @@ export default function GameDetails() {
           {isInCart ? ' Remove from Cart' : ' Add to Cart'}
         </button>
       </div>
+     
     </div>
     </PageTransition>
   );

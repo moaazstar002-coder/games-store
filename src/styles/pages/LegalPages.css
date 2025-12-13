@@ -1,0 +1,133 @@
+.legal-page {
+  padding: 4rem 0;
+  min-height: 100vh;
+  background-image: radial-gradient(circle at 50% 0%, rgba(0, 242, 234, 0.05), transparent 50%);
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.legal-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: var(--gradient-btn);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.update-date {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.legal-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+}
+
+.legal-section {
+  margin-bottom: 3rem;
+}
+
+.legal-section:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 242, 234, 0.2);
+}
+
+.legal-section p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.legal-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+.legal-section ul li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.legal-section ul li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+.legal-section ul li strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.contact-info-box {
+  background: rgba(0, 242, 234, 0.05);
+  border: 1px solid rgba(0, 242, 234, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-info-box p {
+  margin-bottom: 0.5rem;
+}
+
+.contact-info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-info-box strong {
+  color: var(--primary);
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .legal-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .legal-content {
+    padding: 2rem;
+  }
+
+  .legal-section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-page {
+    padding: 2rem 0;
+  }
+
+  .legal-header h1 {
+    font-size: 2rem;
+  }
+
+  .legal-content {
+    padding: 1.5rem;
+  }
+}
