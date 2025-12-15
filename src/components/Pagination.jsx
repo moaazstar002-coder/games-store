@@ -1,4 +1,4 @@
-import './Pagination.css';
+import "../styles/components/Pagination.css";
 
 export default function Pagination({ page, setPage }) {
   return (

@@ -1,7 +1,7 @@
 import { useGameDetails } from "../hooks/usegameDetails";
 import { useGames } from "../hooks/usegames";
 import { useCart } from "../hooks/useCart";
-import "./SemiGameCard.css";
+import "../styles/components/SemiGameCard.css";
 
 export default function SemiGameCard() {
     const { details } = useGameDetails();

@@ -1,4 +1,4 @@
-import './GenreFilter.css';
+import "../styles/components/GenreFilter.css";
 
 export default function GenreFilter({ value, onChange, genres, loading }) {
   if (loading)

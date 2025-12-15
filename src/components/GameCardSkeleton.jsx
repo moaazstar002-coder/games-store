@@ -1,6 +1,6 @@
 import React from 'react';
 import Skeleton from './Skeleton';
-import "./SemiGameCard.css"; 
+import "../styles/components/CardGame.css"; 
 
 const GameCardSkeleton = () => {
   return (
