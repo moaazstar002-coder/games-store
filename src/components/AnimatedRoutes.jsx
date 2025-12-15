@@ -5,7 +5,7 @@ import Loader from './Loader';
 
 const Home = React.lazy(() => import('../pages/Home'));
 const GameDetails = React.lazy(() => import('../pages/gameDetails'));
-const AllGames = React.lazy(() => import('../pages/AllGames'));
+const AllGames = React.lazy(() => import('../pages/allGames'));
 const BestSellers = React.lazy(() => import('../pages/BestSellers'));
 const Consoles = React.lazy(() => import('../pages/Consoles'));
 const Accessories = React.lazy(() => import('../pages/Accessories'));
