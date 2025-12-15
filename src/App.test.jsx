@@ -15,18 +15,18 @@ const queryClient = new QueryClient({
 });
 
 describe('App Component', () => {
-  it('renders without crashing', () => {
-    render(
-      <HelmetProvider>
-        <Provider store={store}>
-          <QueryClientProvider client={queryClient}>
-            <App />
-          </QueryClientProvider>
-        </Provider>
-      </HelmetProvider>
-    );
-    
-    // Basic verification - assuming Navbar has "Game Store" or similar, or just pass if no error thrown
-    // We can add more specific assertions later
-  });
+ it('renders App without crashing', () => {
+  render(
+    <HelmetProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </Provider>
+    </HelmetProvider>
+  );
+
+  expect(screen.getByText(/game/i)).toBeInTheDocument();
+});
+
 });
