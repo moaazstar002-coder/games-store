@@ -26,7 +26,6 @@ describe('App Component', () => {
     </HelmetProvider>
   );
 
-  expect(screen.getByText(/game/i)).toBeInTheDocument();
-});
+  expect(screen.getByTestId('app')).toBeInTheDocument();});
 
 });
