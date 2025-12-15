@@ -1,0 +1,347 @@
+.game-reviews {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.reviews-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.reviews-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* إحصائيات التقييمات */
+.reviews-stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.average-rating {
+  text-align: center;
+  padding: 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rating-number {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.rating-stars .star {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.rating-stars .star.filled {
+  color: #ffd700;
+}
+
+.rating-count {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.rating-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.rating-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.star-label {
+  min-width: 60px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.rating-bar {
+  flex: 1;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.rating-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.3s ease;
+}
+
+.rating-count-label {
+  min-width: 30px;
+  text-align: right;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* الفلاتر والترتيب */
+.reviews-controls {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-group,
+.sort-group {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.filter-group label,
+.sort-group label {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.filter-group select,
+.sort-group select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1rem;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:focus,
+.sort-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 242, 234, 0.1);
+}
+
+/* قائمة التقييمات */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 242, 234, 0.1);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reviewer-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.reviewer-name {
+  font-weight: 600;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(0, 242, 234, 0.2);
+  color: var(--primary);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.review-date {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+.review-rating {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.review-rating .star {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.review-rating .star.filled {
+  color: #ffd700;
+}
+
+.review-body {
+  margin-bottom: 1.5rem;
+}
+
+.review-title {
+  font-size: 1.3rem;
+  color: var(--text-main);
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.review-content {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.review-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.helpful-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.helpful-buttons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.helpful-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.helpful-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.no-reviews {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .reviews-stats {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .average-rating {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
+  }
+
+  .review-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .game-reviews {
+    padding: 0 1rem;
+  }
+
+  .reviews-header h2 {
+    font-size: 2rem;
+  }
+
+  .review-card {
+    padding: 1.5rem;
+  }
+
+  .rating-number {
+    font-size: 3rem;
+  }
+
+  .reviewer-info {
+    flex-direction: row;
+  }
+
+  .helpful-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .helpful-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

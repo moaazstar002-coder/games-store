@@ -3,9 +3,9 @@ import axios from "axios";
 const key = import.meta.env.VITE_RAWG_API_KEY;
 
 
-export function useGames({ genre, search, page } = {}) {
+export function useGames({ genre, search, page, ordering } = {}) {
   return useQuery({
-    queryKey: ["games", genre || "all", search || "", page || 1],
+    queryKey: ["games", genre || "all", search || "", page || 1, ordering || "default"],
     queryFn: async () => {
       const params = {
         key: key,
@@ -15,6 +15,7 @@ export function useGames({ genre, search, page } = {}) {
 
       if (genre) params.genres = genre;
       if (search) params.search = search;
+      if (ordering) params.ordering = ordering;
 
       const res = await axios.get("https://api.rawg.io/api/games", { params });
       return res.data?.results || [];

@@ -11,7 +11,9 @@ A modern game store built with React, Redux Toolkit, and React Query. Features a
 ## ✨ Features
 
 - 🎯 Browse thousands of games from RAWG API
-- 🔍 Advanced search and genre filtering
+- � New Releases & Best Sellers sections
+- 🎮 Dedicated Consoles & Accessories pages
+- �🔍 Advanced search and genre filtering
 - 📄 Pagination for game listings
 - 🎨 Detailed game information with screenshots
 - ❤️ Wishlist functionality
@@ -27,7 +29,8 @@ A modern game store built with React, Redux Toolkit, and React Query. Features a
 **Core:** React 19.2, Vite 7.2, React Router 7.9  
 **State:** Redux Toolkit 2.11, React Query 5.90  
 **Styling:** Tailwind CSS 4.1, Sass, Custom CSS  
-**UI:** Framer Motion, Swiper, React Icons  
+**UI:** Framer Motion, Swiper, React Icons
+**SEO:** React Helmet Async
 **API:** RAWG API, Axios
 
 ---
@@ -151,9 +154,7 @@ See [API Documentation](docs/API.md) for details.
 
 ```css
 --primary: #00f2ea; /* Cyan */
---secondary: #ff0055; /* Pink */
---accent: #7000ff; /* Purple */
---bg-dark: #050505;
+--bg-dark: #050505; /* Dark background */
 ```
 
 ### Utility Classes

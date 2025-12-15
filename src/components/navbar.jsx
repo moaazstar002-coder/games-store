@@ -40,6 +40,9 @@ export default function Navbar() {
         <ul className={`nav-links ${isOpen ? "active" : ""}`}>
           <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
           <li><Link to="/games" onClick={() => setIsOpen(false)}>Games</Link></li>
+          <li><Link to="/best-sellers" onClick={() => setIsOpen(false)}>Best Sellers</Link></li>
+          <li><Link to="/consoles" onClick={() => setIsOpen(false)}>Consoles</Link></li>
+          <li><Link to="/accessories" onClick={() => setIsOpen(false)}>Accessories</Link></li>
           <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
           <li><Link to="/WishList" onClick={() => setIsOpen(false)}>WishList</Link></li>
           <li>

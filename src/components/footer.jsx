@@ -58,10 +58,9 @@ export default function Footer() {
           <div className="footer-column">
             <h4>Shop</h4>
             <ul>
-              <li><Link to="/games">New Releases</Link></li>
-              <li><Link to="/games">Best Sellers</Link></li>
-              <li><Link to="/games">Consoles</Link></li>
-              <li><Link to="/games">Accessories</Link></li>
+              <li><Link to="/best-sellers">Best Sellers</Link></li>
+              <li><Link to="/consoles">Consoles</Link></li>
+              <li><Link to="/accessories">Accessories</Link></li>
             </ul>
           </div>
           
