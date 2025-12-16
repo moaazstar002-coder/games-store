@@ -1,4 +1,4 @@
-# 🎮 GameZone - Premium Game Store
+# 🎮 GAMER's NEST - Premium Game Store
 
 A modern game store built with React, Redux Toolkit, and React Query. Features a stunning dark/neon gaming aesthetic with glassmorphism effects and real-time game data from RAWG API.
 
@@ -204,7 +204,7 @@ dispatch(clearCart());
 - [ ] User authentication
 - [ ] Order history
 - [ ] Payment integration
-- [ ] Game reviews
+- [done] Game reviews
 - [ ] Admin dashboard
 
 ---
