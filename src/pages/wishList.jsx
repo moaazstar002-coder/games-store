@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/pages/WishList.css";
-import WishListContent from "../components/wishlistContent";
+import WishListContent from "../components/WishlistContent";
 
 import PageTransition from "../components/PageTransition";
 
