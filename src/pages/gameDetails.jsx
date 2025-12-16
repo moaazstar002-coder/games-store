@@ -5,7 +5,6 @@ import { useWishList } from "../hooks/useWishList";
 import { useNavigate } from "react-router-dom";
 import { addItem, removeItem } from "../store/slices/CartSlice";
 import PageTransition from "../components/PageTransition";
-import SEO from "../components/SEO";
 import GameDetailsSkeleton from "../components/GameDetailsSkeleton";
 import GameReviews from "../components/GameReviews";
 import GameRecommendations from "../components/GameRecommendations";
@@ -35,7 +34,7 @@ export default function GameDetails() {
   if (!details) {
     return (
       <PageTransition>
-        <SEO title="Game Not Found" />
+        
         <div style={{padding: '2rem', textAlign: 'center'}}>
           <h1>Game not found.</h1>
           <button onClick={() => navigate('/games')}>Browse All Games</button>
@@ -53,14 +52,6 @@ export default function GameDetails() {
 
   const genres = details.genres ? details.genres.map(g => g.name).join(', ') : '—';
   const isInCart = cartItems.some(item => item.id === details.id);
-
-  const metaDescription = fullDescription.length > 160 
-    ? `${fullDescription.substring(0, 157)}...` 
-    : fullDescription;
-
-  const keywords = details.genres 
-    ? `${details.name}, ${details.genres.map(g => g.name).join(', ')}, buy game, gaming`
-    : `${details.name}, buy game, gaming`;
 
   const handleBuyNow = () => {
     if (!isInCart) {
@@ -109,13 +100,7 @@ export default function GameDetails() {
 
   return (
     <PageTransition>
-      <SEO 
-        title={details.name}
-        description={metaDescription}
-        keywords={keywords}
-        image={details.background_image}
-        type="product"
-      />
+    
 
       <div className="game-details">
         <div className="details-grid">
