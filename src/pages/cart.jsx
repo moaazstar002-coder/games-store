@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, updateQuantity, clearCart } from "../store/slices/CartSlice";
-import CreditCard from "../components/Creditcard";
+import CreditCard from "../components/CreditCard";
 import "../styles/pages/Cart.css";
 
 import PageTransition from "../components/PageTransition";

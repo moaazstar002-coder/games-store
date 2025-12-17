@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, 
+{ useState } from "react";
 import PageTransition from "../components/PageTransition";
 import { FaSearch, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import "../styles/pages/HelpCenter.css";

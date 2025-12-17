@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CardGame from "../components/CardGame";
 import { useGames } from "../hooks/useGames";
 import Pagination from "../components/Pagination";
 import PageTransition from "../components/PageTransition";

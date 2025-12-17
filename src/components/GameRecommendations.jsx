@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar, FaArrowRight } from 'react-icons/fa';
-import { useGames } from '../hooks/usegames';
+import { useGames } from '../hooks/useGames';
 import GameCardSkeleton from './GameCardSkeleton';
 import '../styles/components/GameRecommendations.css';
 
