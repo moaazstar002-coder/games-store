@@ -1,6 +1,5 @@
 import { useGameDetails } from "../hooks/usegameDetails";
-import { useGames } from "../hooks/usegames";
-import { useCart } from "../hooks/useCart";
+import { useGames } from "../hooks/useGames";import { useCart } from "../hooks/useCart";
 import "../styles/components/SemiGameCard.css";
 
 export default function SemiGameCard() {

@@ -1,7 +1,6 @@
 import HeroSlider from "../components/HeroSlider";
 import FeaturedGames from "../components/FeaturedGames";
-import { useGames } from "../hooks/usegames";
-import SearchBar from "../components/SearchBar";
+import { useGames } from "../hooks/useGames";import SearchBar from "../components/SearchBar";
 import { useState } from "react";
 import { useGenres } from "../hooks/useGenres";
 import GenreFilter from "../components/GenreFilter";
