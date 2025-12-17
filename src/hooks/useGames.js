@@ -18,7 +18,6 @@ export function useGames({ genre, search, page, ordering } = {}) {
         page_size: 20,
         page: page || 1,
       };
-      console.log("API Key:", key);
       if (genre) params.genres = genre;
       if (search) params.search = search;
       if (ordering) params.ordering = ordering;
