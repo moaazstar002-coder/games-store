@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/components/Creditcard.css"
+import "../styles/components/CreditCard.css"
 
 export default function CreditCard() {
   const [cardData, setCardData] = React.useState({
