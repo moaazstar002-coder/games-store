@@ -1,5 +1,6 @@
 
-const key = import.meta.env.VITE_RAWG_API_KEY;
+const key =
+  import.meta.env.VITE_RAWG_API_KEY || "2c014c5b22214e628eecac2b366c6441";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useParams } from "react-router-dom";
