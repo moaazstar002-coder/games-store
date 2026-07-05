@@ -10,10 +10,10 @@ const About = () => {
   return (
     <PageTransition>
     <Link to="/games"> <section className="about-section" id="about">
-      <h2 className="about-title">About GameZone</h2>
+      <h2 className="about-title">About gamer's Nest</h2>
 
       <p className="about-text">
-        Welcome to <strong>GameZone</strong>, your one-stop shop for the latest
+        Welcome to <strong>gamer's Nest</strong>, your one-stop shop for the latest
         and greatest PC and console games since 2023. We bring gamers a
         premium experience with the best selection of titles and unbeatable
         prices.
@@ -36,7 +36,7 @@ const About = () => {
 
       <h3 className="about-subtitle">Our Story</h3>
       <p className="about-text">
-        As passionate gamers ourselves, we started GameZone to create a place
+        As passionate gamers ourselves, we started <strong>gamer's Nest</strong> to create a place
         where every gamer can find their favorite titles easily and enjoyably.
         Gaming is more than a hobby—it’s a lifestyle!
       </p>

@@ -16,9 +16,7 @@ export default function AllGames() {
 
   const gamesToDisplay = games || [];
 
-  if (loading) {
-    // We want to show skeletons, not block the whole UI
-  }
+
 
   return (
     <PageTransition>
@@ -36,18 +34,24 @@ export default function AllGames() {
               <GameCardSkeleton key={index} />
             ))
           ) : gamesToDisplay.length > 0 ? (
-            gamesToDisplay.map((game) => (
-              <CardGame
-                key={game.id}
-                game={{
-                  id: game.id,
-                  title: game.name,
-                  image: game.background_image,
-                  price: "$59.99",
-                  rating: game.rating,
-                }}
-              />
-            ))
+            gamesToDisplay.map((game) => {
+              // Generate a deterministic price (number) based on game.id
+              const price = game.price
+                ? parseFloat(game.price)
+                : parseFloat(((game.id % 5000) / 100 + 9.99).toFixed(2));
+              return (
+                <CardGame
+                  key={game.id}
+                  game={{
+                    id: game.id,
+                    title: game.name,
+                    image: game.background_image,
+                    price,          // ← number, not string
+                    rating: game.rating,
+                  }}
+                />
+              );
+            })
           ) : (
             <p className="no-results">No games found matching "{search}"</p>
           )}

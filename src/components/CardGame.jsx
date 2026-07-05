@@ -55,7 +55,9 @@ export default function CardGame({ game }) {
         </div>
 
         <div className="game-footer">
-          <span className="game-price">{game.price}</span>
+          <span className="game-price">
+            {typeof game.price === 'number' ? `$${game.price.toFixed(2)}` : game.price}
+          </span>
           <button
             className={`btn btn-primary ${isInCart ? 'active' : ''}`}
             onClick={(e) => {
@@ -68,7 +70,9 @@ export default function CardGame({ game }) {
                   id: game.id,
                   title: game.title,
                   image: game.image,
-                  price: typeof game.price === 'number' ? game.price : parseFloat(String(game.price).replace(/[^0-9.]/g, '') || 0),
+                  price: typeof game.price === 'number'
+                    ? game.price
+                    : parseFloat(String(game.price).replace(/[^0-9.]/g, '')) || 0,
                   quantity: 1
                 }));
               }

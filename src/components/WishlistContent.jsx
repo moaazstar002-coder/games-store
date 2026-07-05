@@ -11,7 +11,6 @@ export default function WishListContent() {
     return (
         <div className="wish-list">
             {wishList.map((game) => {
-              // تأكيد وجود الخاصيات اللازمة للعبة
               const gameWithDefaults = {
                 id: game.id,
                 title: game.title || game.name,
