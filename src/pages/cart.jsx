@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, updateQuantity, clearCart } from "../store/slices/CartSlice";
+import { useNavigate } from "react-router-dom";
 import CreditCard from "../components/CreditCard";
 import "../styles/pages/Cart.css";
 
@@ -7,6 +8,7 @@ import PageTransition from "../components/PageTransition";
 
 export default function Cart() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartItems = useSelector(state => state.cart.items);
   const totalQuantity = useSelector(state => state.cart.totalQuantity);
   const totalPrice = useSelector(state => state.cart.totalPrice);
@@ -75,7 +77,7 @@ export default function Cart() {
               <div className="summary-row"><span>Subtotal</span><strong>${totalPrice.toFixed(2)}</strong></div>
               <div className="summary-row"><span>Shipping</span><span>Free</span></div>
               <div className="summary-row total"><span>Total</span><strong>${totalPrice.toFixed(2)}</strong></div>
-              <button className="checkout-btn" disabled={cartItems.length === 0}>Proceed to Checkout</button>
+              <button className="checkout-btn" disabled={cartItems.length === 0} onClick={() => navigate('/checkout')}>Proceed to Checkout</button>
             </div>
 
             <div style={{marginTop: '1rem'}}>

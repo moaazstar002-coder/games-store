@@ -9,8 +9,9 @@ const AllGames = React.lazy(() => import('../pages/allGames'));
 const BestSellers = React.lazy(() => import('../pages/BestSellers'));
 const Consoles = React.lazy(() => import('../pages/Consoles'));
 const Accessories = React.lazy(() => import('../pages/Accessories'));
-const WishList = React.lazy(() => import('../pages/wishList'));
+const WishList = React.lazy(() => import('../pages/WishList'));
 const Cart = React.lazy(() => import('../pages/cart'));
+const Checkout = React.lazy(() => import('../pages/Chechout'));
 const About = React.lazy(() => import('../pages/about'));
 const ContactUs = React.lazy(() => import('../pages/ContactUs'));
 const PrivacyPolicy = React.lazy(() => import('../pages/PrivacyPolicy'));
@@ -69,6 +70,12 @@ const AnimatedRoutes = () => {
         <Route path="/cart" element={
           <Suspense fallback={<Loader />}>
             <Cart />
+          </Suspense>
+        } />
+
+        <Route path="/checkout" element={
+          <Suspense fallback={<Loader />}>
+            <Checkout />
           </Suspense>
         } />
         
