@@ -1,16 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Rajdhani:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
 @import "./styles/theme.css";
 @import "./styles/buttons.css";
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-html {
-  scroll-behavior: smooth;
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
 }
 
 body {
@@ -23,22 +24,6 @@ body {
     radial-gradient(circle at 85% 30%, rgba(112, 0, 255, 0.08), transparent 25%);
   min-height: 100vh;
   padding-top: var(--header-height);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-button {
-  font-family: inherit;
-  border: none;
-  outline: none;
-  cursor: pointer;
 }
 
 .container {

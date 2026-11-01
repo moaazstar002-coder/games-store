@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useGames } from "../hooks/useGames";
 import CardGame from "../components/CardGame";
 import SearchBar from "../components/SearchBar";
@@ -9,7 +10,14 @@ import PageTransition from "../components/PageTransition";
 import GameCardSkeleton from "../components/GameCardSkeleton";
 
 export default function AllGames() {
-  const [search, setSearch] = useState("");
+  const [searchParams] = useSearchParams();
+  const initialSearch = searchParams.get("search") || "";
+
+  return <AllGamesPage key={initialSearch} initialSearch={initialSearch} />;
+}
+
+function AllGamesPage({ initialSearch }) {
+  const [search, setSearch] = useState(initialSearch);
   const [page, setPage] = useState(1);
 
   const { data: games, isLoading: loading } = useGames({ search, page });

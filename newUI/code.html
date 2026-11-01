@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Gamer's Nest</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed": "#002109", "on-tertiary": "#003915", "outline-variant": "#4a4455", "on-secondary-fixed-variant": "#91002d", "tertiary-fixed-dim": "#4ae176", "on-primary-container": "#ede0ff", "on-tertiary-container": "#84ff9c", "on-primary-fixed-variant": "#5a00c6", "primary-fixed": "#eaddff", "background": "#0f131d", "inverse-surface": "#dfe2f1", "surface-bright": "#353944", "on-secondary": "#67001e", "surface-container-highest": "#313540", "secondary-fixed-dim": "#ffb2b8", "on-surface-variant": "#ccc3d8", "on-error-container": "#ffdad6", "surface-tint": "#d2bbff", "on-background": "#dfe2f1", "on-surface": "#dfe2f1", "error-container": "#93000a", "surface-container": "#1c1f2a", "surface-container-lowest": "#0a0e18", "tertiary": "#4ae176", "on-secondary-fixed": "#40000f", "primary-container": "#7c3aed", "primary": "#d2bbff", "inverse-primary": "#732ee4", "surface-container-high": "#262a35", "secondary-fixed": "#ffdadb", "surface-container-low": "#171b26", "on-primary-fixed": "#25005a", "on-primary": "#3f008e", "inverse-on-surface": "#2c303b", "secondary-container": "#ac0037", "secondary": "#ffb2b8", "outline": "#958da1", "surface": "#0f131d", "on-tertiary-fixed-variant": "#005321", "error": "#ffb4ab", "primary-fixed-dim": "#d2bbff", "surface-dim": "#0f131d", "tertiary-fixed": "#6bff8f", "on-secondary-container": "#ffb7bc", "surface-variant": "#313540", "on-error": "#690005", "tertiary-container": "#007733" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-md": "1rem", "margin": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "space-xl": "2.5rem" }, "fontFamily": { "label-md": ["Outfit"], "headline-xl": ["Space Grotesk"], "body-sm": ["Outfit"], "display-hero": ["Space Grotesk"], "code-metric": ["Space Grotesk"], "body-md": ["Outfit"], "label-sm": ["Outfit"], "label-lg": ["Outfit"], "headline-md": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "headline-xl-mobile": ["Space Grotesk"], "display-hero-mobile": ["Space Grotesk"], "body-lg": ["Outfit"] }, "fontSize": { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "code-metric": ["14px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0", "fontWeight": "600" }], "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-low/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-20 max-w-[1440px] mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-lg shrink-0"><a class="flex items-center gap-space-sm" data-path="home" href="#"><img alt="Gamer's Nest Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_hXIVNsoE4ejNL6IwAj2Cuap9LhywDmEudM5xKhbrAKBcedjIauRN5UYGsr5-O9ZBzgbiNN1wh6xzFzjKcEdgLpb43NpEA_LtJHJDV2fujtQoNI-szpiDxvhmtii16NGEVWJI5gfRZV2ocYj0XtA1VHb6aZpVl6U4rOWN7cmG2ejlk94XYi2Bv5gBnDOKUb_NM2Crq9KwHbLuQQqh2Fhe6OCCHqgMoi94MxwUoOQf"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight uppercase">Gamer’s Nest</span></a><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container"><a aria-current="page" class="px-space-sm py-space-xs rounded-lg font-label-lg transition-all bg-primary-container text-on-primary-container" data-path="home" href="#">الرئيسية</a><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="games" href="#">تصفح الألعاب</a><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="bestsellers" href="#">الأكثر مبيعاً</a><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="hardware" href="#">الأجهزة</a><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="accessories" href="#">الإكسسوارات</a><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="support" href="#">الدعم</a></nav></div><div class="flex-1 max-w-xl mx-space-md hidden md:block"><div class="relative flex items-center bg-surface-container px-space-md py-space-xs rounded-lg shadow-inner group focus-within:ring-2 focus-within:ring-primary-container"><span class="material-symbols-outlined text-outline ml-space-sm">search</span><input class="w-full bg-transparent border-0 outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline" placeholder="ابحث عن لعبة، جهاز، أو كود رقمي..." type="text"/><span class="font-code-metric text-code-metric text-on-surface-variant bg-surface-container-high px-space-xs py-0.5 rounded text-xs">Ctrl+K</span></div></div><div class="flex items-center gap-space-md shrink-0"><a class="relative p-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center" data-path="wishlist" href="#"><span class="material-symbols-outlined">favorite</span><span class="absolute top-1 left-1 w-2 h-2 bg-secondary rounded-full ring-2 ring-surface-container-low"></span></a><a class="relative p-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center" data-path="cart" href="#"><span class="material-symbols-outlined">shopping_cart</span><span class="absolute -top-1 -right-1 bg-primary-container text-on-primary-container font-label-sm text-label-sm w-5 h-5 rounded-full flex items-center justify-center shadow-lg">3</span></a><div class="h-6 w-px bg-surface-container-highest mx-space-xs"></div><a class="flex items-center gap-space-sm p-1 rounded-full hover:bg-surface-container transition-colors" data-path="user-profile" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYEUP_lLYRl2yqBfZcBtn-xYJkmVdLDCVdm52wV06jh8EfcK94uIFoMyLu-GTpLJj6M6uDZcFtJLOGFx2f1t7x-5AhOg1UpVzEVj438rLI9x_vFtZxG8u6K9oxK-cffCCKsYtW0IBuJS0LwMiV_1-fQkPVMK5jPKCZD8dwPPCrKpUz1Gm0zX_lvsmJKvSJatvSbKuD8p_p66m9jzazKYgGHkE8q3AD7nlvSmf14Bjh"/></a></div></div></header><main class="w-full pt-20 bg-background flex-1"><div class="flex flex-col w-full">
+<!-- 1. HERO SHOWCASE SLIDER / BANNER -->
+<section class="relative w-full overflow-hidden bg-surface-container-lowest">
+<!-- Ambient Violet Glow Accent behind the Hero -->
+<div class="absolute -top-24 right-1/4 w-[600px] h-[500px] bg-primary-container/20 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute top-1/2 left-4 w-96 h-96 bg-secondary-container/15 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-margin py-space-xl relative z-10">
+<!-- Main Slide Wrapper -->
+<div class="relative w-full rounded-xl overflow-hidden shadow-2xl bg-surface-container-low min-h-[580px] flex flex-col justify-end">
+<!-- Background Art with Gradients -->
+<div class="absolute inset-0 bg-cover bg-center transition-all duration-700 transform scale-105" data-alt="Futuristic sci-fi cyberpunk open world city at night with towering holographic skyscrapers, neon rain reflections, sleek hover vehicles, and high-tech armored protagonist overlooking the metropolis in deep obsidian slate and electric violet hues with sharp atmospheric lighting." id="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGDzUTXthAooHa1ptP371aSWU96521996RZcCCzaPNEK0moocX8kx20kmVPfm2mfUPkWqHKnqZ0IiB57fGcIs3GJIN3hMmBBftIKbdVbpQNWknQq0EC3ZmXy7w8yl1u4HsVlRyLRMXI4QOoyhiWQMC1p2Pz54JONSzBr1z-QSclKpF-9i1S3nkolzsM_J6X8wjJFxQ3cdenz1ud1-j8eJytbTlu48P4R6FnW8Y6IFi')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/90 via-surface-container-lowest/40 to-transparent"></div>
+<!-- Hero Content Layer -->
+<div class="relative z-10 p-space-xl flex flex-col justify-between h-full gap-space-xl">
+<!-- Top Badges & Meta -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="bg-secondary-container text-white font-headline-sm text-headline-sm px-space-md py-1 rounded shadow-lg uppercase tracking-wider">خصم حصري -35%</span>
+<div class="flex items-center gap-space-xs bg-surface-container-high/90 backdrop-blur-md px-space-md py-1 rounded">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary -mr-3"></span>
+<span class="font-label-md text-label-md text-tertiary">متاح الآن • تسليم رقمي فوري</span>
+</div>
+</div>
+<!-- Platform indicators in frosted style -->
+<div class="flex items-center gap-space-xs bg-surface-container/70 backdrop-blur-md px-space-md py-1 rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant">المنصات المعتمدة:</span>
+<span class="font-code-metric text-code-metric text-on-surface px-1 bg-surface-container-highest rounded">PC Steam</span>
+<span class="font-code-metric text-code-metric text-on-surface px-1 bg-surface-container-highest rounded">PS5</span>
+<span class="font-code-metric text-code-metric text-on-surface px-1 bg-surface-container-highest rounded">Xbox X|S</span>
+</div>
+</div>
+<!-- Central Title & Core Pitch -->
+<div class="max-w-2xl flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs text-primary font-label-lg text-label-lg tracking-wide uppercase">
+<span class="material-symbols-outlined text-primary text-sm">stars</span>
+<span>الإصدار الأسطوري المرتقب للعام 2025</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight leading-none drop-shadow-md">
+              Cyber Horizon: 2088
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              العالم المفتوح القادم ينتظرك — تقمص دور القرصان الهجين في شوارع نيو-طوكيو المعزولة. مفتاح رسمي مفعل مع ضمان تسليم فوري لحسابك في أقل من دقيقة.
+            </p>
+<!-- Price Block & CTAs -->
+<div class="flex flex-wrap items-center gap-space-lg pt-space-sm">
+<div class="flex items-baseline gap-space-sm bg-surface-container/80 backdrop-blur-md px-space-md py-space-xs rounded-lg">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">$44.99</span>
+<span class="font-body-md text-body-md text-outline line-through">$69.99</span>
+<span class="font-label-sm text-label-sm text-tertiary mr-1 font-semibold">وفر $25.00</span>
+</div>
+<div class="flex items-center gap-space-md">
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white font-label-lg text-label-lg px-space-xl py-space-md rounded-lg shadow-[0_0_24px_-4px_rgba(124,58,237,0.65)] hover:shadow-[0_0_32px_0px_rgba(124,58,237,0.8)] active:scale-95 transition-all flex items-center gap-space-sm">
+<span class="material-symbols-outlined">bolt</span>
+<span>اشترِ الآن بمفتاح فوري</span>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg px-space-lg py-space-md rounded-lg shadow-sm hover:text-primary transition-all flex items-center gap-space-sm">
+<span class="material-symbols-outlined">play_circle</span>
+<span>مشاهدة العرض التشويقي</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Switcher Bar with Thumbnails -->
+<div class="pt-space-md bg-surface-container-lowest/80 backdrop-blur-lg -mx-space-xl -mb-space-xl px-space-xl py-space-md flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md overflow-x-auto py-1">
+<!-- Active Card Preview -->
+<button class="flex items-center gap-space-sm p-1.5 rounded-lg bg-surface-container-high text-right min-w-[210px] text-on-surface transition-all">
+<img class="w-12 h-12 rounded object-cover" data-alt="High tech digital cybernetic helmet glowing neon purple from game teaser art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBoOSJ_KK-OiyiiQpy5ZbCA2N1UVLmgfzuqREh5eUmmaS5ziyg5n6isxP-g6nsn_FyNEzhkoMKI1AbW3WktXEyct2LiE6SLB2DYYVq_kw8SFMBmMwGTGm7eFToxdSABTvN2FDoQRL8unvUqGjZ9cPOUsDepQUk4wAP40fPPlPovHRN56ikCkGpIWMETSgVUFYTPIh8vhv2V97BGRynohHfj7c37Q_uH6DhsANHojhr"/>
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Cyber Horizon: 2088</span>
+<span class="font-body-sm text-body-sm text-secondary font-semibold">$44.99 (-35%)</span>
+</div>
+</button>
+<!-- Upcoming 2 -->
+<button class="flex items-center gap-space-sm p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-right min-w-[210px] text-on-surface-variant transition-all">
+<img class="w-12 h-12 rounded object-cover" data-alt="Dark fantasy gothic kingdom ruins covered in spectral golden tree embers Elden Ring style key visual" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLcD2W1_UmL7HU5RWyxS3Xp4WDR3xgMOeN7xFjYkwo7ydoGXlL5IT5P1rrB7M-kF5prLB-hgNqsShGJFZUmR77Aa7d6imKlNhtoZctpisnF0LGPnSC-8BdtWBgokJEWbM4TZk8XmVOO0f5-5Qgz46i54A5VLYClcZkjkKlQX9Tj3nXyoKk1SjnSZncZDIpbvpx_22OqKh8nx1KDNIcIKUTdRnB57cIN-HW3rcbjzei"/>
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Shadow of the Erdtree</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">$39.99</span>
+</div>
+</button>
+<!-- Upcoming 3 -->
+<button class="flex items-center gap-space-sm p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-right min-w-[210px] text-on-surface-variant transition-all">
+<img class="w-12 h-12 rounded object-cover" data-alt="Deep space nebula exploration starship cockpit entering warp speed with stellar dust" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSx9ADROEivZkRg7E0IF3Mq1FfgsC_W8oqA79zcX0l3PCWzB6KFRFLFgsZIANDeR-APoabTI-j3tu2s0LJuVCu0SWstGSlQraZFlHvLEWe-t7S8Z0ahfelPKYpCLRVFbh5AHm9g4b4IZYtvur69C_hYqvj8Qj9diGaz_B9ygARLzTQldavsA0K9PZf58XqTv3b0qRXRcnppJwYrQMD6UaRvrKC4t-wsqbLGGrINPEo"/>
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Starfield Odyssey Pass</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">$29.99</span>
+</div>
+</button>
+<!-- Upcoming 4 -->
+<button class="flex items-center gap-space-sm p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-right min-w-[210px] text-on-surface-variant transition-all">
+<img class="w-12 h-12 rounded object-cover" data-alt="Professional football soccer player celebrating under stadium floodlights with motion blur effects" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMgU4Czf0CcwaoFb_lUYyfEW9kAiWve_6UcoylkUCE5xNvrT_Euz1ar8vk1rESPuK0qoAWnoVc9XexJ9K4CZdmOn77iayYI1RehDq3v9FxsTYvAjx77VMbwuFBCsRS8O0KBUgsUGDwqtx-AqGxRbJFBulf1_X0CO5CIhWd7GjxKJIIqDAK8QrRrOscx__DLh6EfidVOJJ9kRFr1UhiuKBtQAVqakk6qQYXlFErM2OL"/>
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">EA SPORTS FC 25</span>
+<span class="font-body-sm text-body-sm text-secondary font-semibold">$52.00 (-20%)</span>
+</div>
+</button>
+</div>
+<!-- Slider Control indicators -->
+<div class="flex items-center gap-space-sm">
+<span class="font-code-metric text-code-metric text-on-surface-variant">01 / 04</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-highest text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-highest text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. QUICK PLATFORM SELECTOR BAR -->
+<section class="w-full bg-surface py-space-lg">
+<div class="max-w-[1440px] mx-auto px-margin">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<!-- PC Gaming Chip -->
+<a class="group bg-surface-container hover:bg-surface-container-high p-space-md rounded-xl transition-all shadow-md hover:-translate-y-1 flex items-center justify-between" href="#">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high group-hover:bg-primary-container/20 text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-2xl">desktop_windows</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors">PC Gaming</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Steam, Epic, EA Play</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_back</span>
+</a>
+<!-- PS5 Chip -->
+<a class="group bg-surface-container hover:bg-surface-container-high p-space-md rounded-xl transition-all shadow-md hover:-translate-y-1 flex items-center justify-between" href="#">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high group-hover:bg-primary-container/20 text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-2xl">sports_esports</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors">PlayStation 5</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">بطاقات PSN وألعاب رقمية</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_back</span>
+</a>
+<!-- Xbox Chip -->
+<a class="group bg-surface-container hover:bg-surface-container-high p-space-md rounded-xl transition-all shadow-md hover:-translate-y-1 flex items-center justify-between" href="#">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high group-hover:bg-tertiary-container/30 text-tertiary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-2xl">gamepad</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-tertiary transition-colors">Xbox Series X|S</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Game Pass Ultimate وأكواد</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-tertiary transition-colors">arrow_back</span>
+</a>
+<!-- Nintendo Chip -->
+<a class="group bg-surface-container hover:bg-surface-container-high p-space-md rounded-xl transition-all shadow-md hover:-translate-y-1 flex items-center justify-between" href="#">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high group-hover:bg-secondary-container/20 text-secondary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-2xl">toys</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-secondary transition-colors">Nintendo Switch</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">eShop وحصريات نينتندو</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">arrow_back</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 3. FLASH DEALS CAROUSEL / GRID -->
+<section class="w-full py-space-xl bg-surface-container-lowest relative overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-margin">
+<!-- Section Header with Flash Timer -->
+<div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-space-md mb-space-xl">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm text-secondary font-label-lg text-label-lg font-bold">
+<span class="material-symbols-outlined text-secondary animate-bounce">local_fire_department</span>
+<span>عروض جنونية لوقت محدود جداً</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface font-bold">العروض والخصومات الخاطفة (Flash Deals)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">مفاتيح رقمية رسمية معتمدة بأسعار لا تتكرر حتى نفاد الكمية المخصصة</p>
+</div>
+<!-- Live Countdown Widget -->
+<div class="flex items-center gap-space-sm bg-surface-container px-space-lg py-space-sm rounded-xl shadow-lg">
+<span class="material-symbols-outlined text-secondary text-xl">timer</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">ينتهي خلال:</span>
+<div class="flex items-center gap-1 font-code-metric text-headline-sm text-secondary font-bold" id="flash-clock">
+<span class="bg-surface-container-high px-2 py-0.5 rounded">08</span>
+<span>:</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded">42</span>
+<span>:</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded">15</span>
+</div>
+</div>
+</div>
+<!-- 4 High Performance Flash Deal Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Deal Card 1 -->
+<div class="group bg-surface-container rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Dark Souls gothic dark knight warrior with burning greatsword standing in castle ruins ash battlefield hyper realistic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJyqv-nCPbBhKZzRc_by_m9g6eUBUt5q5LR1rDy_rJ-kGiAy-Q8K6ntOr1CPOVtjoej_CEV15APm2OAO2yNkZ8ze2lvC8tVyNzWdhJKyQLmpFaAt9j9fxU18PNflVaFk37wwQVS2shKwZYR3BCApj_xAnmtc5-vRSjMBdKW9pHHg3VlBb_YAHb9qvFiVA7jZSh04oOrIeDr5Cj-dpbQ-1nfT1EmSGZssmIk32ez4cv"/>
+<!-- Overlays -->
+<span class="absolute top-2 right-2 bg-secondary-container text-white font-headline-sm text-headline-sm font-bold px-space-sm py-0.5 rounded shadow">
+              -60%
+            </span>
+<button class="absolute top-2 left-2 w-8 h-8 rounded-full bg-surface-container/80 backdrop-blur-md hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+<div class="absolute bottom-2 right-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded text-[11px] font-label-sm text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>تسليم فوري (متبقي 4 قطع)</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase bg-surface-container-high px-1.5 py-0.5 rounded">Steam • PC Global</span>
+<div class="flex items-center gap-0.5 text-secondary-container">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-xs text-on-surface font-semibold">4.9</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                Lords of the Fallen: Deluxe
+              </h3>
+</div>
+<div class="flex items-center justify-between pt-space-sm">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$69.99</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$27.99</span>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white font-label-md text-label-md px-space-md py-space-sm rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-base">shopping_bag</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="group bg-surface-container rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="High speed futuristic racing car drifting around a glowing neon city night circuit with sparks and motion speed blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8ZWKi0r1Ju8tgicPACgiHEf0BYCO06VpsWlqOT-S0nw0Etnxmw9g6e2tW-mygkGSaZc8FBk_cj6S3IOuuOajsoK8a2zYAILKlyh3NLNBqHuisXLroFbj01h1GCdLGY1g6TD3LQuZ-jkUVxLLnJxwZ-t9HcLjebUd0KYoLSVXSxrcAzxHXeS6Q8p5DmgJAzPK2TMFacnTWQZy2ixFlQVUFPBv_2_gpZCjLCJlfalnF"/>
+<span class="absolute top-2 right-2 bg-secondary-container text-white font-headline-sm text-headline-sm font-bold px-space-sm py-0.5 rounded shadow">
+              -50%
+            </span>
+<button class="absolute top-2 left-2 w-8 h-8 rounded-full bg-surface-container/80 backdrop-blur-md hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+<div class="absolute bottom-2 right-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded text-[11px] font-label-sm text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>تسليم فوري (متبقي 11 قطعة)</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase bg-surface-container-high px-1.5 py-0.5 rounded">PS5 • Digital Code</span>
+<div class="flex items-center gap-0.5 text-secondary-container">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-xs text-on-surface font-semibold">4.8</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                Forza Apex Horizon Ultimate
+              </h3>
+</div>
+<div class="flex items-center justify-between pt-space-sm">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$59.99</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$29.99</span>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white font-label-md text-label-md px-space-md py-space-sm rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-base">shopping_bag</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deal Card 3 -->
+<div class="group bg-surface-container rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Tactical modern military special forces operator aiming customized assault rifle with holographic scope in urban combat zone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwC1q6MyoCuVGhW5uIhiAxN3VTIEDAB5tgiVAEUXc6ykJf1xACvuZ_-3PBIpWLMXS4--tlvMyK21zVX4qgdEDL1VByp2IdW5OINEyp6T33m0i3Ifi9XGn9_8E7t8rXF7-T7oDe6L_RDTNyUocN7sOWxTgpVqABSGGSKwIkQMmx1cEjo8CQVbBfOh9vR_AFHYJ55MtuDLP4P1YDVB7otKUwK8dlTU7CF9jtuYRva1R5"/>
+<span class="absolute top-2 right-2 bg-secondary-container text-white font-headline-sm text-headline-sm font-bold px-space-sm py-0.5 rounded shadow">
+              -45%
+            </span>
+<button class="absolute top-2 left-2 w-8 h-8 rounded-full bg-surface-container/80 backdrop-blur-md hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+<div class="absolute bottom-2 right-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded text-[11px] font-label-sm text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>تسليم فوري (متبقي 2 فقط)</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase bg-surface-container-high px-1.5 py-0.5 rounded">Xbox Series X|S</span>
+<div class="flex items-center gap-0.5 text-secondary-container">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-xs text-on-surface font-semibold">4.7</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                Ghost Recon: Zero Point
+              </h3>
+</div>
+<div class="flex items-center justify-between pt-space-sm">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$49.99</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$27.49</span>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white font-label-md text-label-md px-space-md py-space-sm rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-base">shopping_bag</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deal Card 4 -->
+<div class="group bg-surface-container rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Charming vibrant indie adventure game with a cute hooded wanderer in a glowing bioluminescent mystical forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY8t3ktH1VoMSGTpxKKMQ021lrl3sARE_EHLSayTuQG_mUb9fc0zPyB8Tp8A8j5QRFbdlfFBX661SSj82L30aXLfxNQqmYZztJRn1yUPWHeMjh2pMGrsvVWr-b1wQF9rnpvTzEBZqMRjGztcctKSyDqIxVPRd23YR4n-ASQaRLlIGz4ilKqkRQsGnL28fv9x1caWI-ZH5d6fA2UwjXAsEsdCZx6yD5hToNXosSTUIe"/>
+<span class="absolute top-2 right-2 bg-secondary-container text-white font-headline-sm text-headline-sm font-bold px-space-sm py-0.5 rounded shadow">
+              -70%
+            </span>
+<button class="absolute top-2 left-2 w-8 h-8 rounded-full bg-surface-container/80 backdrop-blur-md hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+<div class="absolute bottom-2 right-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded text-[11px] font-label-sm text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>تسليم فوري (متبقي 20+ قطعة)</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase bg-surface-container-high px-1.5 py-0.5 rounded">PC &amp; Switch • Global</span>
+<div class="flex items-center gap-0.5 text-secondary-container">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-xs text-on-surface font-semibold">4.9</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                Ember Tale: Spirits Beyond
+              </h3>
+</div>
+<div class="flex items-center justify-between pt-space-sm">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$24.99</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$7.49</span>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white font-label-md text-label-md px-space-md py-space-sm rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-base">shopping_bag</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. TOP BESTSELLERS THIS WEEK -->
+<section class="w-full py-space-xl bg-surface">
+<div class="max-w-[1440px] mx-auto px-margin">
+<!-- Section Title & Tabs -->
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md mb-space-xl">
+<div>
+<span class="font-label-md text-label-md text-primary uppercase font-bold tracking-wider">اختيارات اللاعبين الموثوقة</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface font-bold">الأكثر مبيعاً هذا الأسبوع (Top Bestsellers)</h2>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-1 bg-surface-container p-1 rounded-xl">
+<button class="bg-primary-container text-white px-space-md py-1.5 rounded-lg font-label-md text-label-md shadow-sm">الكل</button>
+<button class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high px-space-md py-1.5 rounded-lg font-label-md text-label-md transition-colors">ألعاب الأكشن</button>
+<button class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high px-space-md py-1.5 rounded-lg font-label-md text-label-md transition-colors">ألعاب RPG</button>
+<button class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high px-space-md py-1.5 rounded-lg font-label-md text-label-md transition-colors">ألعاب شوتر</button>
+<button class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high px-space-md py-1.5 rounded-lg font-label-md text-label-md transition-colors">ألعاب إندي</button>
+</div>
+</div>
+<!-- 4 Rich Featured Game Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Bestseller 1 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-all p-space-md rounded-xl flex flex-col justify-between shadow-md group">
+<div>
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-highest mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dark fantasy open world Elden Ring scenery with grand golden Erd-tree illuminating towering ruined stone spires at twilight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-lQQfn42Q5Dc1-TWQhAvI6G706JUGn2dL8fDWXvKyxFbBQG1B4uTwaSFTltJGOp8MOMh_w8v5XFw-dP0xxPB_0bgrxI5yY8RsDKY8pbB_L8unBWGpSdeccI7v0TJLs5vOu9I89atIOFviEgPSfXVfDhWNdR3n5zQamgjNrcYeqtCLFCGpSEH98Db3pgFXCg_j4kVZx-pU9iEWB1aBcY8cbfZfBuu6P9ffZKj2mJkH"/>
+<span class="absolute top-2 right-2 bg-surface-container-lowest/90 text-primary font-code-metric text-xs px-2 py-0.5 rounded font-bold">#1 في المبيعات</span>
+</div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 py-0.5 rounded">Action RPG</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 py-0.5 rounded">Open World</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs group-hover:text-primary transition-colors">
+              Elden Ring: Shadow of the Erdtree Edition
+            </h3>
+<div class="flex items-center gap-space-xs text-tertiary font-label-sm text-label-sm mb-space-md">
+<span class="material-symbols-outlined text-xs">verified</span>
+<span>تسليم فوري للمفتاح • حساب رسمي مفعل</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm bg-surface-container-low p-space-sm rounded-lg">
+<div>
+<span class="font-body-sm text-body-sm text-outline">السعر الحالي:</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$59.99</div>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white p-2 rounded-lg transition-transform active:scale-90 shadow-md">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Bestseller 2 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-all p-space-md rounded-xl flex flex-col justify-between shadow-md group">
+<div>
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-highest mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Norse mythology god of war with frost axe and son in snow covered mystical Midgard realm cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ59Nd4eYUFCGM_ElvNSOOgeZFC9-m6qCWjErzbRRyYT44wlXLCEFMRjhbaGHKg_2MTsUNgT-F0QQcLzfUfafP59HSrNfoS19MjLVlj-gdeROJe45xwXQxEuJjTDE1843kHP78GaRf3E5HHjFnotpnWoTAJGqXe4_-Y2ThiaWSGWv0gBnfecsN63aOxEd9GoeNWlz1DNkak_f1q6_akiFlzzYUd89NZ_7lGCYMRryY"/>
+<span class="absolute top-2 right-2 bg-surface-container-lowest/90 text-primary font-code-metric text-xs px-2 py-0.5 rounded font-bold">#2 في المبيعات</span>
+</div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 py-0.5 rounded">Action Adventure</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 py-0.5 rounded">PS5 &amp; PC</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs group-hover:text-primary transition-colors">
+              God of War: Ragnarök Digital Deluxe
+            </h3>
+<div class="flex items-center gap-space-xs text-tertiary font-label-sm text-label-sm mb-space-md">
+<span class="material-symbols-outlined text-xs">verified</span>
+<span>تسليم فوري للمفتاح • حساب رسمي مفعل</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm bg-surface-container-low p-space-sm rounded-lg">
+<div>
+<span class="font-body-sm text-body-sm text-outline">السعر الحالي:</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$49.99</div>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white p-2 rounded-lg transition-transform active:scale-90 shadow-md">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Bestseller 3 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-all p-space-md rounded-xl flex flex-col justify-between shadow-md group">
+<div>
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-highest mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Tactical sci-fi space soldier hero standing on alien planet with swarm of hostile insect machines in background Helldivers atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT0uvblua3p3XLXhuLCpxcdFvxGLP0MjLmI4Gs0HGIyb3QLaDdE6DEyQKO66W_JoFrMV7BmZyOjbprBD2KvhsAkpGWGufG_R8ZOSn-SRIIxw5cpS4IzPyYTeuo6B-dhVxLY9hXehs5dHTMY1B9TFagF5AZnvSdOpctifxX680IuQqGDs_n3WUruvG724YwyBqOw70CmNEXGbBKcH9MCSPYoSYoAFdK_eWlRuLlC2ev"/>
+<span class="absolute top-2 right-2 bg-surface-container-lowest/90 text-primary font-code-metric text-xs px-2 py-0.5 rounded font-bold">#3 في المبيعات</span>
+</div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 py-0.5 rounded">Co-op Shooter</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 py-0.5 rounded">Online Multiplayer</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs group-hover:text-primary transition-colors">
+              Galactic Vanguard 2: Liberty Edition
+            </h3>
+<div class="flex items-center gap-space-xs text-tertiary font-label-sm text-label-sm mb-space-md">
+<span class="material-symbols-outlined text-xs">verified</span>
+<span>تسليم فوري للمفتاح • كود عالمي Global</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm bg-surface-container-low p-space-sm rounded-lg">
+<div>
+<span class="font-body-sm text-body-sm text-outline">السعر الحالي:</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$39.99</div>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white p-2 rounded-lg transition-transform active:scale-90 shadow-md">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Bestseller 4 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-all p-space-md rounded-xl flex flex-col justify-between shadow-md group">
+<div>
+<div class="relative aspect-video rounded-lg overflow-hidden bg-surface-container-highest mb-space-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High tech robotic superhero swinging between glass skyscrapers at sunset with electric energy arcs Miles Morales visual style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL72wPOiVxcfTJTBRaim5jkdVsczPa3wETqIpQt_gRPXUMq8KVcnMozD8aSy9-BT7Drwx4wftaBqYdkBfNcXTDt8a6qcss534Dpas8640qpJFhF6QmzmQ8eSAgJiLl7JlcbnvhbfeP5Zm-ilnKpEZC43VAPi_N5roHMx5cfEvNnYuoLT-4TzSwrnoUmkJIOUZCLF8SRgx7lpn1V9M_H18XPUU3ulCsX4HrYsdorASC"/>
+<span class="absolute top-2 right-2 bg-surface-container-lowest/90 text-primary font-code-metric text-xs px-2 py-0.5 rounded font-bold">#4 في المبيعات</span>
+</div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 py-0.5 rounded">Open World</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 py-0.5 rounded">Superhero</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs group-hover:text-primary transition-colors">
+              Neo City: Web of Steel 2
+            </h3>
+<div class="flex items-center gap-space-xs text-tertiary font-label-sm text-label-sm mb-space-md">
+<span class="material-symbols-outlined text-xs">verified</span>
+<span>تسليم فوري للمفتاح • حساب رسمي مفعل</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-sm bg-surface-container-low p-space-sm rounded-lg">
+<div>
+<span class="font-body-sm text-body-sm text-outline">السعر الحالي:</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$44.00</div>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white p-2 rounded-lg transition-transform active:scale-90 shadow-md">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. HARDWARE & GEAR HIGHLIGHTS (BENTO SPLIT) -->
+<section class="w-full py-space-xl bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto px-margin">
+<div class="flex flex-col gap-space-xs mb-space-xl">
+<span class="font-label-md text-label-md text-primary uppercase font-bold tracking-wider">أجهزة وعتاد النخبة الاحترافي</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface font-bold">تصنيفات الأجهزة والإكسسوارات (Hardware &amp; Gear)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">ارتقِ بأدائك التنافسي مع معدات الجيمنج المعتمدة دولياً وضمان محلي شامل</p>
+</div>
+<!-- Bento Grid Split -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Main Hardware Showcase (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container rounded-xl overflow-hidden relative min-h-[380px] p-space-xl flex flex-col justify-end group shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="High-end pro esports wireless controller with magnetic thumbsticks, matte deep dark slate texture, subtle electric violet RGB glowing accents, floating in studio dark background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB9iyQ-ZVUZ8tt11HVDbnfpCuCA1ql5pCYypKYMetQaR9Xix_PlKrfwnBoaSEIpgRnzwY5rDWDkEyCEI7kYI3jbOKD9m1AU3X4uSZ8_U0aAXAI10xhBnyPGYAF1B2CyFKTZ8HDwvlUPNhleA3-EmSxMUPyeQOUIay17vjNaxY2vL2M3p2Njo4DA1QYtbbWomWrjMCb9IfQrSXcTqh8E8hteNackORCtIhBOOhsuJjeS')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-transparent"></div>
+<div class="relative z-10 max-w-md flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest bg-surface-container-highest px-2 py-0.5 rounded w-fit">جديد ومميز</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-bold">أذرع التحكم الاحترافية (Pro Controllers)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">أزرار خلفية قابلة للبرمجة، استجابة لحظية 0.5ms، ومقابض مقاومة للانزلاق للبطولات الرسمية.</p>
+<div class="pt-space-sm">
+<a class="inline-flex items-center gap-space-sm bg-primary-container hover:bg-primary-fixed-variant text-white font-label-lg text-label-lg px-space-lg py-space-sm rounded-lg shadow-md transition-all" href="#">
+<span>تصفح أجهزة التحكم</span>
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+</a>
+</div>
+</div>
+</div>
+<!-- 2 Stacked Hardware Highlights (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Item 1: Headsets -->
+<div class="bg-surface-container rounded-xl overflow-hidden relative p-space-lg flex flex-col justify-end min-h-[180px] group shadow-lg">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Ultra luxury premium gaming wireless over-ear headset with glowing purple earcups resting on metallic minimalist stand" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaz_GVUGoug84V13XQANh4wU1hPVA2A7P6pZf6mj0ka8FbrfoEe7O48Za6ENRzAhfIisjtYOhxHYhGr0MNF8IGhlwC8Ox2PhuFbQJH2YQTloE1H81xEV_FdaG0n5TSwOxOSq6Yg9TVkCHJPWZf4M7lwUMNTKFfrDzaij6SSifGwfkheMN4b7a3sCfaohFKWlJEUjEPWXRkCXH0gCuf5gO_nOdbt1ti-HG78QbMN-Zn')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/70 to-transparent"></div>
+<div class="relative z-10 flex items-end justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface font-bold">سماعات محيطية لاسلكية</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">صوت مكاني 7.1 مع إلغاء ضوضاء نشط</p>
+</div>
+<a class="w-10 h-10 rounded-lg bg-surface-container-high hover:bg-primary-container text-on-surface flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+</div>
+</div>
+<!-- Item 2: 240Hz Monitors -->
+<div class="bg-surface-container rounded-xl overflow-hidden relative p-space-lg flex flex-col justify-end min-h-[180px] group shadow-lg">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Curved fast-IPS 240Hz OLED gaming monitor displaying vibrant cyberpunk gameplay on clean desk setup with RGB strip lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBepByCwL1-LQFFbsz1QVRCFcIVTXnIzgmXguiRTfFg8kCNtZUF1SnU1N9zLdTvCOAjwIwA0MgQzN4Q6a7IWfitIz8RoSI-e-jwsg9yf3lsgW0Ad4L7YQYap4XtBybo56XEkS4feWd5dt7OCVL72Z8aEAlmFanlfmtU0fQgwZl-pIKvqQtmjPnKqicLpKFrcGDHlyeRRqsoo9Al5HAGrXyaIE0BsQCqTMJMNhnji1cL')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/70 to-transparent"></div>
+<div class="relative z-10 flex items-end justify-between">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface font-bold">شاشات OLED &amp; 240Hz</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">معدلات تحديث فائقة للألعاب التنافسية</p>
+</div>
+<a class="w-10 h-10 rounded-lg bg-surface-container-high hover:bg-primary-container text-on-surface flex items-center justify-center transition-colors" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. WHY GAMER'S NEST? (TRUST & PILLARS) -->
+<section class="w-full py-space-xl bg-surface">
+<div class="max-w-[1440px] mx-auto px-margin">
+<div class="text-center max-w-xl mx-auto mb-space-xl">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">الأمان والموثوقية أولاً</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface font-bold mt-1">لماذا يختار اللاعبون Gamer’s Nest؟</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">منظومة شراء آمنة صُممت خصيصاً لتمنحك أسرع وصول لمحتواك الرقمي ومعداتك بدون أي تعقيد.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Feature 1 -->
+<div class="bg-surface-container p-space-xl rounded-xl flex flex-col gap-space-md shadow-md hover:-translate-y-1 transition-transform">
+<div class="w-14 h-14 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">تسليم فوري للأكواد</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">توليد وإرسال المفتاح الرقمي إلى بريدك وحسابك مباشرة بمجرد تأكيد الدفع خلال أقل من 10 ثوانٍ.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container p-space-xl rounded-xl flex flex-col gap-space-md shadow-md hover:-translate-y-1 transition-transform">
+<div class="w-14 h-14 rounded-xl bg-tertiary-container/30 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">ضمان المفاتيح 100%</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">جميع الأكواد مصدرها الناشرون الرسميون مباشرة بدون وسطاء، مع ضمان الاستبدال الفوري في حال أي خلل.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container p-space-xl rounded-xl flex flex-col gap-space-md shadow-md hover:-translate-y-1 transition-transform">
+<div class="w-14 h-14 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">headset_mic</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">دعم فني 24/7 للاعبين</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">فريق دعم متفرغ من الجيمرز أنفسهم لمساعدتك في خطوات التفعيل وحل أي استفسار عبر المحادثة المباشرة.</p>
+</div>
+<!-- Feature 4 -->
+<div class="bg-surface-container p-space-xl rounded-xl flex flex-col gap-space-md shadow-md hover:-translate-y-1 transition-transform">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">credit_card</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">طرق دفع محلية آمنة</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">دعم كامل لـ مدى (MADA)، Apple Pay، بطاقات الائتمان، وSTC Pay مع تشفير مصرفي فائق الحماية.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. GAMING NEWSLETTER / CLAN PASS -->
+<section class="w-full py-space-xl bg-surface-container-lowest relative overflow-hidden">
+<!-- Ambient Aura -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/10 via-transparent to-secondary-container/10 pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-margin relative z-10">
+<div class="bg-surface-container rounded-2xl p-space-xl lg:p-14 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-space-xl">
+<div class="max-w-xl flex flex-col gap-space-sm text-right">
+<div class="flex items-center gap-space-xs text-primary font-label-lg text-label-lg font-bold">
+<span class="material-symbols-outlined text-primary text-base">military_tech</span>
+<span>نادي عشيرة Gamer’s Nest VIP</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface font-bold leading-tight">
+            انضم للعشيرة واحصل على <span class="text-secondary">خصم 10%</span> على أول طلب
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            اشترك ليصلك إشعار فوري بأقوى التخفيضات السرية، إطلاق الألعاب الجديدة قبل الجميع، وتوزيعات الهدايا والأكواد المجانية الأسبوعية.
+          </p>
+</div>
+<!-- Form Block -->
+<div class="w-full lg:w-auto flex-1 max-w-md flex flex-col gap-space-xs">
+<div class="flex flex-col sm:flex-row items-stretch gap-space-xs bg-surface-container-low p-1.5 rounded-xl shadow-inner">
+<input class="w-full px-space-md py-space-sm bg-transparent border-0 outline-none text-on-surface font-body-sm text-body-sm placeholder:text-outline text-right" placeholder="أدخل بريدك الإلكتروني لتفعيل الخصم..." type="email"/>
+<button class="bg-primary-container hover:bg-primary-fixed-variant text-white font-label-lg text-label-lg px-space-lg py-space-sm rounded-lg shadow-md shrink-0 transition-all flex items-center justify-center gap-1">
+<span>انضم الآن</span>
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-outline px-space-sm text-right">
+            * لا نرسل رسائل مزعجة إطلاقاً، يمكنك إلغاء الاشتراك بنقرة واحدة في أي وقت.
+          </span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Simple Countdown Timer Micro-interaction for Flash Deals
+  (function initFlashTimer() {
+    let hours = 8;
+    let minutes = 42;
+    let seconds = 15;
+
+    const clockContainer = document.getElementById('flash-clock');
+    if (!clockContainer) return;
+
+    setInterval(() => {
+      if (seconds > 0) {
+        seconds--;
+      } else {
+        seconds = 59;
+        if (minutes > 0) {
+          minutes--;
+        } else {
+          minutes = 59;
+          if (hours > 0) hours--;
+        }
+      }
+
+      const hStr = String(hours).padStart(2, '0');
+      const mStr = String(minutes).padStart(2, '0');
+      const sStr = String(seconds).padStart(2, '0');
+
+      clockContainer.innerHTML = `
+        <span class="bg-surface-container-high px-2 py-0.5 rounded">${hStr}</span>
+        <span>:</span>
+        <span class="bg-surface-container-high px-2 py-0.5 rounded">${mStr}</span>
+        <span>:</span>
+        <span class="bg-surface-container-high px-2 py-0.5 rounded">${sStr}</span>
+      `;
+    }, 1000);
+  })();
+</script></main><footer class="w-full bg-surface-container-low mt-auto"><div class="max-w-[1440px] mx-auto px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-on-surface font-bold">Gamer’s Nest</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">الوجهة الأولى للألعاب الإلكترونية، المفاتيح الرقمية المعتمدة، وأحدث عتاد الجيمنج الاحترافي بتسليم فوري وضمان معتمد.</p><div class="flex items-center gap-space-sm text-tertiary font-label-md text-label-md"><span class="material-symbols-outlined text-tertiary">verified</span><span>ضمان رسمي 100% لجميع المفاتيح والأكواد الرقمية</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">أقسام المتجر</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="games" href="#">جميع الألعاب</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="bestsellers" href="#">الأكثر مبيعاً</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="hardware" href="#">أجهزة الألعاب</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="accessories" href="#">إكسسوارات وبطاقات شحن</a></div><div class="flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">المنصات</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">كمبيوتر (PC Gaming)</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">PlayStation 5</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">Xbox Series X|S</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">Nintendo Switch</span></div><div class="flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">المساعدة والدعم</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="support" href="#">مركز الدعم والمساعدة</a><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">طرق التفعيل والاسترداد</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">سياسة الضمان والاسترجاع</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">تواصل معنا</span></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md bg-surface-container-low"><p class="font-body-sm text-body-sm text-outline">© 2025 Gamer’s Nest. جميع الحقوق محفوظة لمتجر عش الجيمرز.</p><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">MADA</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">VISA</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">MASTERCARD</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">APPLE PAY</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">STC PAY</span></div></div></div></footer></body></html>
