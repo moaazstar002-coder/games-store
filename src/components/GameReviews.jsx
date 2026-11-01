@@ -1,214 +1,91 @@
-import React, { useState } from 'react';
-import { FaStar, FaThumbsUp, FaThumbsDown, FaUser } from 'react-icons/fa';
-import '../styles/components/GameReviews.css';
+import { FaStar } from "react-icons/fa";
 
-
-const mockReviews = [
-  {
-    id: 1,
-    userName: "Ahmed Hassan",
-    avatar: "👨‍💻",
-    rating: 5,
-    date: "2025-12-10",
-    title: "Amazing game!",
-    content: "This is one of the best games I've ever played. The graphics are stunning and the gameplay is incredibly smooth. Highly recommend!",
-    helpful: 45,
-    notHelpful: 3,
-    verified: true
-  },
-  {
-    id: 2,
-    userName: "Sarah Ahmed",
-    avatar: "👩‍🎨",
-    rating: 4,
-    date: "2025-12-08",
-    title: "Great but has some issues",
-    content: "Overall a fantastic game with beautiful visuals. The story is engaging but I encountered a few bugs. Still worth buying!",
-    helpful: 32,
-    notHelpful: 5,
-    verified: true
-  },
-  {
-    id: 3,
-    userName: "Mohamed Ali",
-    avatar: "🎮",
-    rating: 5,
-    date: "2025-12-05",
-    title: "Masterpiece!",
-    content: "Absolutely brilliant! The attention to detail is incredible. Every aspect from sound design to level design is top-notch.",
-    helpful: 67,
-    notHelpful: 2,
-    verified: false
-  },
-  {
-    id: 4,
-    userName: "Fatima Omar",
-    avatar: "🌟",
-    rating: 3,
-    date: "2025-12-03",
-    title: "Good but not great",
-    content: "It's a decent game with some fun moments. However, it feels repetitive after a while. Not bad, but I expected more.",
-    helpful: 18,
-    notHelpful: 12,
-    verified: true
-  },
-  {
-    id: 5,
-    userName: "Khaled Ibrahim",
-    avatar: "⚡",
-    rating: 5,
-    date: "2025-12-01",
-    title: "Best purchase this year!",
-    content: "I've been gaming for 15 years and this is easily in my top 5 games of all time. The multiplayer is addictive and the single player campaign is emotional. 10/10!",
-    helpful: 89,
-    notHelpful: 1,
-    verified: true
-  }
-];
-
-const GameReviews = ({ gameName }) => {
-  const [reviews] = useState(mockReviews);
-  const [sortBy, setSortBy] = useState('helpful'); 
-  const [filterRating, setFilterRating] = useState('all');
-
-  
-  const averageRating = reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length;
-  
-  
-  const ratingDistribution = {
-    5: reviews.filter(r => r.rating === 5).length,
-    4: reviews.filter(r => r.rating === 4).length,
-    3: reviews.filter(r => r.rating === 3).length,
-    2: reviews.filter(r => r.rating === 2).length,
-    1: reviews.filter(r => r.rating === 1).length,
-  };
-
-  
-  const filteredReviews = reviews
-    .filter(r => filterRating === 'all' || r.rating === parseInt(filterRating))
-    .sort((a, b) => {
-      if (sortBy === 'helpful') return (b.helpful - b.notHelpful) - (a.helpful - a.notHelpful);
-      if (sortBy === 'recent') return new Date(b.date) - new Date(a.date);
-      if (sortBy === 'rating') return b.rating - a.rating;
-      return 0;
-    });
-
-  const renderStars = (rating) => {
-    return [...Array(5)].map((_, i) => (
-      <FaStar 
-        key={i} 
-        className={i < rating ? 'star filled' : 'star'} 
-      />
-    ));
-  };
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  };
-
-  return (
-    <div className="game-reviews">
-      <div className="reviews-header">
-        <h2>User Reviews</h2>
-        <p className="reviews-subtitle">See what other gamers think about {gameName}</p>
-      </div>
-
-      
-      <div className="reviews-stats">
-        <div className="average-rating">
-          <div className="rating-number">{averageRating.toFixed(1)}</div>
-          <div className="rating-stars">{renderStars(Math.round(averageRating))}</div>
-          <div className="rating-count">{reviews.length} reviews</div>
-        </div>
-
-        <div className="rating-breakdown">
-          {[5, 4, 3, 2, 1].map(star => (
-            <div key={star} className="rating-bar-container">
-              <span className="star-label">{star} ⭐</span>
-              <div className="rating-bar">
-                <div 
-                  className="rating-bar-fill" 
-                  style={{ width: `${(ratingDistribution[star] / reviews.length) * 100}%` }}
-                />
-              </div>
-              <span className="rating-count-label">{ratingDistribution[star]}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      
-      <div className="reviews-controls">
-        <div className="filter-group">
-          <label>Filter by:</label>
-          <select value={filterRating} onChange={(e) => setFilterRating(e.target.value)}>
-            <option value="all">All Ratings</option>
-            <option value="5">5 Stars</option>
-            <option value="4">4 Stars</option>
-            <option value="3">3 Stars</option>
-            <option value="2">2 Stars</option>
-            <option value="1">1 Star</option>
-          </select>
-        </div>
-
-        <div className="sort-group">
-          <label>Sort by:</label>
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-            <option value="helpful">Most Helpful</option>
-            <option value="recent">Most Recent</option>
-            <option value="rating">Highest Rating</option>
-          </select>
-        </div>
-      </div>
-
-      
-      <div className="reviews-list">
-        {filteredReviews.map(review => (
-          <div key={review.id} className="review-card">
-            <div className="review-header">
-              <div className="reviewer-info">
-                <div className="reviewer-avatar">{review.avatar}</div>
-                <div>
-                  <div className="reviewer-name">
-                    {review.userName}
-                    {review.verified && <span className="verified-badge">✓ Verified Purchase</span>}
-                  </div>
-                  <div className="review-date">{formatDate(review.date)}</div>
-                </div>
-              </div>
-              <div className="review-rating">{renderStars(review.rating)}</div>
-            </div>
-
-            <div className="review-body">
-              <h4 className="review-title">{review.title}</h4>
-              <p className="review-content">{review.content}</p>
-            </div>
-
-            <div className="review-footer">
-              <span className="helpful-text">Was this helpful?</span>
-              <div className="helpful-buttons">
-                <button className="helpful-btn">
-                  <FaThumbsUp />
-                  <span>Yes ({review.helpful})</span>
-                </button>
-                <button className="helpful-btn">
-                  <FaThumbsDown />
-                  <span>No ({review.notHelpful})</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {filteredReviews.length === 0 && (
-        <div className="no-reviews">
-          <p>No reviews found with the selected filters.</p>
-        </div>
-      )}
-    </div>
-  );
+const ratingLabels = {
+  exceptional: "ممتاز",
+  recommended: "موصى به",
+  meh: "متوسط",
+  skip: "لم يعجبني",
 };
 
-export default GameReviews;
+export default function GameReviews({ gameName, rating, ratingCount = 0, ratings = [] }) {
+  const score = Number(rating);
+  const hasScore = Number.isFinite(score) && score > 0;
+  const totalRatings = Number(ratingCount) || ratings.reduce((total, item) => total + (Number(item.count) || 0), 0);
+
+  return (
+    <div>
+      <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p className="mb-1 text-xs font-semibold text-[#D2BBFF]">آراء المجتمع</p>
+          <h2 className="mb-1 text-2xl font-bold text-[#F1F5F9] normal-case sm:text-3xl">
+            مراجعات وآراء اللاعبين
+          </h2>
+          <p className="mb-0 text-xs text-[#AAB2C5]">تقييمات {gameName} من مصدر بيانات الألعاب</p>
+        </div>
+        <button
+          type="button"
+          disabled
+          title="تتوفر إضافة المراجعات بعد ربط نظام الحسابات"
+          className="cursor-not-allowed rounded-lg border border-[#26304A] bg-[#151B2B] px-4 py-2.5 text-xs font-semibold text-[#858DA1]"
+        >
+          أضف مراجعتك وتقييمك
+        </button>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-[minmax(240px,0.75fr)_minmax(0,1.25fr)]">
+        <aside className="rounded-xl border border-[#26304A] bg-[#151B2B] p-5">
+          <div className="mb-5 text-center">
+            <p className="mb-1 font-[Space_Grotesk] text-5xl font-bold text-[#4AE176]">
+              {hasScore ? `${Math.round((score / 5) * 100)}%` : "—"}
+            </p>
+            <div className="mb-2 flex justify-center gap-1 text-sm text-[#FBBF24]" aria-label={hasScore ? `التقييم ${score} من 5` : "لا يوجد تقييم"}>
+              {Array.from({ length: 5 }, (_, index) => (
+                <FaStar key={index} className={index < Math.round(score) ? "" : "text-[#3A3D49]"} aria-hidden="true" />
+              ))}
+            </div>
+            <p className="mb-0 text-xs text-[#AAB2C5]">
+              {totalRatings.toLocaleString("ar")} تقييم من اللاعبين
+            </p>
+          </div>
+
+          {ratings.length > 0 ? (
+            <div className="space-y-3">
+              {ratings.map((item) => {
+                const count = Number(item.count) || 0;
+                const percentage = Number(item.percent)
+                  || (totalRatings > 0 ? (count / totalRatings) * 100 : 0);
+                const label = ratingLabels[item.title] || item.title || "تقييم";
+                return (
+                  <div key={item.id || item.title} className="flex items-center gap-3 text-xs">
+                    <span className="w-24 shrink-0 text-[#AAB2C5]">{label}</span>
+                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#0A0E18]">
+                      <div
+                        className="h-full rounded-full bg-[#4AE176]"
+                        style={{ width: `${Math.min(100, Math.max(0, percentage))}%` }}
+                      />
+                    </div>
+                    <span className="w-10 text-left text-[#858DA1]">{count.toLocaleString("ar")}</span>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="mb-0 text-center text-xs text-[#858DA1]">لا يتوفر توزيع تفصيلي للتقييمات.</p>
+          )}
+        </aside>
+
+        <div className="flex min-h-56 flex-col items-center justify-center rounded-xl border border-[#26304A] bg-[#151B2B] p-6 text-center">
+          <div className="mb-3 grid h-12 w-12 place-items-center rounded-full bg-[#7C3AED]/15 text-[#D2BBFF]">
+            <FaStar aria-hidden="true" />
+          </div>
+          <h3 className="mb-2 text-base font-semibold text-[#F1F5F9] normal-case">
+            المراجعات التفصيلية غير متاحة بعد
+          </h3>
+          <p className="mb-0 max-w-lg text-xs leading-6 text-[#AAB2C5]">
+            يعرض هذا القسم تقييمات اللعبة المتاحة حاليًا. ستظهر مراجعات اللاعبين وإمكانية إضافة تقييم بعد ربط نظام الحسابات والـBackend.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
