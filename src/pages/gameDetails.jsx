@@ -8,13 +8,16 @@ import {
   FaChevronRight,
   FaDesktop,
   FaExpand,
+  FaFilm,
   FaGamepad,
   FaHeart,
+  FaPlay,
   FaShoppingCart,
   FaStar,
   FaTimes,
 } from "react-icons/fa";
 import { useGameDetails } from "../hooks/useGameDetails";
+import { useGameMovies } from "../hooks/useGameMovies";
 import { useWishList } from "../hooks/useWishList";
 import { addItem, removeItem } from "../store/slices/CartSlice";
 import PageTransition from "../components/PageTransition";
@@ -33,15 +36,30 @@ function stripTags(value = "") {
   return typeof value === "string" ? value.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : "";
 }
 
-function getGalleryImages(details) {
+function getGalleryMedia(details, movies = []) {
+  const videos = movies
+    .map((movie) => ({
+      id: `video-${movie.id}`,
+      type: "video",
+      title: movie.name || "فيديو اللعبة",
+      url: movie.data?.max || movie.data?.["480"] || movie.preview,
+      poster: movie.preview,
+    }))
+    .filter((movie) => movie.url);
   const screenshots = (details.short_screenshots || [])
     .map((screenshot) => screenshot.image)
     .filter(Boolean);
-  return [...new Set([
+  const images = [...new Set([
     details.background_image,
     details.background_image_additional,
     ...screenshots,
-  ].filter(Boolean))];
+  ].filter(Boolean))].map((image) => ({
+    id: `image-${image}`,
+    type: "image",
+    url: image,
+    title: details.name,
+  }));
+  return [...images, ...videos];
 }
 
 function formatReleaseDate(released) {
@@ -54,16 +72,20 @@ function formatReleaseDate(released) {
 
 export default function GameDetails() {
   const { data: details, isLoading, isError } = useGameDetails();
+  const { data: movies = [], isError: moviesError } = useGameMovies(details?.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishList();
-  const [activeImage, setActiveImage] = useState(0);
+  const [activeMediaId, setActiveMediaId] = useState(null);
   const [activeTab, setActiveTab] = useState("overview");
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
-  const galleryImages = useMemo(() => details ? getGalleryImages(details) : [], [details]);
+  const galleryMedia = useMemo(
+    () => details ? getGalleryMedia(details, movies) : [],
+    [details, movies]
+  );
 
   useEffect(() => {
     if (!isPreviewOpen) return undefined;
@@ -121,7 +143,10 @@ export default function GameDetails() {
   const price = typeof details.price === "number" && Number.isFinite(details.price) ? details.price : 59.99;
   const isInCart = cartItems.some((item) => item.id === details.id);
   const isFavorite = isInWishlist(details.id);
-  const currentImage = galleryImages[activeImage];
+  const currentMedia = galleryMedia.find((media) => media.id === activeMediaId)
+    || galleryMedia.find((media) => media.type === "image")
+    || galleryMedia[0];
+  const videos = galleryMedia.filter((media) => media.type === "video");
 
   const addGameToCart = () => {
     dispatch(addItem({
@@ -166,7 +191,10 @@ export default function GameDetails() {
   };
 
   const changeImage = (direction) => {
-    setActiveImage((index) => (index + direction + galleryImages.length) % galleryImages.length);
+    const images = galleryMedia.filter((media) => media.type === "image");
+    const currentIndex = images.findIndex((media) => media.id === currentMedia?.id);
+    const nextIndex = (currentIndex + direction + images.length) % images.length;
+    if (images.length > 0) setActiveMediaId(images[nextIndex].id);
   };
 
   return (
@@ -190,9 +218,21 @@ export default function GameDetails() {
         <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,1.5fr)_minmax(310px,0.75fr)]">
           <section aria-label="معرض صور اللعبة" className="min-w-0">
             <div className="group relative aspect-video overflow-hidden rounded-2xl border border-[#26304A] bg-[#0A0E18]">
-              {currentImage ? (
+              {currentMedia?.type === "video" ? (
+                <video
+                  key={currentMedia.id}
+                  src={currentMedia.url}
+                  poster={currentMedia.poster}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  aria-label={currentMedia.title}
+                  className="absolute inset-0 h-full w-full bg-black object-contain"
+                />
+              ) : currentMedia ? (
                 <img
-                  src={currentImage}
+                  src={currentMedia.url}
                   alt={`لقطة من لعبة ${details.name}`}
                   className="absolute inset-0 h-full w-full object-cover"
                   onError={(event) => { event.currentTarget.style.visibility = "hidden"; }}
@@ -208,7 +248,7 @@ export default function GameDetails() {
                   Metacritic {details.metacritic}
                 </span>
               )}
-              {currentImage && (
+              {currentMedia?.type === "image" && (
                 <button
                   type="button"
                   onClick={() => setIsPreviewOpen(true)}
@@ -218,7 +258,17 @@ export default function GameDetails() {
                   <FaExpand aria-hidden="true" />
                 </button>
               )}
-              {galleryImages.length > 1 && (
+              {videos.length > 0 && currentMedia?.type === "image" && (
+                <button
+                  type="button"
+                  onClick={() => setActiveMediaId(videos[0].id)}
+                  aria-label={`تشغيل فيديو ${details.name}`}
+                  className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[#7C3AED]/90 text-xl text-white shadow-lg shadow-[#7C3AED]/30 transition hover:scale-110 hover:bg-[#8B5CF6]"
+                >
+                  <FaPlay aria-hidden="true" className="translate-x-0.5" />
+                </button>
+              )}
+              {galleryMedia.filter((media) => media.type === "image").length > 1 && currentMedia?.type === "image" && (
                 <>
                   <button
                     type="button"
@@ -240,23 +290,42 @@ export default function GameDetails() {
               )}
             </div>
 
-            {galleryImages.length > 1 && (
+            {galleryMedia.length > 1 && (
               <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-                {galleryImages.map((image, index) => (
+                {galleryMedia.map((media) => (
                   <button
-                    key={image}
+                    key={media.id}
                     type="button"
-                    onClick={() => setActiveImage(index)}
-                    aria-label={`عرض الصورة ${index + 1}`}
-                    aria-pressed={activeImage === index}
+                    onClick={() => {
+                      setActiveMediaId(media.id);
+                      setIsPreviewOpen(false);
+                    }}
+                    aria-label={media.type === "video" ? `تشغيل ${media.title}` : `عرض ${media.title}`}
+                    aria-pressed={currentMedia?.id === media.id}
                     className={`relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border-2 transition sm:h-20 sm:w-32 ${
-                      activeImage === index ? "border-[#7C3AED]" : "border-[#26304A] opacity-70 hover:opacity-100"
+                      currentMedia?.id === media.id ? "border-[#7C3AED]" : "border-[#26304A] opacity-70 hover:opacity-100"
                     }`}
                   >
-                    <img src={image} alt="" className="h-full w-full object-cover" loading="lazy" />
+                    {media.poster || media.type === "image" ? (
+                      <img src={media.poster || media.url} alt="" className="h-full w-full object-cover" loading="lazy" />
+                    ) : (
+                      <span className="grid h-full w-full place-items-center bg-[#1C1F2A]">
+                        <FaFilm aria-hidden="true" className="text-[#D2BBFF]" />
+                      </span>
+                    )}
+                    {media.type === "video" && (
+                      <span className="absolute inset-0 grid place-items-center bg-black/25 text-white">
+                        <FaPlay aria-hidden="true" className="text-xs" />
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
+            )}
+            {moviesError && (
+              <p role="status" className="mt-2 text-xs text-[#AAB2C5]">
+                تعذر تحميل فيديوهات اللعبة حاليًا.
+              </p>
             )}
           </section>
 
@@ -504,7 +573,7 @@ export default function GameDetails() {
       </main>
       </div>
 
-      {isPreviewOpen && currentImage && (
+      {isPreviewOpen && currentMedia?.type === "image" && (
         <div
           className="fixed inset-0 z-[100] grid place-items-center bg-black/90 p-4"
           role="dialog"
@@ -521,7 +590,7 @@ export default function GameDetails() {
             <FaTimes aria-hidden="true" />
           </button>
           <img
-            src={currentImage}
+            src={currentMedia.url}
             alt={`لقطة مكبرة من لعبة ${details.name}`}
             onClick={(event) => event.stopPropagation()}
             className="max-h-[90vh] max-w-full rounded-xl object-contain"
