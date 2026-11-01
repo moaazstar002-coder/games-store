@@ -17,7 +17,7 @@ const SORT_OPTIONS = [
 ];
 
 export default function WishListContent() {
-  const { wishList, removeFromWishlist } = useWishList();
+  const { wishList } = useWishList();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 

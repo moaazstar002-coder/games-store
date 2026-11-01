@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar, FaArrowRight } from 'react-icons/fa';
 import { useGames } from '../hooks/useGames';
@@ -6,22 +6,12 @@ import GameCardSkeleton from './GameCardSkeleton';
 import '../styles/components/GameRecommendations.css';
 
 const GameRecommendations = ({ currentGameId, currentGameGenres = [] }) => {
-  const [recommendedGames, setRecommendedGames] = useState([]);
-  
-  
   const genreSlug = currentGameGenres[0]?.slug || '';
   const { data: games, isLoading } = useGames({ genre: genreSlug, page: 1 });
-
-  useEffect(() => {
-    if (games && games.length > 0) {
-      
-      const filtered = games
-        .filter(game => game.id !== currentGameId)
-        .slice(0, 4); 
-      
-      setRecommendedGames(filtered);
-    }
-  }, [games, currentGameId]);
+  const recommendedGames = useMemo(
+    () => (games || []).filter((game) => game.id !== currentGameId).slice(0, 4),
+    [games, currentGameId]
+  );
 
   const renderStars = (rating) => {
     const stars = [];

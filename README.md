@@ -52,6 +52,24 @@ Open [http://localhost:5173](http://localhost:5173)
 
 ---
 
+## ☁️ Deploy to Vercel
+
+Import this repository into Vercel and use:
+
+- **Framework preset:** Vite
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+
+The `vercel.json` rewrite sends application routes to `index.html`, so links such
+as `/game/:id` continue to work when opened directly or refreshed.
+
+Add `VITE_RAWG_API_KEY` in the Vercel project's environment variables for the
+environments where the app should run. Vite embeds `VITE_` variables in
+client-side assets, so this value is visible to visitors; do not use it for
+credentials that must remain private.
+
+---
+
 ## 📁 Project Structure
 
 ```

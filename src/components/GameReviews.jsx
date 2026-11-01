@@ -66,7 +66,7 @@ const mockReviews = [
   }
 ];
 
-const GameReviews = ({ gameId, gameName }) => {
+const GameReviews = ({ gameName }) => {
   const [reviews] = useState(mockReviews);
   const [sortBy, setSortBy] = useState('helpful'); 
   const [filterRating, setFilterRating] = useState('all');

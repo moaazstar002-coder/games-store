@@ -20,7 +20,7 @@ export default function Home() {
     <PageTransition>
     <div>
       <HeroSlider />
-
+ 
       <SearchBar search={search} setSearch={setSearch} />
 
       <GenreFilter 
