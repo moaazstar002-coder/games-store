@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../store/slices/CartSlice";
 
 export default function CardGame({ game, variant = "default", discount }) {
-  const isStorefront = variant === "storefront";
+  const isStorefront = variant === "storefront" || variant === "storefront-list";
+  const isStorefrontList = variant === "storefront-list";
   const { loading, addToWishlist, removeFromWishlist, isInWishlist } =
     useWishList();
   const dispatch = useDispatch();
@@ -25,14 +26,20 @@ export default function CardGame({ game, variant = "default", discount }) {
       to={`/game/${game.id}`}
       className={
         isStorefront
-          ? "group flex h-full flex-col overflow-hidden rounded-xl border border-[#26304A] bg-[#151B2B] transition hover:-translate-y-1 hover:border-[#7C3AED] hover:shadow-[0_16px_30px_-18px_rgba(124,58,237,0.65)]"
+          ? `group flex h-full ${
+              isStorefrontList ? "flex-col sm:flex-row sm:items-stretch" : "flex-col"
+            } overflow-hidden rounded-xl border border-[#26304A] bg-[#151B2B] transition hover:-translate-y-1 hover:border-[#7C3AED] hover:shadow-[0_16px_30px_-18px_rgba(124,58,237,0.65)]`
           : "game-card glass-card"
       }
     >
       <div
         className={
           isStorefront
-          ? "relative aspect-[16/10] overflow-hidden bg-[#0A0E18]"
+            ? `relative overflow-hidden bg-[#0A0E18] ${
+                isStorefrontList
+                  ? "h-40 shrink-0 sm:h-auto sm:w-36"
+                  : "aspect-[16/10]"
+              }`
             : "game-image-container"
         }
       >
@@ -91,8 +98,24 @@ export default function CardGame({ game, variant = "default", discount }) {
         </div>
       </div>
 
-      <div className={isStorefront ? "flex flex-1 flex-col gap-3 p-3 sm:p-4" : "game-info"}>
-        <div className={isStorefront ? "flex min-h-10 items-start justify-between gap-2" : "game-header"}>
+      <div
+        className={
+          isStorefront
+            ? `flex flex-1 flex-col gap-3 p-3 sm:p-4 ${
+                isStorefrontList ? "sm:flex-row sm:items-center" : ""
+              }`
+            : "game-info"
+        }
+      >
+        <div
+          className={
+            isStorefront
+              ? `flex min-h-10 items-start justify-between gap-2 ${
+                  isStorefrontList ? "sm:flex-1 sm:min-w-0" : ""
+                }`
+              : "game-header"
+          }
+        >
           <h3
             className={
               isStorefront
@@ -111,7 +134,11 @@ export default function CardGame({ game, variant = "default", discount }) {
         </div>
 
         {isStorefront && (
-          <div className="flex items-center justify-between gap-2">
+          <div
+            className={`flex items-center justify-between gap-2 ${
+              isStorefrontList ? "sm:flex-1 sm:min-w-0" : ""
+            }`}
+          >
             <span className="inline-flex items-center gap-1 text-[11px] text-[#FBBF24]">
               <FaStar aria-hidden="true" />
               {game.rating || "—"}
@@ -126,7 +153,17 @@ export default function CardGame({ game, variant = "default", discount }) {
           </div>
         )}
 
-        <div className={isStorefront ? "mt-auto flex items-center justify-between gap-2 border-t border-[#26304A] pt-3" : "game-footer"}>
+        <div
+          className={
+            isStorefront
+              ? `mt-auto flex items-center justify-between gap-2 border-t border-[#26304A] pt-3 ${
+                  isStorefrontList
+                    ? "sm:w-40 sm:shrink-0 sm:flex-col sm:items-end sm:justify-center sm:border-r sm:border-t-0 sm:pt-0 sm:pr-4"
+                    : ""
+                }`
+              : "game-footer"
+          }
+        >
           <span className={isStorefront ? "flex flex-col font-[Space_Grotesk]" : "game-price"}>
             {isStorefront && originalPrice && (
               <span className="text-[10px] text-[#858DA1] line-through">${originalPrice}</span>
