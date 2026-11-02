@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Gamer's Nest</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed": "#002109", "on-tertiary": "#003915", "outline-variant": "#4a4455", "on-secondary-fixed-variant": "#91002d", "tertiary-fixed-dim": "#4ae176", "on-primary-container": "#ede0ff", "on-tertiary-container": "#84ff9c", "on-primary-fixed-variant": "#5a00c6", "primary-fixed": "#eaddff", "background": "#0f131d", "inverse-surface": "#dfe2f1", "surface-bright": "#353944", "on-secondary": "#67001e", "surface-container-highest": "#313540", "secondary-fixed-dim": "#ffb2b8", "on-surface-variant": "#ccc3d8", "on-error-container": "#ffdad6", "surface-tint": "#d2bbff", "on-background": "#dfe2f1", "on-surface": "#dfe2f1", "error-container": "#93000a", "surface-container": "#1c1f2a", "surface-container-lowest": "#0a0e18", "tertiary": "#4ae176", "on-secondary-fixed": "#40000f", "primary-container": "#7c3aed", "primary": "#d2bbff", "inverse-primary": "#732ee4", "surface-container-high": "#262a35", "secondary-fixed": "#ffdadb", "surface-container-low": "#171b26", "on-primary-fixed": "#25005a", "on-primary": "#3f008e", "inverse-on-surface": "#2c303b", "secondary-container": "#ac0037", "secondary": "#ffb2b8", "outline": "#958da1", "surface": "#0f131d", "on-tertiary-fixed-variant": "#005321", "error": "#ffb4ab", "primary-fixed-dim": "#d2bbff", "surface-dim": "#0f131d", "tertiary-fixed": "#6bff8f", "on-secondary-container": "#ffb7bc", "surface-variant": "#313540", "on-error": "#690005", "tertiary-container": "#007733" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-md": "1rem", "margin": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "space-xl": "2.5rem" }, "fontFamily": { "label-md": ["Outfit"], "headline-xl": ["Space Grotesk"], "body-sm": ["Outfit"], "display-hero": ["Space Grotesk"], "code-metric": ["Space Grotesk"], "body-md": ["Outfit"], "label-sm": ["Outfit"], "label-lg": ["Outfit"], "headline-md": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "headline-xl-mobile": ["Space Grotesk"], "display-hero-mobile": ["Space Grotesk"], "body-lg": ["Outfit"] }, "fontSize": { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "code-metric": ["14px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0", "fontWeight": "600" }], "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-low/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-20 max-w-[1440px] mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-lg shrink-0"><a class="flex items-center gap-space-sm" data-path="home" href="#"><img alt="Gamer's Nest Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_hXIVNsoE4ejNL6IwAj2Cuap9LhywDmEudM5xKhbrAKBcedjIauRN5UYGsr5-O9ZBzgbiNN1wh6xzFzjKcEdgLpb43NpEA_LtJHJDV2fujtQoNI-szpiDxvhmtii16NGEVWJI5gfRZV2ocYj0XtA1VHb6aZpVl6U4rOWN7cmG2ejlk94XYi2Bv5gBnDOKUb_NM2Crq9KwHbLuQQqh2Fhe6OCCHqgMoi94MxwUoOQf"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight uppercase">Gamer’s Nest</span></a><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container"><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="home" href="#">الرئيسية</a><a aria-current="page" class="px-space-sm py-space-xs rounded-lg font-label-lg transition-all bg-primary-container text-on-primary-container" data-path="games" href="#">تصفح الألعاب</a><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="bestsellers" href="#">الأكثر مبيعاً</a><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="hardware" href="#">الأجهزة</a><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="accessories" href="#">الإكسسوارات</a><a class="px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="support" href="#">الدعم</a></nav></div><div class="flex-1 max-w-xl mx-space-md hidden md:block"><div class="relative flex items-center bg-surface-container px-space-md py-space-xs rounded-lg shadow-inner group focus-within:ring-2 focus-within:ring-primary-container"><span class="material-symbols-outlined text-outline ml-space-sm">search</span><input class="w-full bg-transparent border-0 outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline" placeholder="ابحث عن لعبة، جهاز، أو كود رقمي..." type="text"/><span class="font-code-metric text-code-metric text-on-surface-variant bg-surface-container-high px-space-xs py-0.5 rounded text-xs">Ctrl+K</span></div></div><div class="flex items-center gap-space-md shrink-0"><a class="relative p-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center" data-path="wishlist" href="#"><span class="material-symbols-outlined">favorite</span><span class="absolute top-1 left-1 w-2 h-2 bg-secondary rounded-full ring-2 ring-surface-container-low"></span></a><a class="relative p-space-sm rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant hover:text-on-surface flex items-center justify-center" data-path="cart" href="#"><span class="material-symbols-outlined">shopping_cart</span><span class="absolute -top-1 -right-1 bg-primary-container text-on-primary-container font-label-sm text-label-sm w-5 h-5 rounded-full flex items-center justify-center shadow-lg">3</span></a><div class="h-6 w-px bg-surface-container-highest mx-space-xs"></div><a class="flex items-center gap-space-sm p-1 rounded-full hover:bg-surface-container transition-colors" data-path="user-profile" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYEUP_lLYRl2yqBfZcBtn-xYJkmVdLDCVdm52wV06jh8EfcK94uIFoMyLu-GTpLJj6M6uDZcFtJLOGFx2f1t7x-5AhOg1UpVzEVj438rLI9x_vFtZxG8u6K9oxK-cffCCKsYtW0IBuJS0LwMiV_1-fQkPVMK5jPKCZD8dwPPCrKpUz1Gm0zX_lvsmJKvSJatvSbKuD8p_p66m9jzazKYgGHkE8q3AD7nlvSmf14Bjh"/></a></div></div></header><main class="w-full pt-20 bg-background flex-1"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Orbs -->
+<div class="relative w-full max-w-[1440px] mx-auto px-margin py-space-md">
+<div class="absolute -top-10 right-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-80 left-10 w-80 h-80 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Top Utility & Breadcrumb Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pb-space-md">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-outline">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="home" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+          الرئيسية
+        </a>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<span class="text-on-surface font-semibold">تصفح الألعاب</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container text-tertiary font-label-sm text-label-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span>تسليم تلقائي فوري 24/7 عبر البريد والحساب</span>
+</div>
+</div>
+</div>
+<!-- Catalog Header Block -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg mb-space-lg p-space-lg rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">مكتبة الألعاب الرقمية</h1>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container font-label-md text-label-md text-primary">148 لعبة متوفرة</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          استكشف أحدث إصدارات الألعاب، المفاتيح العالمية الرسمية (Global Steam &amp; Console Keys)، بأفضل الخصومات مع ضمان التفعيل الفوري المعتمد.
+        </p>
+</div>
+<!-- Controls: Sort & Layout View Switcher -->
+<div class="flex items-center gap-space-sm self-start md:self-auto flex-wrap">
+<div class="relative flex items-center bg-surface-container px-space-md py-space-xs rounded-lg">
+<span class="material-symbols-outlined text-outline ml-space-xs text-[18px]">sort</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-2">الترتيب:</span>
+<select class="bg-transparent text-on-surface font-label-md text-label-md cursor-pointer outline-none appearance-none pr-1 pl-6" id="catalogSortSelect">
+<option class="bg-surface-container-high text-on-surface" value="pop">الأكثر شهرة</option>
+<option class="bg-surface-container-high text-on-surface" value="rating">الأعلى تقييماً</option>
+<option class="bg-surface-container-high text-on-surface" value="new">الأحدث إصداراً</option>
+<option class="bg-surface-container-high text-on-surface" value="price_asc">السعر: من الأقل للأعلى</option>
+<option class="bg-surface-container-high text-on-surface" value="price_desc">السعر: من الأعلى للأقل</option>
+</select>
+<span class="material-symbols-outlined text-outline pointer-events-none absolute left-space-sm text-[16px]">expand_more</span>
+</div>
+<div class="flex items-center bg-surface-container p-1 rounded-lg">
+<button aria-label="عرض شبكي" class="p-1.5 rounded bg-primary-container text-on-primary-container transition-all" id="viewGridBtn">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+</button>
+<button aria-label="عرض قائمة" class="p-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" id="viewListBtn">
+<span class="material-symbols-outlined text-[20px]">view_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Active Tag Badges Filter Bar -->
+<div class="flex items-center gap-space-sm overflow-x-auto pb-space-sm mb-space-lg">
+<span class="font-label-sm text-label-sm text-outline shrink-0">الفلاتر المطبقة:</span>
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container text-on-surface font-label-md text-label-md">
+<span>المنصة: PC (Steam)</span>
+<button aria-label="حذف الفلتر" class="material-symbols-outlined text-[14px] text-outline hover:text-error transition-colors">close</button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-secondary-container/30 text-secondary font-label-md text-label-md">
+<span>العروض المخفضة فقط</span>
+<button aria-label="حذف الفلتر" class="material-symbols-outlined text-[14px] hover:text-white transition-colors">close</button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container text-on-surface font-label-md text-label-md">
+<span>تسليم فوري</span>
+<button aria-label="حذف الفلتر" class="material-symbols-outlined text-[14px] text-outline hover:text-error transition-colors">close</button>
+</span>
+<button class="font-label-md text-label-md text-primary hover:underline mr-auto shrink-0" id="clearAllFiltersBtn">
+        تفريغ الكل (3)
+      </button>
+</div>
+<!-- Main Catalog Body (2-Column Grid: Sidebar + Games Content) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- ================= SIDEBAR FILTERS ================= -->
+<aside class="lg:col-span-3 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-lg shadow-sm sticky top-24">
+<!-- Search within catalog -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface" for="catalogSearch">بحث سريع في الألعاب</label>
+<div class="relative flex items-center bg-surface-container px-space-md py-space-xs rounded-lg">
+<span class="material-symbols-outlined text-outline ml-space-xs text-[18px]">search</span>
+<input class="w-full bg-transparent border-0 outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline" id="catalogSearch" placeholder="اسم اللعبة، الناشر، الاستوديو..." type="text"/>
+</div>
+</div>
+<!-- Quick Discount Promo Toggle -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary">local_fire_department</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">العروض المخفضة فقط</span>
+<span class="font-label-sm text-label-sm text-secondary">وفر حتى 75%</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] rtl:after:right-auto rtl:after:left-[2px] after:bg-white after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary-container"></div>
+</label>
+</div>
+<!-- Platform Filter -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">المنصة</span>
+<span class="font-label-sm text-label-sm text-outline">اختر منصتك</span>
+</div>
+<div class="flex flex-col gap-2">
+<label class="flex items-center justify-between p-2 rounded hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">PC (Steam / Epic)</span>
+</div>
+<span class="font-code-metric text-code-metric text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded text-xs">84</span>
+</label>
+<label class="flex items-center justify-between p-2 rounded hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center gap-space-sm">
+<input class="w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">PlayStation 5</span>
+</div>
+<span class="font-code-metric text-code-metric text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded text-xs">42</span>
+</label>
+<label class="flex items-center justify-between p-2 rounded hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center gap-space-sm">
+<input class="w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Xbox Series X|S</span>
+</div>
+<span class="font-code-metric text-code-metric text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded text-xs">31</span>
+</label>
+<label class="flex items-center justify-between p-2 rounded hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center gap-space-sm">
+<input class="w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Nintendo Switch</span>
+</div>
+<span class="font-code-metric text-code-metric text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded text-xs">19</span>
+</label>
+</div>
+</div>
+<!-- Price Range Slider -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">نطاق السعر</span>
+<span class="font-code-metric text-code-metric text-primary font-bold" id="priceDisplay">حتى $70</span>
+</div>
+<input class="w-full accent-primary-container cursor-pointer h-2 bg-surface-container rounded-lg" id="priceRangeInput" max="120" min="5" step="5" type="range" value="70"/>
+<div class="grid grid-cols-3 gap-1 pt-1">
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm text-center transition-colors">أقل من $15</button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm text-center transition-colors">$15 - $40</button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm text-center transition-colors">+ $60 فما فوق</button>
+</div>
+</div>
+<!-- Genre Filter Chips -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">تصنيف النوع</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-space-sm py-1 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm cursor-pointer shadow-sm">كل الأنواع</span>
+<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer transition-colors">أكشن (Action)</span>
+<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer transition-colors">عالم مفتوح (RPG)</span>
+<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer transition-colors">تصويب (Shooter)</span>
+<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer transition-colors">استراتيجية (Strategy)</span>
+<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer transition-colors">رعب وغموض</span>
+<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer transition-colors">رياضة وسباقات</span>
+<span class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm cursor-pointer transition-colors">ألعاب مستقلة (Indie)</span>
+</div>
+</div>
+<!-- Availability & Delivery Method -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">حالة التوفر</span>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-space-sm cursor-pointer">
+<input checked="" class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">تسليم فوري (مفتاح رقمي)</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer">
+<input class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">طلب مسبق (Pre-Order)</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer">
+<input class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">نسخ فيزيائية مع توصيل</span>
+</label>
+</div>
+</div>
+<!-- Customer Ratings Filter -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">تقييم اللاعبين</span>
+<div class="flex flex-col gap-1.5">
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-space-xs">
+<input checked="" class="w-4 h-4 accent-primary" name="ratingFilter" type="radio"/>
+<div class="flex items-center text-amber-400">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]">star_half</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface mr-1">4 نجوم وأعلى</span>
+</div>
+<span class="font-code-metric text-code-metric text-outline text-xs">96</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-space-xs">
+<input class="w-4 h-4 accent-primary" name="ratingFilter" type="radio"/>
+<div class="flex items-center text-amber-400">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface mr-1">3 نجوم وأعلى</span>
+</div>
+<span class="font-code-metric text-code-metric text-outline text-xs">138</span>
+</label>
+</div>
+</div>
+<!-- Reset Filter Button -->
+<button class="w-full py-space-sm px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-space-xs transition-colors" id="sidebarResetBtn">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+<span>إعادة ضبط جميع الفلاتر</span>
+</button>
+</div>
+</aside>
+<!-- ================= MAIN PRODUCTS GRID ================= -->
+<section class="lg:col-span-9 flex flex-col gap-space-xl">
+<!-- Grid of 9 Premium Game Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-lg" id="gamesCatalogGrid">
+<!-- Card 1: Helldivers 2 -->
+<div class="group relative rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Intense futuristic sci-fi combat scene on an alien planet with laser explosions, orbital dropships, and armored tactical shock troopers in deep space violet and neon amber glowing hues, AAA gaming promotional art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaxeyjZ0koUm9BlqLVkJlCrt6rsw06Cc3FFGsv5FSBTy6tqESb4VyO9EawubP5ZMBREwyNsRaB80HwMU_g8xKViQkArbaDGe3TsvKtv-P7zs5HAUvJ7SXTImViClGHOePa3yAy5usGa2SRDQlX57y8JAg8vcsKIyBuHTPSONMUQmRICV4Ex1OQpcQH_LcMi-7BmibLiwGPnm433TWp-j1IGfTaXIRWHBop-BXERQqe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<!-- Badges Over Media -->
+<span class="absolute top-3 right-3 px-2 py-0.5 rounded font-headline-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container shadow-md">
+                -30%
+              </span>
+<button aria-label="أضف للمفضلة" class="wishlist-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-surface-container-low/80 backdrop-blur-md text-on-surface-variant hover:text-secondary hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/80 text-on-tertiary-container flex items-center gap-1 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  مفتاح عالمي Global Key
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PC Steam</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PS5</span>
+</div>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-code-metric text-xs text-on-surface font-bold">4.9</span>
+<span class="font-label-sm text-label-sm text-outline">(1,840)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                  Helldivers 2: Super Citizen Edition
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  انضم لقوات النخبة وحارب من أجل الحرية في مجرة عدائية في تجربة تصويب جماعية مذهلة.
+                </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$59.99</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$41.99</span>
+<span class="font-label-sm text-label-sm text-tertiary">تسليم فوري</span>
+</div>
+</div>
+<button class="add-to-cart-btn px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-inverse-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Cyberpunk Vanguard -->
+<div class="group relative rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic cybernetic city night boulevard with neon purple and cobalt signs, rain reflections on asphalt, holographic ads, high-tech katana wielding mercenary figure, cinematic gaming artwork." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEmR7AzxWaeN-DEeZYyJeSUwpugU9VtDT5WRjkS-15D1X2bkUiBOZeCSgbKF8k3dlf1vpIBC8R1DF7BXYNVfDOIimt8unjaETgIdWSHfMdMQHNsRyRTREG5Ch_86BbKh6txD8rUiXQpAA5Bq0WkfrlP_9ZUB0BRW4616_h9YLDDbt_dHc6S-umZq2ngbqS5PW6o3mL1o3isJoDrvwGK5CXmkcKNUkPS5GnEbIgyNDn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<span class="absolute top-3 right-3 px-2 py-0.5 rounded font-headline-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container shadow-md">
+                -55%
+              </span>
+<button aria-label="أضف للمفضلة" class="wishlist-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-surface-container-low/80 backdrop-blur-md text-on-surface-variant hover:text-secondary hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/80 text-on-tertiary-container flex items-center gap-1 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  GOG &amp; Steam Code
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PC Steam</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">Xbox Series X</span>
+</div>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-code-metric text-xs text-on-surface font-bold">4.8</span>
+<span class="font-label-sm text-label-sm text-outline">(3,420)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                  Cyberpunk: Phantom Liberty &amp; 2077
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  عش أعظم مغامرة أر بي جي في مدينة المستقبل مع الحزمة الكاملة شاملاً التوسعة الثورية.
+                </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$79.99</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$35.99</span>
+<span class="font-label-sm text-label-sm text-tertiary">تسليم فوري</span>
+</div>
+</div>
+<button class="add-to-cart-btn px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-inverse-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Ghost of Tsushima: PC Director's Cut -->
+<div class="group relative rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Feudal samurai warrior with glowing sword standing among red maple leaves falling against a dramatic cloudy twilight Japanese landscape, atmospheric cinematic game art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfG0jRIagPyEuwJhL3qCD0dTlrlAmDbmp-L1SEZKTcFjZXYOdY_36HaBvUaYb6bST4cVJdohxj9bQyYmsJ8RBFn07QRLIGPmyo2Tzmw_RL3uXdGQWuLOQ_HDWESYN0mjoCscLhUP-9mzqbcPz7kHaM4JV2GLDWqqkMSRobnvwnUoUkfxAYwMKt3uPy2it9NwTnuTJdR8rY6NClQ7K4UMwLK9E_dlviFk3ZQIQOIjki"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<span class="absolute top-3 right-3 px-2 py-0.5 rounded font-headline-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container shadow-md">
+                -25%
+              </span>
+<button aria-label="أضف للمفضلة" class="wishlist-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-surface-container-low/80 backdrop-blur-md text-on-surface-variant hover:text-secondary hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/80 text-on-tertiary-container flex items-center gap-1 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  PlayStation PC Key
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PC Steam</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">DualSense Support</span>
+</div>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-code-metric text-xs text-on-surface font-bold">5.0</span>
+<span class="font-label-sm text-label-sm text-outline">(2,110)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                  Ghost of Tsushima: Director's Cut
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  شُق طريقك كشبح تسوشيما مع دعم الشاشات العريضة ومعدل إطارات مفتوح وتجربة بصرية فائقة.
+                </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$59.99</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$44.99</span>
+<span class="font-label-sm text-label-sm text-tertiary">تسليم فوري</span>
+</div>
+</div>
+<button class="add-to-cart-btn px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-inverse-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Tekken 8 -->
+<div class="group relative rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High intensity fighting game martial artist with electric lightning aura striking opponent in a destroyed urban arena, dramatic particles and sparks, modern fighting game render." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfUmc_80MpUp6Osg20P4b3xQjXGkIv8WqwTE1HxsJI99z60HEv6VaSsfDrPjyMXRGlVmQGP2eLXokCfdxcEQ-ytqHytPSgayIM8DrqitnNhqHWiD8hNSqt0JqOeBimwQDKgTruygPa7_EUAxY08xG7u69M5OrKP5F842kZSV70V58ioVEQtWilNsYJA6TmpBdggJsWvYAgY6u8dTfhVhq3GjIkz_FUIL5MO0Ptf_IU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<span class="absolute top-3 right-3 px-2 py-0.5 rounded font-headline-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container shadow-md">
+                -40%
+              </span>
+<button aria-label="أضف للمفضلة" class="wishlist-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-surface-container-low/80 backdrop-blur-md text-on-surface-variant hover:text-secondary hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/80 text-on-tertiary-container flex items-center gap-1 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  مفتاح رسمي معتمد
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PC Steam</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PS5 / Xbox</span>
+</div>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-code-metric text-xs text-on-surface font-bold">4.7</span>
+<span class="font-label-sm text-label-sm text-outline">(920)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                  Tekken 8: Ultimate Edition
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  اشعل حلبات القتال مع الجيل الجديد من محرك Unreal Engine 5 ونظام القتال الهجومي Heat System.
+                </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$69.99</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$41.99</span>
+<span class="font-label-sm text-label-sm text-tertiary">تسليم فوري</span>
+</div>
+</div>
+<button class="add-to-cart-btn px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-inverse-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5: Final Fantasy VII Rebirth -->
+<div class="group relative rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sprawling fantasy sci-fi metropolis surrounded by vast green grasslands, towering mechanical reactors, a swordsman with a giant buster sword looking into the horizon, epic fantasy art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVZVS8H6m5CUXgrnrJwWc-C_nRKV6UbR620HkVsZdbAdYvbi9cXIbYxchitr32e4ajb60RdqTVtcsRw_iGlXE8xY0hP0W2B7tMhr0xia3rCE0HxMhjchQl4xGifY-zCdll6MNC6I1D_sDRj0KhfBo15IFWfY_uZXgl_h6iZpIS_kNqxxgHXdX6bAngpBB3fGL-oA931RVlLy5oo--yfMAxPokUjL5D3qnr8Aggfvq7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<span class="absolute top-3 right-3 px-2 py-0.5 rounded font-headline-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container shadow-md">
+                -20%
+              </span>
+<button aria-label="أضف للمفضلة" class="wishlist-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-surface-container-low/80 backdrop-blur-md text-on-surface-variant hover:text-secondary hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/80 text-on-tertiary-container flex items-center gap-1 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  PlayStation Store Code
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PS5 حصرياً</span>
+</div>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-code-metric text-xs text-on-surface font-bold">4.9</span>
+<span class="font-label-sm text-label-sm text-outline">(1,550)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                  Final Fantasy VII: Rebirth
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  رحلة لا تُنسى في عالم مفتوح شاسع مع كلاود ورفاقه لإنقاذ الكوكب من التهديد الكوني الأكبر.
+                </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$69.99</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$55.99</span>
+<span class="font-label-sm text-label-sm text-tertiary">تسليم فوري</span>
+</div>
+</div>
+<button class="add-to-cart-btn px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-inverse-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6: Mythic Legends: Reborn -->
+<div class="group relative rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dark fantasy soulslike cathedral courtyard with towering gothic architecture, spectral boss monster engulfed in purple flame, medieval knight wielding glowing runic greatsword." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJe60CZOGOyPwR3L48D2KjgZ4WkaKcc7Rf8q60rx1QhIHsBU_DiHtvaMFlPMT3LbFoybJ7kVVzI9HK9CrJaXeXUOSCeElapATq__3qI1LDTwFsbxk1ANST_WAwoPzdll_fVcqFgz-oS3Apo79VxlmEtJSFxFesb-FKWOu3rxz2NJJ8KOTLA-NkiXJpPuAj7lNKnjDN3TewxPQVy9wkC7-YApDh2nCE2FPEVkLbtUyT"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<span class="absolute top-3 right-3 px-2 py-0.5 rounded font-headline-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container shadow-md">
+                -45%
+              </span>
+<button aria-label="أضف للمفضلة" class="wishlist-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-surface-container-low/80 backdrop-blur-md text-on-surface-variant hover:text-secondary hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/80 text-on-tertiary-container flex items-center gap-1 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  Steam Global
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PC Steam</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">Xbox Series X</span>
+</div>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-code-metric text-xs text-on-surface font-bold">4.6</span>
+<span class="font-label-sm text-label-sm text-outline">(640)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                  Mythic Legends: Reborn
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  تحدَّ ملوك الظلام في ملحمة سولس لايك مظلمة ذات صعوبة استثنائية ونظام تخصيص عتاد عميق.
+                </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$49.99</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$27.49</span>
+<span class="font-label-sm text-label-sm text-tertiary">تسليم فوري</span>
+</div>
+</div>
+<button class="add-to-cart-btn px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-inverse-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 7: Forza Motorsport Pro -->
+<div class="group relative rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Supercar drifting on a wet asphalt racing circuit at golden hour sunset, tire smoke, hyper realistic car paint reflection, racing simulation gaming art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRTHRS94Xj5De_IQa7preUuFtCQSyltnoE6M5pjNjtl4JAR29alxVrv1WqF6iXjNMqiK03_t8zpV95fS42XK7FjOOwxAcdMKjB6U076i0XZQ_-8KSuQplH4qQl5QFD8CpHaX6WwXiLrHD8340QsW4phXLM38W-0BXOevVtcW4gSlEI1unpsJ4oGVyvvAWI5kJcjQcNdcKCKxPVZdPwcuem6cUIBncIVGE5y1CbbfLk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<span class="absolute top-3 right-3 px-2 py-0.5 rounded font-headline-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container shadow-md">
+                -35%
+              </span>
+<button aria-label="أضف للمفضلة" class="wishlist-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-surface-container-low/80 backdrop-blur-md text-on-surface-variant hover:text-secondary hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/80 text-on-tertiary-container flex items-center gap-1 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  Xbox Play Anywhere
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PC Windows</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">Xbox Series X</span>
+</div>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-code-metric text-xs text-on-surface font-bold">4.5</span>
+<span class="font-label-sm text-label-sm text-outline">(810)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                  Forza Horizon &amp; Motorsport Pack
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  قمة واقعية قيادة السيارات مع فيزياء تتبع المسار وديناميكية طقس حية لأكثر من 500 سيارة.
+                </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$69.99</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$45.49</span>
+<span class="font-label-sm text-label-sm text-tertiary">تسليم فوري</span>
+</div>
+</div>
+<button class="add-to-cart-btn px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-inverse-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 8: Dragon's Dogma II -->
+<div class="group relative rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Colossal mythological griffin landing on rocky mountain canyon, adventurers with magical staves and bows casting bright purple spells, rich fantasy landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQOhcQ-vxfxgQ0Xe2-tdy0dyWO5WIAyukIStp0osCgaKOVBmaXHzn6RkN8w0CXtU3Bb3GmBj1e2GTLfaLfrbgKSpBUzh4-5jarXRiWX7JF-_csDc2_bY4ed9jQ0rduxCWpRPEJSljJ1OIwlNanPLClMGkt6_Q80m6z_6_DpH6CUDofY3J6frgsIiG2c4ydXpd9UuQIc2j4p74QWnLe3r44w2eUuCLk2SA0_cyilTxV"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<span class="absolute top-3 right-3 px-2 py-0.5 rounded font-headline-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container shadow-md">
+                -30%
+              </span>
+<button aria-label="أضف للمفضلة" class="wishlist-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-surface-container-low/80 backdrop-blur-md text-on-surface-variant hover:text-secondary hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/80 text-on-tertiary-container flex items-center gap-1 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  Steam Global Key
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PC Steam</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PS5</span>
+</div>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-code-metric text-xs text-on-surface font-bold">4.4</span>
+<span class="font-label-sm text-label-sm text-outline">(1,020)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                  Dragon’s Dogma 2: Deluxe
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  عالم مفتوح تفاعلي غامر يقدم نظام مرافقين أذكياء (Pawns) وقتال ملحمي مع الوحوش الأسطورية.
+                </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$69.99</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$48.99</span>
+<span class="font-label-sm text-label-sm text-tertiary">تسليم فوري</span>
+</div>
+</div>
+<button class="add-to-cart-btn px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-inverse-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 9: Elden Ring: Shadow of the Erdtree -->
+<div class="group relative rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Bleak fantasy world dominated by a towering twisted shadow tree dripping glowing golden veil sap, solitary champion clad in dark armor looking from a spectral hill, epic gaming scene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgJE59GVh7wq-Ex98P3P00oxu8ZvgRJixnjy3lhpR_xTKuR2777Rb4Ztcq3lUedhBZIhA-fodUrO5qLweRkboTCvb9DL5rat__eTKdikSSCYHqYOjTyMrQ0r-cxpQqg8DVSJd73f4-_e6SXmusfrqvqOSX6X6olYzbgwtDfahlSIMMj2yT7Pz92z4XoeQ2gll4bqTcyaLf92bKdTU-xQp_3cjims99uzDXZ8T1azy4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<span class="absolute top-3 right-3 px-2 py-0.5 rounded font-headline-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container shadow-md">
+                -15%
+              </span>
+<button aria-label="أضف للمفضلة" class="wishlist-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-surface-container-low/80 backdrop-blur-md text-on-surface-variant hover:text-secondary hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/80 text-on-tertiary-container flex items-center gap-1 backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  Multi-Platform Global
+                </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">Steam</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">PS5</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-outline">Xbox</span>
+</div>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-code-metric text-code-metric text-xs text-on-surface font-bold">5.0</span>
+<span class="font-label-sm text-label-sm text-outline">(5,190)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-1">
+                  Elden Ring: Shadow of the Erdtree
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  التوسعة المنتظرة للعبة العام الحائزة على أعلى التقييمات. استكشف أرض الظلال وخض أصعب النزالات.
+                </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-outline line-through">$39.99</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$33.99</span>
+<span class="font-label-sm text-label-sm text-tertiary">تسليم فوري</span>
+</div>
+</div>
+<button class="add-to-cart-btn px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-inverse-primary font-label-md text-label-md flex items-center gap-1.5 transition-all shadow-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>أضف للسلة</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= PAGINATION BAR ================= -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+            عرض <span class="text-on-surface font-semibold">1 - 9</span> من إجمالي <span class="text-on-surface font-semibold">148</span> لعبة
+          </div>
+<div class="flex items-center gap-space-xs" dir="ltr">
+<!-- Prev Page -->
+<button aria-label="الصفحة السابقة" class="w-9 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<!-- Page Numbers -->
+<button class="w-9 h-9 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center shadow-md">1</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center transition-colors">2</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center transition-colors">3</button>
+<span class="text-outline px-1">...</span>
+<button class="w-9 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center transition-colors">12</button>
+<!-- Next Page -->
+<button aria-label="الصفحة التالية" class="w-9 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Trust Badges & Guarantee Feature Card -->
+<div class="p-space-lg rounded-xl bg-gradient-to-r from-surface-container-high/40 via-surface-container to-surface-container-high/40 flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[30px]">security</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">ضمان أصالة وتفعيل بنسبة 100%</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                جميع المفاتيح والأكواد تأتي مباشرة من الناشرين الرسميين والموزعين المعتمدين عالمياً مع استرداد كامل فوري عند حدوث أي خلل.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="inline-flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+              دعم فني فوري 24 ساعة
+            </span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    (function() {
+      // Dynamic Price Slider Value
+      const slider = document.getElementById('priceRangeInput');
+      const display = document.getElementById('priceDisplay');
+      if (slider && display) {
+        slider.addEventListener('input', (e) => {
+          display.textContent = 'حتى $' + e.target.value;
+        });
+      }
+
+      // Wishlist toggle state
+      const wishlistBtns = document.querySelectorAll('.wishlist-btn');
+      wishlistBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const icon = btn.querySelector('.material-symbols-outlined');
+          if (icon) {
+            const isFilled = icon.style.fontVariationSettings?.includes("'FILL' 1");
+            if (isFilled) {
+              icon.style.fontVariationSettings = "'FILL' 0";
+              btn.classList.remove('text-secondary');
+              btn.classList.add('text-on-surface-variant');
+            } else {
+              icon.style.fontVariationSettings = "'FILL' 1";
+              btn.classList.add('text-secondary');
+              btn.classList.remove('text-on-surface-variant');
+            }
+          }
+        });
+      });
+
+      // Quick Add to Cart Feedback
+      const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+      addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span><span>تمت الإضافة!</span>';
+          btn.classList.remove('bg-primary-container');
+          btn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.classList.add('bg-primary-container');
+            btn.classList.remove('bg-tertiary-container', 'text-on-tertiary-container');
+          }, 1800);
+        });
+      });
+
+      // Grid / List View Toggle
+      const gridBtn = document.getElementById('viewGridBtn');
+      const listBtn = document.getElementById('viewListBtn');
+      const catalog = document.getElementById('gamesCatalogGrid');
+
+      if (gridBtn && listBtn && catalog) {
+        listBtn.addEventListener('click', () => {
+          catalog.classList.remove('md:grid-cols-2', 'xl:grid-cols-3');
+          catalog.classList.add('grid-cols-1');
+          listBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+          listBtn.classList.remove('text-on-surface-variant');
+          gridBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+          gridBtn.classList.add('text-on-surface-variant');
+        });
+
+        gridBtn.addEventListener('click', () => {
+          catalog.classList.remove('grid-cols-1');
+          catalog.classList.add('md:grid-cols-2', 'xl:grid-cols-3');
+          gridBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+          gridBtn.classList.remove('text-on-surface-variant');
+          listBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+          listBtn.classList.add('text-on-surface-variant');
+        });
+      }
+
+      // Reset filters button trigger
+      const resetBtn = document.getElementById('sidebarResetBtn');
+      const clearAllBtn = document.getElementById('clearAllFiltersBtn');
+      const handleReset = () => {
+        if (slider) slider.value = 70;
+        if (display) display.textContent = 'حتى $70';
+        const searchInput = document.getElementById('catalogSearch');
+        if (searchInput) searchInput.value = '';
+      };
+      if (resetBtn) resetBtn.addEventListener('click', handleReset);
+      if (clearAllBtn) clearAllBtn.addEventListener('click', handleReset);
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low mt-auto"><div class="max-w-[1440px] mx-auto px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-on-surface font-bold">Gamer’s Nest</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">الوجهة الأولى للألعاب الإلكترونية، المفاتيح الرقمية المعتمدة، وأحدث عتاد الجيمنج الاحترافي بتسليم فوري وضمان معتمد.</p><div class="flex items-center gap-space-sm text-tertiary font-label-md text-label-md"><span class="material-symbols-outlined text-tertiary">verified</span><span>ضمان رسمي 100% لجميع المفاتيح والأكواد الرقمية</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">أقسام المتجر</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="games" href="#">جميع الألعاب</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="bestsellers" href="#">الأكثر مبيعاً</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="hardware" href="#">أجهزة الألعاب</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="accessories" href="#">إكسسوارات وبطاقات شحن</a></div><div class="flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">المنصات</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">كمبيوتر (PC Gaming)</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">PlayStation 5</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">Xbox Series X|S</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">Nintendo Switch</span></div><div class="flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">المساعدة والدعم</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="support" href="#">مركز الدعم والمساعدة</a><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">طرق التفعيل والاسترداد</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">سياسة الضمان والاسترجاع</span><span class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface cursor-pointer">تواصل معنا</span></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md bg-surface-container-low"><p class="font-body-sm text-body-sm text-outline">© 2025 Gamer’s Nest. جميع الحقوق محفوظة لمتجر عش الجيمرز.</p><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">MADA</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">VISA</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">MASTERCARD</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">APPLE PAY</span><span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-1 rounded">STC PAY</span></div></div></div></footer></body></html>
