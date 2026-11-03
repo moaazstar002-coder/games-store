@@ -4,7 +4,10 @@ import CardGame from "./CardGame";
 import useFilteredGames from "../hooks/useFilteredGames";
 import GameCardSkeleton from "./GameCardSkeleton";
 
-const getPrice = (id) => Number(((id % 5000) / 100 + 9.99).toFixed(2));
+const getPrice = (game) =>
+  typeof game.price === "number"
+    ? game.price
+    : Number(((game.id % 5000) / 100 + 9.99).toFixed(2));
 
 export default function FeaturedGames({
   games = [],
@@ -67,7 +70,7 @@ export default function FeaturedGames({
                   ...game,
                   title: game.name,
                   image: game.background_image,
-                  price: getPrice(game.id),
+                  price: getPrice(game),
                   rating: game.rating,
                 }}
               />

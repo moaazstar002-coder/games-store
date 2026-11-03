@@ -6,14 +6,17 @@ import { FaArrowLeft, FaBolt, FaStar } from "react-icons/fa";
 import "swiper/css";
 import { useGames } from "../hooks/useGames";
 
-const getPrice = (id) => ((id % 5000) / 100 + 9.99).toFixed(2);
+const getPrice = (game) =>
+  typeof game.price === "number"
+    ? game.price.toFixed(2)
+    : ((game.id % 5000) / 100 + 9.99).toFixed(2);
 
 export default function HeroSlider() {
   const [swiper, setSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const { data: games = [], isLoading, isError, refetch } = useGames({
     page: 1,
-    ordering: "-rating",
+    ordering: "-featured",
   });
   const featuredGames = games.slice(0, 5);
   if (isLoading) {
@@ -104,7 +107,7 @@ export default function HeroSlider() {
                       </span>
                     )}
                     <span className="font-[Space_Grotesk] text-2xl font-bold text-white">
-                      ${getPrice(game.id)}
+                      ${getPrice(game)}
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-3">

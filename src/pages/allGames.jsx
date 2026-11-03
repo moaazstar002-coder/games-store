@@ -18,24 +18,17 @@ import SearchBar from "../components/SearchBar";
 import { useGames } from "../hooks/useGames";
 import { useGenres } from "../hooks/useGenres";
 
-const platforms = [
-  { slug: "pc", label: "PC (Steam / Epic)" },
-  { slug: "playstation", label: "PlayStation" },
-  { slug: "xbox", label: "Xbox" },
-  { slug: "nintendo", label: "Nintendo Switch" },
-];
-
 const orderingOptions = [
-  { value: "-added", label: "الأكثر شعبية" },
+  { value: "-added", label: "المضاف حديثًا" },
   { value: "-rating", label: "الأعلى تقييماً" },
-  { value: "-released", label: "الأحدث إصداراً" },
   { value: "name", label: "الاسم: أ إلى ي" },
 ];
 
 function getGamePrice(game) {
-  return game.price
-    ? parseFloat(game.price)
-    : parseFloat(((game.id % 5000) / 100 + 9.99).toFixed(2));
+  return typeof game.price === "number"
+    ? game.price
+    : parseFloat(String(game.price || "").replace(/[^0-9.]/g, "")) ||
+        parseFloat(((game.id % 5000) / 100 + 9.99).toFixed(2));
 }
 
 function FilterSection({ title, children }) {
@@ -61,7 +54,6 @@ function AllGamesPage({ initialSearch }) {
   const [page, setPage] = useState(1);
   const [genre, setGenre] = useState("");
   const [ordering, setOrdering] = useState("-added");
-  const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const [minimumRating, setMinimumRating] = useState(0);
   const [maximumPrice, setMaximumPrice] = useState(70);
   const [layout, setLayout] = useState("grid");
@@ -80,32 +72,15 @@ function AllGamesPage({ initialSearch }) {
   const visibleGames = useMemo(
     () =>
       (games || []).filter((game) => {
-        const matchesPlatform =
-          selectedPlatforms.length === 0 ||
-          selectedPlatforms.some((platformSlug) =>
-            game.parent_platforms?.some(
-              ({ platform }) => platform.slug === platformSlug
-            )
-          );
         const matchesRating = (game.rating || 0) >= minimumRating;
         const matchesPrice = getGamePrice(game) <= maximumPrice;
-        return matchesPlatform && matchesRating && matchesPrice;
+        return matchesRating && matchesPrice;
       }),
-    [games, maximumPrice, minimumRating, selectedPlatforms]
+    [games, maximumPrice, minimumRating]
   );
-
-  const togglePlatform = (platformSlug) => {
-    setPage(1);
-    setSelectedPlatforms((current) =>
-      current.includes(platformSlug)
-        ? current.filter((value) => value !== platformSlug)
-        : [...current, platformSlug]
-    );
-  };
 
   const clearFilters = () => {
     setGenre("");
-    setSelectedPlatforms([]);
     setMinimumRating(0);
     setMaximumPrice(70);
     setPage(1);
@@ -139,7 +114,7 @@ function AllGamesPage({ initialSearch }) {
               مكتبة الألعاب الرقمية
             </h1>
             <p className="max-w-2xl text-sm leading-6 text-[#AAB2C5]">
-              استكشف أحدث الألعاب، وابحث عن مغامرتك القادمة حسب النوع والمنصة
+              استكشف الألعاب، وابحث عن مغامرتك القادمة حسب النوع والسعر
               والتقييم.
             </p>
           </div>
@@ -215,25 +190,6 @@ function AllGamesPage({ initialSearch }) {
                 إعادة ضبط
               </button>
             </div>
-
-            <FilterSection title="المنصة">
-              <div className="space-y-3">
-                {platforms.map(({ slug, label }) => (
-                  <label
-                    key={slug}
-                    className="flex cursor-pointer items-center justify-between gap-3 text-sm text-[#D1D5E2]"
-                  >
-                    <span>{label}</span>
-                    <input
-                      type="checkbox"
-                      checked={selectedPlatforms.includes(slug)}
-                      onChange={() => togglePlatform(slug)}
-                      className="h-4 w-4 accent-[#7C3AED]"
-                    />
-                  </label>
-                ))}
-              </div>
-            </FilterSection>
 
             <FilterSection title="السعر">
               <div className="mb-2 flex items-center justify-between text-xs text-[#AAB2C5]">

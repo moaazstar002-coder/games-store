@@ -63,19 +63,6 @@ Game card with wishlist and cart functionality.
 
 ---
 
-### `<SemiGameCard />`
-
-**File:** `src/components/semigamecard.jsx`
-
-Compact game card for featured sections.
-
-**Props:**
-| Prop | Type | Required |
-|------|------|----------|
-| `game` | Object | Yes |
-
----
-
 ### `<FeaturedGames />`
 
 **File:** `src/components/featuredGAmes.jsx`

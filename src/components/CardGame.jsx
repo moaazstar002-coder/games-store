@@ -148,7 +148,7 @@ export default function CardGame({ game, variant = "default", discount }) {
               تسليم فوري
             </span>
             <span className="text-[10px] text-[#AAB2C5]">
-              {game.parent_platforms?.slice(0, 2).map(({ platform }) => platform.name).join(" · ") || "PC"}
+              {game.parent_platforms?.slice(0, 2).map(({ platform }) => platform.name).join(" · ") || "متجر رقمي"}
             </span>
           </div>
         )}

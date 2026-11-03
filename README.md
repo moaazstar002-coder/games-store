@@ -1,6 +1,6 @@
 # 🎮 GAMER's NEST - Premium Game Store
 
-A modern game store built with React, Redux Toolkit, and React Query. Features a stunning dark/neon gaming aesthetic with glassmorphism effects and real-time game data from RAWG API.
+A modern game store built with React, Redux Toolkit, React Query, and a local FastAPI/SQLite backend.
 
 ![Version](https://img.shields.io/badge/version-0.0.0-blue)
 ![React](https://img.shields.io/badge/React-19.2.0-61dafb)
@@ -10,7 +10,7 @@ A modern game store built with React, Redux Toolkit, and React Query. Features a
 
 ## ✨ Features
 
-- 🎯 Browse thousands of games from RAWG API
+- 🎯 Browse games from the local catalog
 - � New Releases & Best Sellers sections
 - 🎮 Dedicated Consoles & Accessories pages
 - �🔍 Advanced search and genre filtering
@@ -31,24 +31,30 @@ A modern game store built with React, Redux Toolkit, and React Query. Features a
 **Styling:** Tailwind CSS 4.1, Sass, Custom CSS  
 **UI:** Framer Motion, Swiper, React Icons
 **SEO:** React Helmet Async
-**API:** RAWG API, Axios
+**API:** FastAPI, SQLite, Axios
 
 ---
 
 ## 🚀 Quick Start
 
-```bash
+```powershell
 # Install dependencies
 npm install
 
-# Start dev server
-npm run dev
-
-# Build for production
-npm run build
+# Start the FastAPI backend in a separate terminal
+cd BackEnd
+.\venv\Scripts\python.exe -m uvicorn main:app --reload --port 8000
 ```
 
-Open [http://localhost:5173](http://localhost:5173)
+In another terminal, from the project root, start React:
+
+```powershell
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+Build for production with `npm run build`.
 
 ---
 
@@ -63,10 +69,10 @@ Import this repository into Vercel and use:
 The `vercel.json` rewrite sends application routes to `index.html`, so links such
 as `/game/:id` continue to work when opened directly or refreshed.
 
-Add `VITE_RAWG_API_KEY` in the Vercel project's environment variables for the
-environments where the app should run. Vite embeds `VITE_` variables in
-client-side assets, so this value is visible to visitors; do not use it for
-credentials that must remain private.
+Deploy the FastAPI backend and its SQLite database, then set
+`VITE_API_BASE_URL` in the frontend deployment to the backend API URL ending in
+`/api`. Configure the backend's `FRONTEND_ORIGINS` with the frontend origin.
+For local development, the frontend defaults to `http://localhost:8000/api`.
 
 ---
 
@@ -91,7 +97,7 @@ game-store/
 
 - **[Components Guide](docs/COMPONENTS.md)** - All component documentation
 - **[Custom Hooks API](docs/HOOKS.md)** - Hook usage and examples
-- **[API Reference](docs/API.md)** - RAWG API integration
+- **[API Reference](docs/API.md)** - Local game catalog API
 - **[Styling Guide](docs/STYLING.md)** - Theme system and CSS
 
 ---
@@ -151,13 +157,14 @@ See [Hooks Documentation](docs/HOOKS.md) for complete API reference.
 
 ## 🌐 API Integration
 
-**RAWG API** - Video game database
+**Local FastAPI catalog** - Games and categories are read from the backend's
+SQLite database.
 
 ```javascript
 // Endpoints used
-GET / games; // List games
-GET / games / { id }; // Game details
-GET / genres; // Genre list
+GET /api/games; // List games
+GET /api/games/{id}; // Game details
+GET /api/genres; // Category list
 ```
 
 **LocalStorage** - Cart and wishlist persistence

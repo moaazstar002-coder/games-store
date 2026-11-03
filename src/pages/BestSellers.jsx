@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaBolt,
@@ -14,17 +14,9 @@ import GameCardSkeleton from "../components/GameCardSkeleton";
 import PageTransition from "../components/PageTransition";
 import { useGames } from "../hooks/useGames";
 
-const platforms = [
-  { slug: "pc", label: "Steam" },
-  { slug: "playstation", label: "PS5" },
-  { slug: "xbox", label: "Xbox" },
-  { slug: "nintendo", label: "Switch" },
-];
-
 const sortOptions = [
-  { value: "-added", label: "الأكثر شعبية" },
+  { value: "-added", label: "المضاف حديثًا" },
   { value: "-rating", label: "الأعلى تقييماً" },
-  { value: "-released", label: "الأحدث إصداراً" },
 ];
 
 function getPrice(id) {
@@ -36,7 +28,7 @@ function getStorefrontGame(game) {
     ...game,
     title: game.name,
     image: game.background_image,
-    price: getPrice(game.id),
+    price: typeof game.price === "number" ? game.price : getPrice(game.id),
     rating: game.rating,
   };
 }
@@ -64,27 +56,11 @@ function RankingCard({ game, rank }) {
 export default function BestSellers() {
   const [page, setPage] = useState(1);
   const [ordering, setOrdering] = useState("-added");
-  const [platform, setPlatform] = useState("");
   const { data: games, isLoading, isError } = useGames({ page, ordering });
 
-  const visibleGames = useMemo(
-    () =>
-      (games || []).filter(
-        (game) =>
-          !platform ||
-          game.parent_platforms?.some(
-            ({ platform: gamePlatform }) => gamePlatform.slug === platform
-          )
-      ),
-    [games, platform]
-  );
+  const visibleGames = games || [];
   const podium = visibleGames.slice(0, 3);
   const rankedGames = visibleGames.slice(3);
-
-  const changePlatform = (value) => {
-    setPlatform((current) => (current === value ? "" : value));
-    setPage(1);
-  };
 
   return (
     <PageTransition>
@@ -140,7 +116,7 @@ export default function BestSellers() {
               <div className="flex flex-col items-center justify-center rounded-lg px-2 py-2 text-center">
                 <FaGamepad aria-hidden="true" className="mb-1 text-[#D2BBFF]" />
                 <span className="font-[Space_Grotesk] text-lg font-bold text-white">
-                  RAWG
+                  المتجر
                 </span>
                 <span className="text-[10px] text-[#858DA1]">مصدر البيانات</span>
               </div>
@@ -183,39 +159,6 @@ export default function BestSellers() {
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <div
-                  role="group"
-                  aria-label="تصفية حسب المنصة"
-                  className="flex flex-wrap items-center gap-2"
-                >
-                  <button
-                    type="button"
-                    aria-pressed={!platform}
-                    onClick={() => changePlatform("")}
-                    className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
-                      !platform
-                        ? "border-[#7C3AED] bg-[#7C3AED] text-white"
-                        : "border-[#26304A] bg-[#1C1F2A] text-[#AAB2C5] hover:text-white"
-                    }`}
-                  >
-                    كل المنصات
-                  </button>
-                  {platforms.map(({ slug, label }) => (
-                    <button
-                      key={slug}
-                      type="button"
-                      aria-pressed={platform === slug}
-                      onClick={() => changePlatform(slug)}
-                      className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
-                        platform === slug
-                          ? "border-[#7C3AED] bg-[#7C3AED] text-white"
-                          : "border-[#26304A] bg-[#1C1F2A] text-[#AAB2C5] hover:border-[#7C3AED] hover:text-white"
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
                 <span className="text-xs text-[#AAB2C5]" aria-live="polite">
                   {visibleGames.length} نتيجة في الصفحة {page}
                 </span>
@@ -278,7 +221,7 @@ export default function BestSellers() {
                       })
                   ) : (
                     <p className="col-span-full rounded-xl border border-[#26304A] bg-[#171B26] p-8 text-center text-sm text-[#AAB2C5]">
-                      لا توجد نتائج لهذه المنصة في الصفحة الحالية.
+                      لا توجد ألعاب في الصفحة الحالية.
                     </p>
                   )}
                 </div>

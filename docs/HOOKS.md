@@ -8,7 +8,7 @@ Complete reference for all custom hooks.
 
 **File:** `src/hooks/usegames.js`
 
-Fetch games from RAWG API with filtering.
+Fetch games from the local FastAPI catalog with filtering.
 
 **Parameters:**
 
@@ -99,8 +99,7 @@ Fetch available genres.
 {
   id: number,
   name: string,
-  slug: string,
-  games_count: number
+  slug: string
 }
 ```
 
