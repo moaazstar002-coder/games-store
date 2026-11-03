@@ -1,5 +1,6 @@
-from database import Base, SessionLocal, engine
-from models import Category, Game
+from app.db.base import Base
+from app.db.session import SessionLocal, engine
+from app.modules.catalog.models import Category, Game
 from sqlalchemy.orm import Session
 
 def seed_database(db: Session) -> dict[str, int]:

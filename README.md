@@ -43,7 +43,7 @@ npm install
 
 # Start the FastAPI backend in a separate terminal
 cd BackEnd
-.\venv\Scripts\python.exe -m uvicorn main:app --reload --port 8000
+.\venv\Scripts\python.exe -m uvicorn app.main:app --reload --port 8000
 ```
 
 In another terminal, from the project root, start React:
@@ -71,8 +71,12 @@ as `/game/:id` continue to work when opened directly or refreshed.
 
 Deploy the FastAPI backend and its SQLite database, then set
 `VITE_API_BASE_URL` in the frontend deployment to the backend API URL ending in
-`/api`. Configure the backend's `FRONTEND_ORIGINS` with the frontend origin.
-For local development, the frontend defaults to `http://localhost:8000/api`.
+`/api/v1`. Configure the backend's `FRONTEND_ORIGINS` with the frontend origin.
+For local development, the frontend defaults to
+`http://localhost:8000/api/v1`.
+The backend reads `DATABASE_URL`, `SECRET_KEY`, and `FRONTEND_ORIGINS` from the
+process environment. Set a private `SECRET_KEY` and a persistent database URL
+in the deployment environment.
 
 ---
 
@@ -87,6 +91,18 @@ game-store/
 │   ├── store/          # Redux store
 │   ├── styles/         # CSS files
 │   └── App.jsx
+├── BackEnd/
+│   ├── app/
+│   │   ├── api/          # Dependencies and /api/v1 router
+│   │   ├── core/         # Settings and password/JWT helpers
+│   │   ├── db/           # SQLAlchemy base and session
+│   │   ├── modules/
+│   │   │   ├── auth/     # Existing registration and login
+│   │   │   ├── catalog/  # Existing game and category API
+│   │   │   ├── orders/   # Existing order endpoint and models
+│   │   │   └── users/    # Existing user model
+│   │   └── main.py
+│   └── scripts/seed.py
 ├── docs/               # Documentation
 └── package.json
 ```
@@ -162,9 +178,9 @@ SQLite database.
 
 ```javascript
 // Endpoints used
-GET /api/games; // List games
-GET /api/games/{id}; // Game details
-GET /api/genres; // Category list
+GET /api/v1/games; // List games
+GET /api/v1/games/{id}; // Game details
+GET /api/v1/genres; // Category list
 ```
 
 **LocalStorage** - Cart and wishlist persistence
