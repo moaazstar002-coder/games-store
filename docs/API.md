@@ -24,6 +24,18 @@ when the backend starts, and the sample catalog in `BackEnd/scripts/seed.py` is
 added automatically without duplicating existing category or game slugs. Run
 `.\venv\Scripts\python.exe -m scripts.seed` from `BackEnd` to apply the seed again
 manually. The `games.category_id` field references `categories.id`.
+On startup, the backend also adds the `users.role` column to an existing users
+table if it is missing; existing accounts and new registrations default to the
+`user` role.
+
+### User roles
+
+Registration does not accept a role from the client. New accounts receive the
+`user` role, which is also returned by registration and login. The backend
+defines `read`, `write`, `delete`, and `manage_users` permissions for the
+`admin` role; route handlers can enforce them with the
+`require_permission(...)` dependency in `app.api.deps`. No current endpoint
+grants administrative access or allows users to promote themselves.
 
 ## FastAPI endpoints
 

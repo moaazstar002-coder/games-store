@@ -5,9 +5,11 @@ from app.api.v1.router import router
 from app.core.config import APP_TITLE, FRONTEND_ORIGINS
 from app.db.base import Base
 from app.db.session import SessionLocal, engine
+from scripts.migrate import migrate_schema
 from scripts.seed import seed_database
 
 Base.metadata.create_all(bind=engine)
+migrate_schema(engine)
 with SessionLocal() as db:
     seed_database(db)
     db.commit()

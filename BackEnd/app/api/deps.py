@@ -4,6 +4,7 @@ from jose import JWTError, jwt
 from sqlalchemy.orm import Session
 
 from app.core.config import ALGORITHM, SECRET_KEY
+from app.core.roles import ROLE_PERMISSIONS
 from app.db.session import get_db
 from app.modules.users.models import User
 
@@ -30,3 +31,22 @@ def get_current_user(
     if user is None:
         raise credentials_exception
     return user
+
+
+def require_permission(permission: str):
+    if not any(
+        permission in permissions for permissions in ROLE_PERMISSIONS.values()
+    ):
+        raise ValueError(f"Unknown permission: {permission}")
+
+    def permission_checker(
+        current_user: User = Depends(get_current_user),
+    ) -> User:
+        if permission not in ROLE_PERMISSIONS.get(current_user.role, frozenset()):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="ليس لديك صلاحية لتنفيذ هذا الإجراء",
+            )
+        return current_user
+
+    return permission_checker

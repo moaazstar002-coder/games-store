@@ -21,7 +21,11 @@ def register_user(user: UserCreate, db: Session) -> dict[str, int | str]:
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    return {"message": "تم إنشاء الحساب بنجاح", "user_id": new_user.id}
+    return {
+        "message": "تم إنشاء الحساب بنجاح",
+        "user_id": new_user.id,
+        "role": new_user.role.value,
+    }
 
 
 def login_user(user_credentials: UserLogin, db: Session) -> dict[str, str]:
@@ -36,4 +40,5 @@ def login_user(user_credentials: UserLogin, db: Session) -> dict[str, str]:
         "access_token": access_token,
         "token_type": "bearer",
         "user_name": user.name,
+        "role": user.role.value,
     }

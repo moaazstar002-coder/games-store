@@ -106,3 +106,4 @@ def get_genres(db: Session) -> dict[str, object]:
     return paginated_response(
         len(categories), [serialize_category(category) for category in categories]
     )
+
