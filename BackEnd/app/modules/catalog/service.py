@@ -3,6 +3,7 @@ from sqlalchemy import or_
 from sqlalchemy.orm import Session
 
 from app.modules.catalog.models import Category, Game
+from app.modules.catalog.schemas import GameCreate, GameUpdate
 
 
 def serialize_category(category: Category) -> dict[str, int | str]:
@@ -94,6 +95,66 @@ def get_game_details(game_id: int, db: Session) -> dict[str, object]:
     return serialize_game(game)
 
 
+def create_game(game_data: GameCreate, db: Session) -> dict[str, object]:
+    if db.query(Game.id).filter(Game.slug == game_data.slug).first():
+        raise HTTPException(status_code=409, detail="معرّف اللعبة مستخدم بالفعل")
+    category = db.query(Category).filter(Category.id == game_data.category_id).first()
+    if category is None:
+        raise HTTPException(status_code=404, detail="التصنيف غير موجود")
+
+    game = Game(**game_data.model_dump(), category=category)
+    db.add(game)
+    db.commit()
+    db.refresh(game)
+    return serialize_game(game)
+
+
+def update_game(
+    game_id: int, changes: GameUpdate, db: Session
+) -> dict[str, object]:
+    game = db.query(Game).filter(Game.id == game_id).first()
+    if game is None:
+        raise HTTPException(status_code=404, detail="اللعبة غير موجودة")
+
+    update_data = changes.model_dump(exclude_unset=True)
+    if "slug" in update_data and db.query(Game.id).filter(
+        Game.slug == update_data["slug"], Game.id != game_id
+    ).first():
+        raise HTTPException(status_code=409, detail="معرّف اللعبة مستخدم بالفعل")
+
+    if "category_id" in update_data:
+        category = (
+            db.query(Category)
+            .filter(Category.id == update_data["category_id"])
+            .first()
+        )
+        if category is None:
+            raise HTTPException(status_code=404, detail="التصنيف غير موجود")
+        game.category = category
+        del update_data["category_id"]
+
+    for field, value in update_data.items():
+        setattr(game, field, value)
+    db.commit()
+    db.refresh(game)
+    return serialize_game(game)
+
+
+def delete_game(game_id: int, db: Session) -> dict[str, str]:
+    game = db.query(Game).filter(Game.id == game_id).first()
+    if game is None:
+        raise HTTPException(status_code=404, detail="اللعبة غير موجودة")
+    if game.order_items:
+        raise HTTPException(
+            status_code=409,
+            detail="لا يمكن حذف لعبة مرتبطة بطلبات سابقة",
+        )
+
+    db.delete(game)
+    db.commit()
+    return {"message": "تم حذف اللعبة بنجاح"}
+
+
 def get_game_movies(game_id: int, db: Session) -> dict[str, object]:
     game_exists = db.query(Game.id).filter(Game.id == game_id).first()
     if game_exists is None:
@@ -106,4 +167,3 @@ def get_genres(db: Session) -> dict[str, object]:
     return paginated_response(
         len(categories), [serialize_category(category) for category in categories]
     )
-

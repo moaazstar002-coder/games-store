@@ -7,7 +7,7 @@ import PageTransition from "../components/PageTransition";
 import { FaCreditCard, FaPaypal } from "react-icons/fa";
 import "../styles/pages/Checkout.css";
 
-export default function Chechout() {
+export default function Checkout() {
   const cartItems = useSelector((state) => state.cart.items);
   const subtotal = useSelector((state) => state.cart.totalPrice);
   const dispatch = useDispatch();

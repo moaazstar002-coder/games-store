@@ -1,23 +1,23 @@
 import React, { Suspense } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Loader from './Loader';
 
 const Home = React.lazy(() => import('../pages/Home'));
-const GameDetails = React.lazy(() => import('../pages/gameDetails'));
-const AllGames = React.lazy(() => import('../pages/allGames'));
+const GameDetails = React.lazy(() => import('../pages/GameDetails'));
+const AllGames = React.lazy(() => import('../pages/AllGames'));
 const BestSellers = React.lazy(() => import('../pages/BestSellers'));
 const Consoles = React.lazy(() => import('../pages/Consoles'));
 const Accessories = React.lazy(() => import('../pages/Accessories'));
 const WishList = React.lazy(() => import('../pages/WishList'));
-const Cart = React.lazy(() => import('../pages/cart'));
-const Checkout = React.lazy(() => import('../pages/Chechout'));
-const About = React.lazy(() => import('../pages/about'));
+const Cart = React.lazy(() => import('../pages/Cart'));
+const Checkout = React.lazy(() => import('../pages/Checkout'));
+const About = React.lazy(() => import('../pages/About'));
 const ContactUs = React.lazy(() => import('../pages/ContactUs'));
 const PrivacyPolicy = React.lazy(() => import('../pages/PrivacyPolicy'));
 const TermsOfService = React.lazy(() => import('../pages/TermsOfService'));
 const HelpCenter = React.lazy(() => import('../pages/HelpCenter'));
-const NotFound = React.lazy(() => import('../pages/404_NotFound'));
+const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -42,6 +42,8 @@ const AnimatedRoutes = () => {
             <AllGames />
           </Suspense>
         } />
+
+        <Route path="/allgames" element={<Navigate to="/games" replace />} />
 
         <Route path="/best-sellers" element={
           <Suspense fallback={<Loader />}>

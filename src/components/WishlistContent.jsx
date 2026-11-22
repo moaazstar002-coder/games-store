@@ -117,7 +117,7 @@ export default function WishListContent() {
         <p className="empty-state-desc">
           You haven't added any games yet. Browse our collection and save your favorites!
         </p>
-        <Link to="/allgames" className="btn btn-primary empty-state-btn">
+        <Link to="/games" className="btn btn-primary empty-state-btn">
           <FaShoppingCart />
           <span>Browse Games</span>
         </Link>

@@ -1,10 +1,21 @@
-from fastapi import APIRouter, Depends, Path, Query
+from fastapi import APIRouter, Depends, Path, Query, status
 from sqlalchemy.orm import Session
 
+from app.api.deps import require_permission
 from app.db.session import get_db
 from app.modules.catalog import service
+from app.modules.catalog.schemas import GameCreate, GameUpdate
 
 router = APIRouter(tags=["catalog"])
+
+
+@router.post(
+    "/games",
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(require_permission("write"))],
+)
+def create_game(game: GameCreate, db: Session = Depends(get_db)):
+    return service.create_game(game, db)
 
 
 @router.get("/games")
@@ -24,6 +35,26 @@ def get_game_details(
     game_id: int = Path(..., gt=0), db: Session = Depends(get_db)
 ):
     return service.get_game_details(game_id, db)
+
+
+@router.patch(
+    "/games/{game_id}",
+    dependencies=[Depends(require_permission("write"))],
+)
+def update_game(
+    game: GameUpdate,
+    game_id: int = Path(..., gt=0),
+    db: Session = Depends(get_db),
+):
+    return service.update_game(game_id, game, db)
+
+
+@router.delete(
+    "/games/{game_id}",
+    dependencies=[Depends(require_permission("delete"))],
+)
+def delete_game(game_id: int = Path(..., gt=0), db: Session = Depends(get_db)):
+    return service.delete_game(game_id, db)
 
 
 @router.get("/games/{game_id}/movies")

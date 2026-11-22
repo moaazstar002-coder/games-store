@@ -34,8 +34,32 @@ Registration does not accept a role from the client. New accounts receive the
 `user` role, which is also returned by registration and login. The backend
 defines `read`, `write`, `delete`, and `manage_users` permissions for the
 `admin` role; route handlers can enforce them with the
-`require_permission(...)` dependency in `app.api.deps`. No current endpoint
-grants administrative access or allows users to promote themselves.
+`require_permission(...)` dependency in `app.api.deps`. No public endpoint
+allows users to promote themselves.
+
+To grant the first administrator role to an existing account, run this command
+from `BackEnd` against the configured database:
+
+```powershell
+.\venv\Scripts\python.exe -m scripts.set_user_role admin@example.com admin
+```
+
+### Admin catalog management
+
+All write operations require a bearer token from an `admin` account. Regular
+users receive `403 Forbidden`.
+
+```http
+POST /api/v1/games
+PATCH /api/v1/games/{game_id}
+DELETE /api/v1/games/{game_id}
+```
+
+Creating a game requires `title`, `slug`, `price`, and `category_id`. Optional
+fields are `description`, `rating` (0-5), `image_url`, and `is_featured`.
+Updates accept one or more of these fields. A category must already exist, and
+slugs must be unique. Deleting a game referenced by an existing order returns
+`409 Conflict` to preserve order history.
 
 ## FastAPI endpoints
 
