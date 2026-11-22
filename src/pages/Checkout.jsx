@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { clearCart } from "../store/slices/CartSlice";
 import { toast } from "sonner";
 import PageTransition from "../components/PageTransition";
-import { FaCreditCard, FaPaypal } from "react-icons/fa";
+import { FaCreditCard, FaPaypal, FaLock } from "react-icons/fa";
+import api from "../lib/api";
 import "../styles/pages/Checkout.css";
 
 export default function Checkout() {
@@ -17,14 +18,14 @@ export default function Checkout() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    cardNumber: "",
-    cvv: "",
+    notes: "",
     coupon: "",
   });
 
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [discount, setDiscount] = useState(0);
   const [appliedCoupon, setAppliedCoupon] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,26 +46,54 @@ export default function Checkout() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) {
+    const customerName = formData.name.trim();
+    const customerEmail = formData.email.trim();
+
+    if (!customerName || !customerEmail) {
       toast.error("Please fill in your name and email.");
       return;
     }
 
-    if (paymentMethod === "card" && (!formData.cardNumber || !formData.cvv)) {
-      toast.error("Please fill in your card details.");
+    const items = cartItems.map((item) => ({
+      game_id: Number(item.id),
+      quantity: Number(item.quantity) || 1,
+    }));
+
+    if (items.length === 0) {
+      toast.error("Your cart is empty.");
       return;
     }
 
-    // Success order placement
-    toast.success("Order Placed Successfully!", {
-      description: "Thank you for your purchase. We have sent an email confirmation.",
-      duration: 4000,
-    });
+    setIsSubmitting(true);
+    try {
+      const response = await api.post("/orders", {
+        items,
+        customer_name: customerName,
+        customer_email: customerEmail,
+        payment_method: paymentMethod === "card" ? "Credit Card" : "PayPal",
+        notes: formData.notes.trim() || null,
+      });
 
-    dispatch(clearCart());
-    navigate("/");
+      const serverTotal = response.data?.total_amount != null
+        ? `$${Number(response.data.total_amount).toFixed(2)}`
+        : `$${total.toFixed(2)}`;
+
+      toast.success("Order Placed Successfully!", {
+        description: `Order #${response.data?.order_id || ""} placed. Total: ${serverTotal}`,
+        duration: 4500,
+      });
+
+      dispatch(clearCart());
+      navigate("/");
+    } catch (error) {
+      const errorMsg =
+        error.response?.data?.detail || "Failed to place order. Please try again.";
+      toast.error(errorMsg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const taxes = subtotal * 0.05;
@@ -89,7 +118,7 @@ export default function Checkout() {
       <div className="checkout-page">
         <div className="checkout-container">
           <div className="checkout-layout">
-            {/* LEFT SIDE - Payment Form */}
+            {/* LEFT SIDE - Order & Contact Form */}
             <div className="checkout-form-section">
               <h1 className="checkout-title">Checkout</h1>
 
@@ -122,7 +151,20 @@ export default function Checkout() {
                   />
                 </div>
 
-                {/* Payment Method */}
+                {/* Notes (Optional) */}
+                <div className="form-group">
+                  <label className="form-label">Order Notes (Optional)</label>
+                  <input
+                    type="text"
+                    name="notes"
+                    value={formData.notes}
+                    onChange={handleInputChange}
+                    placeholder="Any special instructions or account tags"
+                    className="form-input"
+                  />
+                </div>
+
+                {/* Payment Method Selection */}
                 <div className="form-group">
                   <label className="form-label">Payment Method</label>
                   <div className="payment-methods-group">
@@ -156,36 +198,26 @@ export default function Checkout() {
                   </div>
                 </div>
 
-                {/* Card Details (Only show if Credit Card selected) */}
-                {paymentMethod === "card" && (
-                  <div className="card-details-grid">
-                    <div className="form-group">
-                      <label className="form-label">Card Number</label>
-                      <input
-                        type="text"
-                        name="cardNumber"
-                        value={formData.cardNumber}
-                        onChange={handleInputChange}
-                        placeholder="**** **** **** 1234"
-                        required={paymentMethod === "card"}
-                        className="form-input"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label">CVV</label>
-                      <input
-                        type="password"
-                        name="cvv"
-                        value={formData.cvv}
-                        onChange={handleInputChange}
-                        placeholder="***"
-                        maxLength="3"
-                        required={paymentMethod === "card"}
-                        className="form-input"
-                      />
-                    </div>
-                  </div>
-                )}
+                {/* Secure Payment Information Box */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.75rem",
+                    padding: "0.85rem 1rem",
+                    background: "rgba(124, 58, 237, 0.08)",
+                    border: "1px solid rgba(124, 58, 237, 0.25)",
+                    borderRadius: "8px",
+                    color: "#D2BBFF",
+                    fontSize: "0.85rem",
+                    marginBottom: "1.25rem",
+                  }}
+                >
+                  <FaLock style={{ flexShrink: 0 }} />
+                  <span>
+                    Secure transaction. Game activation codes and official receipt will be issued to your email upon order confirmation.
+                  </span>
+                </div>
 
                 {/* Coupon */}
                 <div className="form-group">
@@ -211,8 +243,16 @@ export default function Checkout() {
                 </div>
 
                 {/* Place Order Button */}
-                <button type="submit" className="btn-place-order">
-                  <span>Place Order (${total.toFixed(2)})</span>
+                <button
+                  type="submit"
+                  className="btn-place-order"
+                  disabled={isSubmitting}
+                >
+                  <span>
+                    {isSubmitting
+                      ? "Placing Order..."
+                      : `Place Order ($${total.toFixed(2)})`}
+                  </span>
                   <FaCreditCard />
                 </button>
               </form>
