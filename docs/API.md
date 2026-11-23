@@ -1,7 +1,8 @@
 # API Documentation
 
 The React app calls the FastAPI backend, which reads games and categories from
-the local SQLite database. No external game-data API or API key is required.
+the database configured by `DATABASE_URL`. Local development defaults to
+SQLite; production uses PostgreSQL on Neon.
 
 ## Configuration
 
@@ -19,9 +20,25 @@ The backend also reads `DATABASE_URL` and `SECRET_KEY` from its process
 environment. Set a private `SECRET_KEY` before deployment. Settings are read
 from process environment variables; a `.env` file is not loaded automatically.
 
-The database file is `BackEnd/sql_app.db`. Tables are created automatically
-when the backend starts, and the sample catalog in `BackEnd/scripts/seed.py` is
-added automatically without duplicating existing category or game slugs. Run
+## Deploying on Render with Neon and Vercel
+
+Create a Neon project and copy its pooled connection string from the Connect
+dialog. Create a Render Blueprint from the repository. Set `DATABASE_URL` to
+the Neon connection string and `FRONTEND_ORIGINS` to the exact Vercel site
+origin, such as `https://your-project.vercel.app`. The Blueprint generates a
+`SECRET_KEY`; the backend creates the tables and seeds the sample games on
+startup. The backend continues to use local SQLite when `DATABASE_URL` is not
+set. Existing users and orders in SQLite are not copied to Neon automatically.
+
+Once the Render service is live, verify its `/docs` page and set
+`VITE_API_BASE_URL` in Vercel to the service URL ending in `/api/v1`, such as
+`https://your-api.onrender.com/api/v1`. Redeploy Vercel after setting the
+variable because Vite embeds it at build time.
+
+The local database file is `BackEnd/sql_app.db`. Tables are created
+automatically when the backend starts, and the sample catalog in
+`BackEnd/scripts/seed.py` is added automatically without duplicating existing
+category or game slugs. Run
 `.\venv\Scripts\python.exe -m scripts.seed` from `BackEnd` to apply the seed again
 manually. The `games.category_id` field references `categories.id`.
 On startup, the backend also adds the `users.role` column to an existing users

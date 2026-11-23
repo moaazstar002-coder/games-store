@@ -69,14 +69,19 @@ Import this repository into Vercel and use:
 The `vercel.json` rewrite sends application routes to `index.html`, so links such
 as `/game/:id` continue to work when opened directly or refreshed.
 
-Deploy the FastAPI backend and its SQLite database, then set
-`VITE_API_BASE_URL` in the frontend deployment to the backend API URL ending in
-`/api/v1`. Configure the backend's `FRONTEND_ORIGINS` with the frontend origin.
-For local development, the frontend defaults to
-`http://localhost:8000/api/v1`.
-The backend reads `DATABASE_URL`, `SECRET_KEY`, and `FRONTEND_ORIGINS` from the
-process environment. Set a private `SECRET_KEY` and a persistent database URL
-in the deployment environment.
+The repository includes a Render Blueprint in `render.yaml`. First create a
+Neon project and copy its pooled connection string. Create a Blueprint in
+Render from this repository, then set `DATABASE_URL` to that connection string
+and `FRONTEND_ORIGINS` to your Vercel site's origin (for example,
+`https://your-project.vercel.app`). The Blueprint configures the FastAPI
+service and generates a `SECRET_KEY`; PostgreSQL data is stored in Neon.
+
+After the Render service is live, open its `/docs` URL to confirm it is
+reachable. In Vercel, add `VITE_API_BASE_URL` with the Render API URL ending in
+`/api/v1` (for example, `https://your-api.onrender.com/api/v1`) for the
+Production environment, then redeploy the frontend. For local development, the
+frontend defaults to `http://localhost:8000/api/v1`, and the backend uses its
+local SQLite database unless `DATABASE_URL` is set.
 
 ---
 
