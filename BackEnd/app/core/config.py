@@ -1,7 +1,12 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 BACKEND_DIR = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = BACKEND_DIR.parent
+load_dotenv(PROJECT_ROOT / ".env")
+
 DEFAULT_DATABASE_PATH = BACKEND_DIR / "sql_app.db"
 
 DATABASE_URL = os.getenv(

@@ -18,7 +18,8 @@ the backend to a comma-separated list of allowed frontend origins; local Vite
 origins on ports 3000 and 5173 are allowed by default.
 The backend also reads `DATABASE_URL` and `SECRET_KEY` from its process
 environment. Set a private `SECRET_KEY` before deployment. Settings are read
-from process environment variables; a `.env` file is not loaded automatically.
+from process environment variables; the backend also loads the repository-root
+`.env` file for local development. Do not commit this file.
 
 ## Deploying on Render with Neon and Vercel
 

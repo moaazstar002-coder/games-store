@@ -163,3 +163,4 @@ BackEnd/venv/
 __pycache__/
 *.py[cod]
 *.db
+.neon
