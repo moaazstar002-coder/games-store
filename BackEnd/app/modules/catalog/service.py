@@ -146,7 +146,7 @@ def delete_game(game_id: int, db: Session) -> dict[str, str]:
         raise HTTPException(status_code=404, detail="اللعبة غير موجودة")
     if game.order_items:
         raise HTTPException(
-            status_code=409,zz
+            status_code=409,    
             detail="لا يمكن حذف لعبة مرتبطة بطلبات سابقة",
         )
 

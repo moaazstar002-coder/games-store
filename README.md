@@ -18,7 +18,7 @@ A modern game store built with React, Redux Toolkit, React Query, and a local Fa
 - 🎨 Detailed game information with screenshots
 - ❤️ Wishlist functionality
 - 🛒 Shopping cart with Redux
-- 💳 Checkout UI
+- 💳 Checkout UI (demo only; no real payments are processed)
 - 🌙 Premium dark/neon theme with glassmorphism
 - 📱 Fully responsive design
 
@@ -60,7 +60,7 @@ Build for production with `npm run build`.
 
 ## ☁️ Deploy to Vercel
 
-Import this repository into Vercel and use:
+Deploy the frontend as a Vercel project using:
 
 - **Framework preset:** Vite
 - **Build command:** `npm run build`
@@ -69,19 +69,40 @@ Import this repository into Vercel and use:
 The `vercel.json` rewrite sends application routes to `index.html`, so links such
 as `/game/:id` continue to work when opened directly or refreshed.
 
-The repository includes a Render Blueprint in `render.yaml`. First create a
-Neon project and copy its pooled connection string. Create a Blueprint in
-Render from this repository, then set `DATABASE_URL` to that connection string
-and `FRONTEND_ORIGINS` to your Vercel site's origin (for example,
-`https://your-project.vercel.app`). The Blueprint configures the FastAPI
-service and generates a `SECRET_KEY`; PostgreSQL data is stored in Neon.
+To host the FastAPI backend without a separate provider, create a second Vercel
+project from this repository and set its **Root Directory** to `BackEnd`.
+Vercel's Python runtime supports FastAPI and detects `app/main.py`. The
+`BackEnd/.python-version` file selects Python 3.13 to match the existing
+backend runtime.
 
-After the Render service is live, open its `/docs` URL to confirm it is
-reachable. In Vercel, add `VITE_API_BASE_URL` with the Render API URL ending in
-`/api/v1` (for example, `https://your-api.onrender.com/api/v1`) for the
-Production environment, then redeploy the frontend. For local development, the
-frontend defaults to `http://localhost:8000/api/v1`, and the backend uses its
-local SQLite database unless `DATABASE_URL` is set.
+Set these environment variables in the backend project:
+
+- `DATABASE_URL` - the pooled Neon connection string. Since this backend uses
+  `psycopg` 3, its SQLAlchemy URL must start with
+  `postgresql+psycopg://` (keep the rest of the Neon URL unchanged).
+- `SECRET_KEY` - a strong, unique secret
+- `FRONTEND_ORIGINS` - the exact frontend origin (for example,
+  `https://your-project.vercel.app`)
+
+`DATABASE_URL_UNPOOLED` and `NEON_BRANCH` are not read by the application and
+do not need to be added to Vercel.
+
+Then set `VITE_API_BASE_URL` in the frontend project's Production environment
+to the backend URL ending in `/api/v1` (for example,
+`https://your-api.vercel.app/api/v1`) and redeploy the frontend. Vite embeds
+this value at build time. Production no longer falls back to localhost if the
+variable is missing; API calls fail with a configuration error instead.
+
+Vercel Hobby is free within its published monthly limits. The backend uses
+serverless functions, so use Neon (or another persistent database), not local
+SQLite, for deployed data. The backend currently initializes and seeds the
+database during startup; check the first deployment's logs and use the intended
+database before enabling the API.
+
+The Render Blueprint remains available in `render.yaml` if you later choose
+that hosting option. For local development, the frontend defaults to
+`http://localhost:8000/api/v1`, and the backend uses local SQLite unless
+`DATABASE_URL` is set.
 
 ---
 
