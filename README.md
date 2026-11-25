@@ -71,9 +71,10 @@ as `/game/:id` continue to work when opened directly or refreshed.
 
 To host the FastAPI backend without a separate provider, create a second Vercel
 project from this repository and set its **Root Directory** to `BackEnd`.
-Vercel's Python runtime supports FastAPI and detects `app/main.py`. The
-`BackEnd/.python-version` file selects Python 3.13 to match the existing
-backend runtime.
+Vercel's Python runtime detects the root `main.py` entrypoint and serves the
+FastAPI app. The frontend's root `vercel.json` is only an SPA rewrite; it does
+not combine the frontend and backend into one deployment. The
+`BackEnd/.python-version` file selects Python 3.13.
 
 Set these environment variables in the backend project:
 

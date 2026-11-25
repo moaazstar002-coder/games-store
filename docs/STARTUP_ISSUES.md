@@ -26,7 +26,7 @@
 
 ### P1 — إعدادات Backend وFrontend على Vercel
 
-- أنشئ مشروع Vercel للـBackend وحدد `BackEnd` كـRoot Directory؛ Vercel يكتشف `app/main.py` كمدخل FastAPI، وإصدار Python 3.13 محدد في `BackEnd/.python-version`.
+- أنشئ مشروع Vercel للـBackend وحدد `BackEnd` كـRoot Directory؛ ملف `BackEnd/main.py` يصدّر تطبيق FastAPI كمدخل واضح لـVercel، وإصدار Python 3.13 محدد في `BackEnd/.python-version`. إعداد `vercel.json` في الجذر خاص بإعادة كتابة مسارات SPA في مشروع الواجهة ولا يخلط المشروعين.
 - في مشروع Backend اضبط `DATABASE_URL` pooled من Neon، لكن غيّر بادئته إلى `postgresql+psycopg://` لأن `requirements.txt` يثبت psycopg 3. أضف `SECRET_KEY` جديدًا و`FRONTEND_ORIGINS=https://games-store-plum.vercel.app`.
 - في مشروع الواجهة اضبط `VITE_API_BASE_URL` إلى `https://<backend-project>.vercel.app/api/v1` ثم أعد النشر؛ القيمة تُضمّن وقت بناء الواجهة.
 - `DATABASE_URL_UNPOOLED` و`NEON_BRANCH` الموجودان في `.env` لا يقرأهما التطبيق، فلا تضفهما إلى Vercel.
