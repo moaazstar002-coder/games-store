@@ -48,9 +48,9 @@ export default function Navbar() {
           aria-label="Gamer's Nest - الرئيسية"
         >
           <img
-            src="/gamers_nest.svg"
+            src="/Neon%20Gamer%E2%80%99s%20Nest%20Logo.svg"
             alt=""
-            className="h-10 w-10 object-contain"
+            className="h-12 w-12 object-contain"
           />
           <span className="hidden whitespace-nowrap font-[Space_Grotesk] text-sm font-bold sm:inline">
             GAMER&apos;S <span className="text-[#D2BBFF]">NEST</span>

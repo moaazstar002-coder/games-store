@@ -2,7 +2,6 @@ import { createElement } from "react";
 import { Link } from "react-router-dom";
 import {
   FaFacebook,
-  FaGamepad,
   FaInstagram,
   FaTwitter,
   FaYoutube,
@@ -52,9 +51,11 @@ export default function Footer() {
       <div className="mx-auto grid max-w-[1440px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.4fr_2fr] lg:px-8">
         <div className="flex flex-col items-start gap-4">
           <Link to="/" className="flex items-center gap-2">
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-[#7C3AED] text-xl text-white">
-              <FaGamepad />
-            </span>
+            <img
+              src="/Neon%20Gamer%E2%80%99s%20Nest%20Logo.svg"
+              alt=""
+              className="h-12 w-12 object-contain"
+            />
             <span className="font-[Space_Grotesk] text-lg font-bold">
               GAMER&apos;S <span className="text-[#D2BBFF]">NEST</span>
             </span>
