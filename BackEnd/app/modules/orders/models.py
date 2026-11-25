@@ -22,9 +22,13 @@ class OrderItem(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     order_id = Column(Integer, ForeignKey("orders.id"), nullable=False)
-    game_id = Column(Integer, ForeignKey("games.id"), nullable=False)
+    game_id = Column(Integer, ForeignKey("games.id"), nullable=True)
+    console_id = Column(Integer, ForeignKey("consoles.id"), nullable=True)
+    accessory_id = Column(Integer, ForeignKey("accessories.id"), nullable=True)
     quantity = Column(Integer, default=1)
     price_at_purchase = Column(Float, nullable=False)
 
     order = relationship("Order", back_populates="order_items")
     game = relationship("Game", back_populates="order_items")
+    console = relationship("Console", back_populates="order_items")
+    accessory = relationship("Accessory", back_populates="order_items")

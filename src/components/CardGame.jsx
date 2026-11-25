@@ -9,6 +9,9 @@ import { addItem, removeItem } from "../store/slices/CartSlice";
 export default function CardGame({ game, variant = "default", discount }) {
   const isStorefront = variant === "storefront" || variant === "storefront-list";
   const isStorefrontList = variant === "storefront-list";
+  const productType = game.product_type || "game";
+  const isGame = productType === "game";
+  const CardWrapper = isGame ? Link : "article";
   const { loading, addToWishlist, removeFromWishlist, isInWishlist } =
     useWishList();
   const dispatch = useDispatch();
@@ -22,8 +25,8 @@ export default function CardGame({ game, variant = "default", discount }) {
     : null;
 
   return (
-    <Link
-      to={`/game/${game.id}`}
+    <CardWrapper
+      {...(isGame ? { to: `/game/${game.id}` } : {})}
       className={
         isStorefront
           ? `group flex h-full ${
@@ -145,7 +148,7 @@ export default function CardGame({ game, variant = "default", discount }) {
             </span>
             <span className="inline-flex items-center gap-1 text-[11px] text-[#4AE176]">
               <FaCheckCircle aria-hidden="true" />
-              تسليم فوري
+              {isGame ? "تسليم فوري" : "منتج تجريبي"}
             </span>
             <span className="text-[10px] text-[#AAB2C5]">
               {game.parent_platforms?.slice(0, 2).map(({ platform }) => platform.name).join(" · ") || "متجر رقمي"}
@@ -192,6 +195,8 @@ export default function CardGame({ game, variant = "default", discount }) {
                   id: game.id,
                   title: game.title,
                   image: game.image,
+                  product_type: productType,
+                  product_id: game.product_id ?? game.id,
                   price: typeof game.price === 'number'
                     ? game.price
                     : parseFloat(String(game.price).replace(/[^0-9.]/g, '')) || 0,
@@ -207,6 +212,6 @@ export default function CardGame({ game, variant = "default", discount }) {
           </button>
         </div>
       </div>
-    </Link>
+    </CardWrapper>
   );
 }

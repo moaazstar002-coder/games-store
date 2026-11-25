@@ -105,4 +105,51 @@ describe('Checkout Component', () => {
       );
     });
   });
+
+  it('submits console and accessory cart items with product types', async () => {
+    api.post.mockResolvedValueOnce({
+      data: { order_id: 43, total_amount: 199.98, items_count: 2 },
+    });
+
+    renderCheckoutWithCart([
+      {
+        id: "console:2",
+        product_type: "console",
+        product_id: 2,
+        title: "Nintendo Switch OLED",
+        price: 349.99,
+        quantity: 1,
+        image: "console.jpg",
+      },
+      {
+        id: "accessories:3",
+        product_type: "accessory",
+        product_id: 3,
+        title: "Gaming Headset",
+        price: 129.99,
+        quantity: 1,
+        image: "accessory.jpg",
+      },
+    ]);
+
+    fireEvent.change(screen.getByPlaceholderText(/John Doe/i), {
+      target: { value: "Gamer Hero" },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/john@example.com/i), {
+      target: { value: "hero@example.com" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /Place Order/i }));
+
+    await waitFor(() => {
+      expect(api.post).toHaveBeenCalledWith(
+        "/orders",
+        expect.objectContaining({
+          items: [
+            { product_type: "console", product_id: 2, quantity: 1 },
+            { product_type: "accessory", product_id: 3, quantity: 1 },
+          ],
+        })
+      );
+    });
+  });
 });

@@ -29,3 +29,40 @@ class Game(Base):
 
     category = relationship("Category", back_populates="games")
     order_items = relationship("OrderItem", back_populates="game")
+
+
+class Console(Base):
+    __tablename__ = "consoles"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    title = Column(String(100), nullable=False)
+    slug = Column(String(100), unique=True, nullable=False, index=True)
+    description = Column(Text, nullable=False)
+    price = Column(Float, nullable=False)
+    rating = Column(Float, default=0.0, nullable=False)
+    image_url = Column(String(500), nullable=False)
+    manufacturer = Column(String(80), nullable=False)
+    platform = Column(String(50), nullable=False)
+    storage = Column(String(50))
+    is_handheld = Column(Boolean, default=False, nullable=False)
+    is_featured = Column(Boolean, default=False, nullable=False)
+
+    order_items = relationship("OrderItem", back_populates="console")
+
+
+class Accessory(Base):
+    __tablename__ = "accessories"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    title = Column(String(100), nullable=False)
+    slug = Column(String(100), unique=True, nullable=False, index=True)
+    description = Column(Text, nullable=False)
+    price = Column(Float, nullable=False)
+    rating = Column(Float, default=0.0, nullable=False)
+    image_url = Column(String(500), nullable=False)
+    brand = Column(String(80), nullable=False)
+    category = Column(String(50), nullable=False, index=True)
+    compatibility = Column(String(160), nullable=False)
+    is_featured = Column(Boolean, default=False, nullable=False)
+
+    order_items = relationship("OrderItem", back_populates="accessory")

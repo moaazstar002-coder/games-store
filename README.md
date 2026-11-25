@@ -13,6 +13,7 @@ A modern game store built with React, Redux Toolkit, React Query, and a local Fa
 - 🎯 Browse games from the local catalog
 - � New Releases & Best Sellers sections
 - 🎮 Dedicated Consoles & Accessories pages
+- 🧰 API-backed console and accessory catalogs with search, filters, and pagination
 - �🔍 Advanced search and genre filtering
 - 📄 Pagination for game listings
 - 🎨 Detailed game information with screenshots
@@ -58,6 +59,20 @@ Build for production with `npm run build`.
 
 ---
 
+## 🧰 Consoles & Accessories Catalog
+
+The Consoles and Accessories pages load products from FastAPI instead of using
+page-local sample arrays. The backend exposes paginated list and detail routes:
+
+- `GET /api/v1/consoles` and `GET /api/v1/consoles/{id-or-slug}`
+- `GET /api/v1/accessories` and `GET /api/v1/accessories/{id-or-slug}`
+
+The idempotent backend seed adds four demo consoles and six demo accessories.
+Existing products previously shown on these pages were hard-coded in the
+frontend, not stored as catalog records.
+
+---
+
 ## ☁️ Deploy to Vercel
 
 Deploy the frontend as a Vercel project using:
@@ -99,6 +114,11 @@ serverless functions, so use Neon (or another persistent database), not local
 SQLite, for deployed data. The backend currently initializes and seeds the
 database during startup; check the first deployment's logs and use the intended
 database before enabling the API.
+
+The catalog update adds `consoles` and `accessories` tables and extends
+`order_items` so console/accessory items can be checked out. Back up the Neon
+database and review the startup migration logs before deploying this update;
+the seed is idempotent and adds the demo products once.
 
 The Render Blueprint remains available in `render.yaml` if you later choose
 that hosting option. For local development, the frontend defaults to

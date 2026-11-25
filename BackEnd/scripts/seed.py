@@ -1,6 +1,6 @@
 from app.db.base import Base
 from app.db.session import SessionLocal, engine
-from app.modules.catalog.models import Category, Game
+from app.modules.catalog.models import Accessory, Category, Console, Game
 from sqlalchemy.orm import Session
 
 def seed_database(db: Session) -> dict[str, int]:
@@ -120,13 +120,164 @@ def seed_database(db: Session) -> dict[str, int]:
         existing_game_slugs.add(slug)
 
     db.add_all(new_games)
+    console_data = [
+        {
+            "title": "PlayStation 5 Slim",
+            "slug": "playstation-5-slim",
+            "description": "نسخة PlayStation 5 Slim مع أداء ألعاب الجيل الحالي ومساحة تخزين 1 تيرابايت.",
+            "price": 499.99,
+            "rating": 4.9,
+            "image_url": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=85",
+            "manufacturer": "Sony",
+            "platform": "PlayStation",
+            "storage": "1 TB SSD",
+            "is_handheld": False,
+            "is_featured": True,
+        },
+        {
+            "title": "Xbox Series X 1TB",
+            "slug": "xbox-series-x-1tb",
+            "description": "جهاز Xbox Series X للألعاب بدقة 4K مع مساحة تخزين داخلية 1 تيرابايت.",
+            "price": 449.99,
+            "rating": 4.8,
+            "image_url": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&w=1200&q=85",
+            "manufacturer": "Microsoft",
+            "platform": "Xbox",
+            "storage": "1 TB SSD",
+            "is_handheld": False,
+            "is_featured": True,
+        },
+        {
+            "title": "Nintendo Switch OLED",
+            "slug": "nintendo-switch-oled",
+            "description": "جهاز Nintendo Switch بشاشة OLED مقاس 7 بوصات للعب المنزلي والمحمول.",
+            "price": 349.99,
+            "rating": 4.8,
+            "image_url": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=1200&q=85",
+            "manufacturer": "Nintendo",
+            "platform": "Nintendo",
+            "storage": "64 GB",
+            "is_handheld": True,
+            "is_featured": True,
+        },
+        {
+            "title": "Steam Deck OLED 512GB",
+            "slug": "steam-deck-oled-512gb",
+            "description": "جهاز Steam Deck OLED محمول للعب مكتبة Steam مع شاشة HDR ومساحة 512 جيجابايت.",
+            "price": 549.99,
+            "rating": 4.7,
+            "image_url": "https://images.unsplash.com/photo-1640955014216-75201056c829?auto=format&fit=crop&w=1200&q=85",
+            "manufacturer": "Valve",
+            "platform": "PC Handheld",
+            "storage": "512 GB",
+            "is_handheld": True,
+            "is_featured": False,
+        },
+    ]
+    existing_console_slugs = {
+        slug for (slug,) in db.query(Console.slug).all()
+    }
+    new_consoles = [
+        Console(**item)
+        for item in console_data
+        if item["slug"] not in existing_console_slugs
+    ]
+    db.add_all(new_consoles)
+
+    accessory_data = [
+        {
+            "title": "DualSense Wireless Controller",
+            "slug": "dualsense-wireless-controller",
+            "description": "يد تحكم لاسلكية بخصائص اللمس التفاعلي والمشغلات التكيفية لأجهزة PlayStation 5.",
+            "price": 69.99,
+            "rating": 4.8,
+            "image_url": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=1200&q=85",
+            "brand": "Sony",
+            "category": "Controllers",
+            "compatibility": "PlayStation 5, PC",
+            "is_featured": True,
+        },
+        {
+            "title": "Xbox Wireless Controller",
+            "slug": "xbox-wireless-controller",
+            "description": "يد تحكم Xbox لاسلكية بتصميم مريح واتصال Bluetooth للألعاب على الجهاز والحاسوب.",
+            "price": 64.99,
+            "rating": 4.7,
+            "image_url": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=1200&q=85",
+            "brand": "Microsoft",
+            "category": "Controllers",
+            "compatibility": "Xbox, PC, Android",
+            "is_featured": False,
+        },
+        {
+            "title": "Wireless Gaming Headset",
+            "slug": "wireless-gaming-headset",
+            "description": "سماعة ألعاب لاسلكية بصوت محيطي وميكروفون قابل للفصل ووسائد مريحة.",
+            "price": 129.99,
+            "rating": 4.6,
+            "image_url": "https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=1200&q=85",
+            "brand": "HyperX",
+            "category": "Headsets",
+            "compatibility": "PlayStation, Xbox, PC",
+            "is_featured": True,
+        },
+        {
+            "title": "Mechanical Gaming Keyboard",
+            "slug": "mechanical-gaming-keyboard",
+            "description": "لوحة مفاتيح ميكانيكية بإضاءة RGB ومفاتيح سريعة قابلة للتخصيص.",
+            "price": 99.99,
+            "rating": 4.7,
+            "image_url": "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=1200&q=85",
+            "brand": "Keychron",
+            "category": "Keyboards",
+            "compatibility": "PC, Mac",
+            "is_featured": False,
+        },
+        {
+            "title": "Precision Gaming Mouse",
+            "slug": "precision-gaming-mouse",
+            "description": "فأرة ألعاب خفيفة بحساس دقيق وأزرار قابلة للبرمجة.",
+            "price": 79.99,
+            "rating": 4.6,
+            "image_url": "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=1200&q=85",
+            "brand": "Logitech",
+            "category": "Mice",
+            "compatibility": "PC, Mac",
+            "is_featured": False,
+        },
+        {
+            "title": "Portable Console Dock",
+            "slug": "portable-console-dock",
+            "description": "قاعدة توصيل صغيرة لشحن الأجهزة المحمولة وربطها بشاشة خارجية.",
+            "price": 49.99,
+            "rating": 4.4,
+            "image_url": "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=1200&q=85",
+            "brand": "UGREEN",
+            "category": "Docks & Cables",
+            "compatibility": "Nintendo Switch, USB-C handhelds",
+            "is_featured": False,
+        },
+    ]
+    existing_accessory_slugs = {
+        slug for (slug,) in db.query(Accessory.slug).all()
+    }
+    new_accessories = [
+        Accessory(**item)
+        for item in accessory_data
+        if item["slug"] not in existing_accessory_slugs
+    ]
+    db.add_all(new_accessories)
+
     result = {
         "categories_added": len(new_categories),
         "games_added": len(new_games),
+        "consoles_added": len(new_consoles),
+        "accessories_added": len(new_accessories),
     }
     print(
         f"Added {result['categories_added']} categories and "
-        f"{result['games_added']} games."
+        f"{result['games_added']} games, {result['consoles_added']} consoles, "
+        f"and {result['accessories_added']} accessories."
     )
     return result
 

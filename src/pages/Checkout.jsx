@@ -56,10 +56,20 @@ export default function Checkout() {
       return;
     }
 
-    const items = cartItems.map((item) => ({
-      game_id: Number(item.id),
-      quantity: Number(item.quantity) || 1,
-    }));
+    const items = cartItems.map((item) => {
+      const quantity = Number(item.quantity) || 1;
+      if (item.product_type && item.product_type !== "game") {
+        return {
+          product_type: item.product_type,
+          product_id: Number(item.product_id),
+          quantity,
+        };
+      }
+      return {
+        game_id: Number(item.product_id ?? item.id),
+        quantity,
+      };
+    });
 
     if (items.length === 0) {
       toast.error("Your cart is empty.");
@@ -104,7 +114,7 @@ export default function Checkout() {
       <PageTransition>
         <div className="checkout-empty-state">
           <h2>Your Cart is Empty</h2>
-          <p>You must add games to your cart before proceeding to checkout.</p>
+          <p>You must add products to your cart before proceeding to checkout.</p>
           <button onClick={() => navigate("/games")} className="btn btn-primary">
             Browse Games
           </button>

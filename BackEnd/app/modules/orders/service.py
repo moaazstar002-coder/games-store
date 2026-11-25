@@ -3,7 +3,7 @@ from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.core.security import hash_password
-from app.modules.catalog.models import Game
+from app.modules.catalog.models import Accessory, Console, Game
 from app.modules.orders.models import Order, OrderItem
 from app.modules.orders.schemas import OrderCreate
 from app.modules.users.models import User
@@ -38,16 +38,39 @@ def create_order(
             db.add(target_user)
             db.flush()
 
-    # 2. Verify all games exist and fetch server prices
-    game_ids = [item.game_id for item in order.items]
-    games = db.query(Game).filter(Game.id.in_(game_ids)).all()
-    game_map = {game.id: game for game in games}
+    # 2. Resolve products from the catalog and use database prices.
+    product_models = {
+        "game": Game,
+        "console": Console,
+        "accessory": Accessory,
+    }
+    product_map: dict[tuple[str, int], Game | Console | Accessory] = {}
+    product_ids_by_type: dict[str, set[int]] = {}
+    for item in order.items:
+        product_ids_by_type.setdefault(item.product_type, set()).add(item.product_id)
+    for product_type, product_ids in product_ids_by_type.items():
+        model = product_models[product_type]
+        products = db.query(model).filter(model.id.in_(product_ids)).all()
+        product_map.update(
+            {(product_type, product.id): product for product in products}
+        )
 
-    missing_games = [item.game_id for item in order.items if item.game_id not in game_map]
-    if missing_games:
+    missing_products = [
+        {"type": item.product_type, "id": item.product_id}
+        for item in order.items
+        if (item.product_type, item.product_id) not in product_map
+    ]
+    if missing_products:
+        missing_games = [
+            item["id"] for item in missing_products if item["type"] == "game"
+        ]
+        if len(missing_games) == len(missing_products):
+            detail = f"الألعاب التالية غير موجودة في الكتالوج: {missing_games}"
+        else:
+            detail = f"المنتجات التالية غير موجودة في الكتالوج: {missing_products}"
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"الألعاب التالية غير موجودة في الكتالوج: {missing_games}",
+            detail=detail,
         )
 
     # 3. Server-side total calculation based on DB prices
@@ -56,25 +79,28 @@ def create_order(
     order_items_to_create = []
 
     for item in order.items:
-        if item.quantity < 1:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"الكمية غير صالحة للعبة {item.game_id}",
-            )
-        game = game_map[item.game_id]
-        item_total = round(game.price * item.quantity, 2)
+        product = product_map[(item.product_type, item.product_id)]
+        item_total = round(product.price * item.quantity, 2)
         total_amount += item_total
-        items_summary.append({
-            "game_id": game.id,
-            "title": game.title,
+        item_summary = {
+            "product_type": item.product_type,
+            "product_id": product.id,
+            "title": product.title,
             "quantity": item.quantity,
-            "price": game.price,
-        })
-        order_items_to_create.append({
-            "game_id": game.id,
-            "quantity": item.quantity,
-            "price_at_purchase": game.price,
-        })
+            "price": product.price,
+        }
+        if item.product_type == "game":
+            item_summary["game_id"] = product.id
+        items_summary.append(item_summary)
+        order_items_to_create.append(
+            {
+                "game_id": product.id if item.product_type == "game" else None,
+                "console_id": product.id if item.product_type == "console" else None,
+                "accessory_id": product.id if item.product_type == "accessory" else None,
+                "quantity": item.quantity,
+                "price_at_purchase": product.price,
+            }
+        )
 
     total_amount = round(total_amount, 2)
 
@@ -93,6 +119,8 @@ def create_order(
         order_item = OrderItem(
             order_id=new_order.id,
             game_id=item_data["game_id"],
+            console_id=item_data["console_id"],
+            accessory_id=item_data["accessory_id"],
             quantity=item_data["quantity"],
             price_at_purchase=item_data["price_at_purchase"],
         )
