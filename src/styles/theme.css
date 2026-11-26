@@ -6,6 +6,15 @@
   --accent: #7000ff;
   --text-main: #ffffff;
   --text-muted: #a0a0a0;
+  --store-background: #0a0e18;
+  --store-surface: #151b2b;
+  --store-surface-raised: #1c1f2a;
+  --store-border: #26304a;
+  --store-purple: #7c3aed;
+  --store-lilac: #d2bbff;
+  --store-pink: #ff4d6d;
+  --store-text: #f1f5f9;
+  --store-muted: #aab2c5;
   
   --gradient-main: linear-gradient(135deg, #050505 0%, #1a1a2e 100%);
   --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);

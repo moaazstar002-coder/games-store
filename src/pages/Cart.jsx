@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, updateQuantity, clearCart } from "../store/slices/CartSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CreditCard from "../components/CreditCard";
 import "../styles/pages/Cart.css";
 
@@ -31,7 +31,7 @@ export default function Cart() {
 
   return (
     <PageTransition>
-    <div className="cart-page">
+    <main className="cart-page">
       <div className="cart-container">
         <h1 className="cart-title">Your Cart</h1>
 
@@ -40,7 +40,12 @@ export default function Cart() {
             <h2 className="section-header">Cart Items ({totalQuantity})</h2>
 
             {cartItems.length === 0 ? (
-              <p className="empty-message">Your cart is empty.</p>
+              <div className="empty-cart">
+                <p className="empty-message">Your cart is empty.</p>
+                <Link to="/games" className="empty-cart-link">
+                  Browse games
+                </Link>
+              </div>
             ) : (
               <>
                 {cartItems.map((item) => (
@@ -56,13 +61,29 @@ export default function Cart() {
                       <div className="cart-item-meta">
                         <span className="cart-item-price">${Number(item.price).toFixed(2)}</span>
                         <div className="quantity-control">
-                          <button onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}>-</button>
+                          <button
+                            aria-label={`Decrease ${item.title} quantity`}
+                            onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
+                          >
+                            -
+                          </button>
                           <span>{item.quantity}</span>
-                          <button onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}>+</button>
+                          <button
+                            aria-label={`Increase ${item.title} quantity`}
+                            onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
+                          >
+                            +
+                          </button>
                         </div>
                       </div>
                     </div>
-                    <button className="remove-btn" onClick={() => handleRemove(item.id)}>Remove</button>
+                    <button
+                      className="remove-btn"
+                      onClick={() => handleRemove(item.id)}
+                      aria-label={`Remove ${item.title} from cart`}
+                    >
+                      Remove
+                    </button>
                   </div>
                 ))}
                 <button className="clear-cart-btn" onClick={handleClearCart}>Clear Cart</button>
@@ -86,7 +107,7 @@ export default function Cart() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
     </PageTransition>
   );
 }

@@ -91,7 +91,7 @@ export default function CreditCard() {
           </div>
           <div className="form-group">
             <label>CVV</label>
-            <input style={{width: '100px'}}
+            <input
               type="password" 
               name="cvv" 
               value={cardData.cvv} 

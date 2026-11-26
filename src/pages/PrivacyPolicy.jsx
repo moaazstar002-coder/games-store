@@ -6,7 +6,7 @@ import '../styles/pages/LegalPages.css';
 export default function PrivacyPolicy() {
   return (
     <PageTransition>
-      <div className="legal-page">
+      <main className="legal-page">
         <div className="container">
           <div className="legal-header">
             <h1>Privacy Policy</h1>
@@ -108,8 +108,8 @@ export default function PrivacyPolicy() {
               </div>
             </section>
           </div>
-        </div>
       </div>
+      </main>
     </PageTransition>
   );
 }

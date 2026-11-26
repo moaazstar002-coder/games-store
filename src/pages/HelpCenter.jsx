@@ -1,6 +1,6 @@
-import React, 
-{ useState } from "react";
+import { useState } from "react";
 import PageTransition from "../components/PageTransition";
+import { Link } from "react-router-dom";
 import { FaSearch, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import "../styles/pages/HelpCenter.css";
 
@@ -10,6 +10,7 @@ export default function HelpCenter() {
 
   const faqs = [
     {
+      id: "orders",
       category: "Orders & Shipping",
       questions: [
         {
@@ -33,6 +34,7 @@ export default function HelpCenter() {
       ],
     },
     {
+      id: "returns",
       category: "Returns & Refunds",
       questions: [
         {
@@ -56,6 +58,7 @@ export default function HelpCenter() {
       ],
     },
     {
+      id: "account",
       category: "Account & Payment",
       questions: [
         {
@@ -79,6 +82,7 @@ export default function HelpCenter() {
       ],
     },
     {
+      id: "products",
       category: "Products & Games",
       questions: [
         {
@@ -120,9 +124,10 @@ export default function HelpCenter() {
 
   return (
     <PageTransition>
-      <div className="help-center-page">
+      <main className="help-center-page">
         <div className="container">
           <div className="help-header">
+            <span className="help-eyebrow">GAMER&apos;S NEST SUPPORT</span>
             <h1>Help Center</h1>
             <p>Find answers to your questions below</p>
           </div>
@@ -132,6 +137,7 @@ export default function HelpCenter() {
             <input
               type="text"
               placeholder="Search for help..."
+              aria-label="Search help topics"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -166,7 +172,7 @@ export default function HelpCenter() {
           <div className="faq-sections">
             {filteredFAQs.length > 0 ? (
               filteredFAQs.map((category) => (
-                <div key={category.category} className="faq-category">
+                <section key={category.category} id={category.id} className="faq-category">
                   <h2>{category.category}</h2>
                   <div className="faq-list">
                     {category.questions.map((faq) => (
@@ -177,8 +183,11 @@ export default function HelpCenter() {
                         }`}
                       >
                         <button
+                          type="button"
                           className="faq-question"
                           onClick={() => toggleFAQ(faq.id)}
+                          aria-expanded={openFAQ === faq.id}
+                          aria-controls={`faq-answer-${faq.id}`}
                         >
                           <span>{faq.question}</span>
                           {openFAQ === faq.id ? (
@@ -187,15 +196,17 @@ export default function HelpCenter() {
                             <FaChevronDown />
                           )}
                         </button>
-                        {openFAQ === faq.id && (
-                          <div className="faq-answer">
-                            <p>{faq.answer}</p>
-                          </div>
-                        )}
+                        <div
+                          className="faq-answer"
+                          id={`faq-answer-${faq.id}`}
+                          hidden={openFAQ !== faq.id}
+                        >
+                          <p>{faq.answer}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
-                </div>
+                </section>
               ))
             ) : (
               <div className="no-results">
@@ -214,12 +225,12 @@ export default function HelpCenter() {
               Can't find what you're looking for? Our support team is here to
               help!
             </p>
-            <a href="/contact" className="contact-btn">
+            <Link to="/contact" className="contact-btn">
               Contact Support
-            </a>
+            </Link>
           </div>
         </div>
-      </div>
+      </main>
     </PageTransition>
   );
 }

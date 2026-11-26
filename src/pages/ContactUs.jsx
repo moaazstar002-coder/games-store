@@ -46,9 +46,10 @@ export default function ContactUs() {
     <PageTransition>
      
       
-      <div className="contact-page">
+      <main className="contact-page">
         <div className="container">
           <div className="contact-header">
+              <span className="contact-eyebrow">GAMER&apos;S NEST SUPPORT</span>
             <h1>Get In Touch</h1>
             <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
           </div>
@@ -187,7 +188,7 @@ export default function ContactUs() {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </PageTransition>
   );
 }

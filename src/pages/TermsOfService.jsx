@@ -7,7 +7,7 @@ export default function TermsOfService() {
     <PageTransition>
     
       
-      <div className="legal-page">
+      <main className="legal-page">
         <div className="container">
           <div className="legal-header">
             <h1>Terms of Service</h1>
@@ -138,8 +138,8 @@ export default function TermsOfService() {
               </div>
             </section>
           </div>
-        </div>
       </div>
+      </main>
     </PageTransition>
   );
 }
