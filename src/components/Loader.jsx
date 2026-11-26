@@ -4,8 +4,8 @@ import '../styles/components/Loader.css';
 
 export default function Loader() {
   return (
-    <div className="loader-container">
-      <div className="loader-spinner">
+    <div className="loader-container" role="status" aria-busy="true">
+      <div className="loader-spinner" aria-hidden="true">
         <div className="loader-core">
           <FaGamepad className="loader-icon" />
         </div>
