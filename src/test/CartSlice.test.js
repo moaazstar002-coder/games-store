@@ -1,8 +1,7 @@
 /**
  * CartSlice Unit Tests
  *
- * TDD — RED phase: these tests define the EXPECTED behavior AFTER purification.
- * They will FAIL until CartSlice.js and store.js are updated.
+ * These tests verify reducer purity and cart persistence configuration.
  *
  * Goals:
  * 1. Reducers must be PURE — no toast calls, no side effects
@@ -17,6 +16,7 @@ import cartReducer, {
   updateQuantity,
   clearCart,
 } from '../store/slices/CartSlice';
+import { addToWishlist } from '../store/slices/WishlistSlice';
 
 // ─── Mock sonner BEFORE importing the slice ───────────────────────────────────
 vi.mock('sonner', () => ({
@@ -225,9 +225,18 @@ describe('cartPersistConfig key', () => {
     // Dynamically import to check the config exported/used
     const storeModule = await import('../store/store.js');
     // The store is configured; we verify by checking redux persist's persisted key.
-    // After the fix, the persisted cart should live at "persist:cart", not "persist:root".
-    // We validate the store exists and has the cart reducer registered.
     expect(storeModule.store).toBeDefined();
     expect(storeModule.persistor).toBeDefined();
+    expect(storeModule.cartPersistConfig.key).toBe('cart');
+  });
+
+  it('keeps toast notifications in middleware instead of reducers', async () => {
+    vi.clearAllMocks();
+    const { store } = await import('../store/store.js');
+
+    store.dispatch(addItem(makeGame()));
+    store.dispatch(addToWishlist(makeGame({ id: 2 })));
+
+    expect(toast.success).toHaveBeenCalledTimes(2);
   });
 });
